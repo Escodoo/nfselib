@@ -1,2 +1,3 @@
 led python files
 *.py[co]
+.idea/
