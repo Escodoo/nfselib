@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Fri Jul 24 17:38:09 2020 by generateDS.py version 2.30.15.
-# Python 3.7.8 (default, Jul  8 2020, 14:16:55)  [Clang 11.0.0 (clang-1100.0.33.17)]
+# Generated Thu Jul 30 18:18:38 2020 by generateDS.py version 2.30.15.
+# Python 3.8.5 (default, Jul 21 2020, 10:42:08)  [Clang 11.0.0 (clang-1100.0.33.17)]
 #
 # Command line options:
 #   ('--no-namespace-defs', '')
@@ -16,10 +16,10 @@
 #   ./process_includes/xmldsig-core-schema20020212.xsd
 #
 # Command line:
-#   /Users/marcelsavegnago/Projetos/odoo/python-libs/venv2/bin/erpbrasil-edoc-gen-generate-python --no-namespace-defs --no-collect-includes --use-getter-setter="none" -f -o "./issnetlib/v1_00/xmldsig-core-schema20020212.py" ./process_includes/xmldsig-core-schema20020212.xsd
+#   /Users/marcelsavegnago/Projetos/odoo/python-libs/issnet-test/bin/erpbrasil-edoc-gen-generate-python --no-namespace-defs --no-collect-includes --use-getter-setter="none" -f -o "./issnetlib/v1_00/xmldsig-core-schema20020212.py" ./process_includes/xmldsig-core-schema20020212.xsd
 #
 # Current working directory (os.getcwd()):
-#   issnet
+#   issnet-test
 #
 
 import os

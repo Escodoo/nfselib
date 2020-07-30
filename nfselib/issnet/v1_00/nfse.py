@@ -2,24 +2,24 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Fri Jul 24 17:38:09 2020 by generateDS.py version 2.30.15.
-# Python 3.7.8 (default, Jul  8 2020, 14:16:55)  [Clang 11.0.0 (clang-1100.0.33.17)]
+# Generated Thu Jul 30 18:18:38 2020 by generateDS.py version 2.30.15.
+# Python 3.8.5 (default, Jul 21 2020, 10:42:08)  [Clang 11.0.0 (clang-1100.0.33.17)]
 #
 # Command line options:
 #   ('--no-namespace-defs', '')
 #   ('--no-collect-includes', '')
 #   ('--use-getter-setter', 'none')
 #   ('-f', '')
-#   ('-o', './issnetlib/v1_00/tipos_complexos.py')
+#   ('-o', './issnetlib/v1_00/nfse.py')
 #
 # Command line arguments:
-#   ./process_includes/tipos_complexos.xsd
+#   ./process_includes/nfse.xsd
 #
 # Command line:
-#   /Users/marcelsavegnago/Projetos/odoo/python-libs/venv2/bin/erpbrasil-edoc-gen-generate-python --no-namespace-defs --no-collect-includes --use-getter-setter="none" -f -o "./issnetlib/v1_00/tipos_complexos.py" ./process_includes/tipos_complexos.xsd
+#   /Users/marcelsavegnago/Projetos/odoo/python-libs/issnet-test/bin/erpbrasil-edoc-gen-generate-python --no-namespace-defs --no-collect-includes --use-getter-setter="none" -f -o "./issnetlib/v1_00/nfse.py" ./process_includes/nfse.xsd
 #
 # Current working directory (os.getcwd()):
-#   issnet
+#   issnet-test
 #
 
 import os
@@ -773,10 +773,14 @@ class tcCpfCnpj(GeneratedsSuper):
     factory = staticmethod(factory)
     def validate_tsCpf(self, value):
         # Validate type tsCpf, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) != 11:
+                warnings_.warn('Value "%(value)s" does not match xsd length restriction on tsCpf' % {"value" : value.encode("utf-8")} )
     def validate_tsCnpj(self, value):
         # Validate type tsCnpj, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) != 14:
+                warnings_.warn('Value "%(value)s" does not match xsd length restriction on tsCnpj' % {"value" : value.encode("utf-8")} )
     def hasContent_(self):
         if (
             self.Cpf is not None or
@@ -847,7 +851,7 @@ class tcCpfCnpj(GeneratedsSuper):
 class tcEndereco(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, Endereco=None, Numero=None, Complemento=None, Bairro=None, Cidade=None, Estado=None, Cep=None, **kwargs_):
+    def __init__(self, Endereco=None, Numero=None, Complemento=None, Bairro=None, CodigoMunicipio=None, Uf=None, Cep=None, **kwargs_):
         self.original_tagname_ = None
         self.parent_object_ = kwargs_.get('parent_object_')
         self.Endereco = Endereco
@@ -858,10 +862,10 @@ class tcEndereco(GeneratedsSuper):
         self.validate_tsComplementoEndereco(self.Complemento)
         self.Bairro = Bairro
         self.validate_tsBairro(self.Bairro)
-        self.Cidade = Cidade
-        self.validate_tsCodigoMunicipioIbge(self.Cidade)
-        self.Estado = Estado
-        self.validate_tsUf(self.Estado)
+        self.CodigoMunicipio = CodigoMunicipio
+        self.validate_tsCodigoMunicipioIbge(self.CodigoMunicipio)
+        self.Uf = Uf
+        self.validate_tsUf(self.Uf)
         self.Cep = Cep
         self.validate_tsCep(self.Cep)
     def factory(*args_, **kwargs_):
@@ -877,33 +881,55 @@ class tcEndereco(GeneratedsSuper):
     factory = staticmethod(factory)
     def validate_tsEndereco(self, value):
         # Validate type tsEndereco, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 125:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsEndereco' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsEndereco' % {"value" : value.encode("utf-8")} )
     def validate_tsNumeroEndereco(self, value):
         # Validate type tsNumeroEndereco, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 10:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsNumeroEndereco' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsNumeroEndereco' % {"value" : value.encode("utf-8")} )
     def validate_tsComplementoEndereco(self, value):
         # Validate type tsComplementoEndereco, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 60:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsComplementoEndereco' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsComplementoEndereco' % {"value" : value.encode("utf-8")} )
     def validate_tsBairro(self, value):
         # Validate type tsBairro, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 60:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsBairro' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsBairro' % {"value" : value.encode("utf-8")} )
     def validate_tsCodigoMunicipioIbge(self, value):
         # Validate type tsCodigoMunicipioIbge, a restriction on xsd:int.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(str(value)) >= 7:
+                warnings_.warn('Value "%(value)s" does not match xsd maxInclusive restriction on tsCodigoMunicipioIbge' % {"value" : value} )
     def validate_tsUf(self, value):
         # Validate type tsUf, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) != 2:
+                warnings_.warn('Value "%(value)s" does not match xsd length restriction on tsUf' % {"value" : value.encode("utf-8")} )
     def validate_tsCep(self, value):
         # Validate type tsCep, a restriction on xsd:int.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(str(value)) >= 8:
+                warnings_.warn('Value "%(value)s" does not match xsd maxInclusive restriction on tsCep' % {"value" : value} )
     def hasContent_(self):
         if (
             self.Endereco is not None or
             self.Numero is not None or
             self.Complemento is not None or
             self.Bairro is not None or
-            self.Cidade is not None or
-            self.Estado is not None or
+            self.CodigoMunicipio is not None or
+            self.Uf is not None or
             self.Cep is not None
         ):
             return True
@@ -949,12 +975,12 @@ class tcEndereco(GeneratedsSuper):
         if self.Bairro is not None:
             showIndent(outfile, level, pretty_print)
             outfile.write('<%sBairro>%s</%sBairro>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.Bairro), input_name='Bairro')), namespaceprefix_ , eol_))
-        if self.Cidade is not None:
+        if self.CodigoMunicipio is not None:
             showIndent(outfile, level, pretty_print)
-            outfile.write('<%sCidade>%s</%sCidade>%s' % (namespaceprefix_ , self.gds_format_integer(self.Cidade, input_name='Cidade'), namespaceprefix_ , eol_))
-        if self.Estado is not None:
+            outfile.write('<%sCodigoMunicipio>%s</%sCodigoMunicipio>%s' % (namespaceprefix_ , self.gds_format_integer(self.CodigoMunicipio, input_name='CodigoMunicipio'), namespaceprefix_ , eol_))
+        if self.Uf is not None:
             showIndent(outfile, level, pretty_print)
-            outfile.write('<%sEstado>%s</%sEstado>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.Estado), input_name='Estado')), namespaceprefix_ , eol_))
+            outfile.write('<%sUf>%s</%sUf>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.Uf), input_name='Uf')), namespaceprefix_ , eol_))
         if self.Cep is not None:
             showIndent(outfile, level, pretty_print)
             outfile.write('<%sCep>%s</%sCep>%s' % (namespaceprefix_ , self.gds_format_integer(self.Cep, input_name='Cep'), namespaceprefix_ , eol_))
@@ -992,22 +1018,22 @@ class tcEndereco(GeneratedsSuper):
             self.Bairro = Bairro_
             # validate type tsBairro
             self.validate_tsBairro(self.Bairro)
-        elif nodeName_ == 'Cidade' and child_.text:
+        elif nodeName_ == 'CodigoMunicipio' and child_.text:
             sval_ = child_.text
             try:
                 ival_ = int(sval_)
             except (TypeError, ValueError) as exp:
                 raise_parse_error(child_, 'requires integer: %s' % exp)
-            ival_ = self.gds_validate_integer(ival_, node, 'Cidade')
-            self.Cidade = ival_
+            ival_ = self.gds_validate_integer(ival_, node, 'CodigoMunicipio')
+            self.CodigoMunicipio = ival_
             # validate type tsCodigoMunicipioIbge
-            self.validate_tsCodigoMunicipioIbge(self.Cidade)
-        elif nodeName_ == 'Estado':
-            Estado_ = child_.text
-            Estado_ = self.gds_validate_string(Estado_, node, 'Estado')
-            self.Estado = Estado_
+            self.validate_tsCodigoMunicipioIbge(self.CodigoMunicipio)
+        elif nodeName_ == 'Uf':
+            Uf_ = child_.text
+            Uf_ = self.gds_validate_string(Uf_, node, 'Uf')
+            self.Uf = Uf_
             # validate type tsUf
-            self.validate_tsUf(self.Estado)
+            self.validate_tsUf(self.Uf)
         elif nodeName_ == 'Cep' and child_.text:
             sval_ = child_.text
             try:
@@ -1044,10 +1070,18 @@ class tcContato(GeneratedsSuper):
     factory = staticmethod(factory)
     def validate_tsTelefone(self, value):
         # Validate type tsTelefone, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 11:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsTelefone' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsTelefone' % {"value" : value.encode("utf-8")} )
     def validate_tsEmail(self, value):
         # Validate type tsEmail, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 80:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsEmail' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsEmail' % {"value" : value.encode("utf-8")} )
     def hasContent_(self):
         if (
             self.Telefone is not None or
@@ -1138,10 +1172,14 @@ class tcIdentificacaoOrgaoGerador(GeneratedsSuper):
     factory = staticmethod(factory)
     def validate_tsCodigoMunicipioIbge(self, value):
         # Validate type tsCodigoMunicipioIbge, a restriction on xsd:int.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(str(value)) >= 7:
+                warnings_.warn('Value "%(value)s" does not match xsd maxInclusive restriction on tsCodigoMunicipioIbge' % {"value" : value} )
     def validate_tsUf(self, value):
         # Validate type tsUf, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) != 2:
+                warnings_.warn('Value "%(value)s" does not match xsd length restriction on tsUf' % {"value" : value.encode("utf-8")} )
     def hasContent_(self):
         if (
             self.CodigoMunicipio is not None or
@@ -1238,13 +1276,23 @@ class tcIdentificacaoRps(GeneratedsSuper):
     factory = staticmethod(factory)
     def validate_tsNumeroRps(self, value):
         # Validate type tsNumeroRps, a restriction on xsd:nonNegativeInteger.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(str(value)) >= 15:
+                warnings_.warn('Value "%(value)s" does not match xsd maxInclusive restriction on tsNumeroRps' % {"value" : value} )
     def validate_tsSerieRps(self, value):
         # Validate type tsSerieRps, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 5:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsSerieRps' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsSerieRps' % {"value" : value.encode("utf-8")} )
     def validate_tsTipoRps(self, value):
         # Validate type tsTipoRps, a restriction on xsd:byte.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if not self.gds_validate_simple_patterns(
+                    self.validate_tsTipoRps_patterns_, value):
+                warnings_.warn('Value "%s" does not match xsd pattern restrictions: %s' % (value.encode('utf-8'), self.validate_tsTipoRps_patterns_, ))
+    validate_tsTipoRps_patterns_ = [['^1|2|3$']]
     def hasContent_(self):
         if (
             self.Numero is not None or
@@ -1335,10 +1383,11 @@ class tcIdentificacaoRps(GeneratedsSuper):
 class tcIdentificacaoPrestador(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, CpfCnpj=None, InscricaoMunicipal=None, **kwargs_):
+    def __init__(self, Cnpj=None, InscricaoMunicipal=None, **kwargs_):
         self.original_tagname_ = None
         self.parent_object_ = kwargs_.get('parent_object_')
-        self.CpfCnpj = CpfCnpj
+        self.Cnpj = Cnpj
+        self.validate_tsCnpj(self.Cnpj)
         self.InscricaoMunicipal = InscricaoMunicipal
         self.validate_tsInscricaoMunicipal(self.InscricaoMunicipal)
     def factory(*args_, **kwargs_):
@@ -1352,12 +1401,21 @@ class tcIdentificacaoPrestador(GeneratedsSuper):
         else:
             return tcIdentificacaoPrestador(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def validate_tsCnpj(self, value):
+        # Validate type tsCnpj, a restriction on xsd:string.
+        if value is not None and Validate_simpletypes_:
+            if len(value) != 14:
+                warnings_.warn('Value "%(value)s" does not match xsd length restriction on tsCnpj' % {"value" : value.encode("utf-8")} )
     def validate_tsInscricaoMunicipal(self, value):
         # Validate type tsInscricaoMunicipal, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 15:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsInscricaoMunicipal' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsInscricaoMunicipal' % {"value" : value.encode("utf-8")} )
     def hasContent_(self):
         if (
-            self.CpfCnpj is not None or
+            self.Cnpj is not None or
             self.InscricaoMunicipal is not None
         ):
             return True
@@ -1391,8 +1449,9 @@ class tcIdentificacaoPrestador(GeneratedsSuper):
             eol_ = '\n'
         else:
             eol_ = ''
-        if self.CpfCnpj is not None:
-            self.CpfCnpj.export(outfile, level, namespaceprefix_, namespacedef_='', name_='CpfCnpj', pretty_print=pretty_print)
+        if self.Cnpj is not None:
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sCnpj>%s</%sCnpj>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.Cnpj), input_name='Cnpj')), namespaceprefix_ , eol_))
         if self.InscricaoMunicipal is not None:
             showIndent(outfile, level, pretty_print)
             outfile.write('<%sInscricaoMunicipal>%s</%sInscricaoMunicipal>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.InscricaoMunicipal), input_name='InscricaoMunicipal')), namespaceprefix_ , eol_))
@@ -1406,11 +1465,12 @@ class tcIdentificacaoPrestador(GeneratedsSuper):
     def buildAttributes(self, node, attrs, already_processed):
         pass
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
-        if nodeName_ == 'CpfCnpj':
-            obj_ = tcCpfCnpj.factory(parent_object_=self)
-            obj_.build(child_)
-            self.CpfCnpj = obj_
-            obj_.original_tagname_ = 'CpfCnpj'
+        if nodeName_ == 'Cnpj':
+            Cnpj_ = child_.text
+            Cnpj_ = self.gds_validate_string(Cnpj_, node, 'Cnpj')
+            self.Cnpj = Cnpj_
+            # validate type tsCnpj
+            self.validate_tsCnpj(self.Cnpj)
         elif nodeName_ == 'InscricaoMunicipal':
             InscricaoMunicipal_ = child_.text
             InscricaoMunicipal_ = self.gds_validate_string(InscricaoMunicipal_, node, 'InscricaoMunicipal')
@@ -1442,7 +1502,11 @@ class tcIdentificacaoTomador(GeneratedsSuper):
     factory = staticmethod(factory)
     def validate_tsInscricaoMunicipal(self, value):
         # Validate type tsInscricaoMunicipal, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 15:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsInscricaoMunicipal' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsInscricaoMunicipal' % {"value" : value.encode("utf-8")} )
     def hasContent_(self):
         if (
             self.CpfCnpj is not None or
@@ -1532,7 +1596,11 @@ class tcDadosTomador(GeneratedsSuper):
     factory = staticmethod(factory)
     def validate_tsRazaoSocial(self, value):
         # Validate type tsRazaoSocial, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 115:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsRazaoSocial' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsRazaoSocial' % {"value" : value.encode("utf-8")} )
     def hasContent_(self):
         if (
             self.IdentificacaoTomador is not None or
@@ -1638,10 +1706,18 @@ class tcIdentificacaoIntermediarioServico(GeneratedsSuper):
     factory = staticmethod(factory)
     def validate_tsRazaoSocial(self, value):
         # Validate type tsRazaoSocial, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 115:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsRazaoSocial' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsRazaoSocial' % {"value" : value.encode("utf-8")} )
     def validate_tsInscricaoMunicipal(self, value):
         # Validate type tsInscricaoMunicipal, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 15:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsInscricaoMunicipal' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsInscricaoMunicipal' % {"value" : value.encode("utf-8")} )
     def hasContent_(self):
         if (
             self.RazaoSocial is not None or
@@ -1768,13 +1844,25 @@ class tcValores(GeneratedsSuper):
     factory = staticmethod(factory)
     def validate_tsValor(self, value):
         # Validate type tsValor, a restriction on xsd:decimal.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if value < 0:
+                warnings_.warn('Value "%(value)s" does not match xsd minInclusive restriction on tsValor' % {"value" : value} )
+            if len(str(value)) >= 15:
+                warnings_.warn('Value "%(value)s" does not match xsd maxInclusive restriction on tsValor' % {"value" : value} )
     def validate_tsSimNao(self, value):
         # Validate type tsSimNao, a restriction on xsd:byte.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if not self.gds_validate_simple_patterns(
+                    self.validate_tsSimNao_patterns_, value):
+                warnings_.warn('Value "%s" does not match xsd pattern restrictions: %s' % (value.encode('utf-8'), self.validate_tsSimNao_patterns_, ))
+    validate_tsSimNao_patterns_ = [['^1|2$']]
     def validate_tsAliquota(self, value):
         # Validate type tsAliquota, a restriction on xsd:decimal.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if value < 0:
+                warnings_.warn('Value "%(value)s" does not match xsd minInclusive restriction on tsAliquota' % {"value" : value} )
+            if len(str(value)) >= 5:
+                warnings_.warn('Value "%(value)s" does not match xsd maxInclusive restriction on tsAliquota' % {"value" : value} )
     def hasContent_(self):
         if (
             self.ValorServicos is not None or
@@ -2049,7 +2137,7 @@ class tcValores(GeneratedsSuper):
 class tcDadosServico(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, Valores=None, ItemListaServico=None, CodigoCnae=None, CodigoTributacaoMunicipio=None, Discriminacao=None, MunicipioPrestacaoServico=None, **kwargs_):
+    def __init__(self, Valores=None, ItemListaServico=None, CodigoCnae=None, CodigoTributacaoMunicipio=None, Discriminacao=None, CodigoMunicipio=None, **kwargs_):
         self.original_tagname_ = None
         self.parent_object_ = kwargs_.get('parent_object_')
         self.Valores = Valores
@@ -2061,8 +2149,8 @@ class tcDadosServico(GeneratedsSuper):
         self.validate_tsCodigoTributacao(self.CodigoTributacaoMunicipio)
         self.Discriminacao = Discriminacao
         self.validate_tsDiscriminacao(self.Discriminacao)
-        self.MunicipioPrestacaoServico = MunicipioPrestacaoServico
-        self.validate_tsCodigoMunicipioIbge(self.MunicipioPrestacaoServico)
+        self.CodigoMunicipio = CodigoMunicipio
+        self.validate_tsCodigoMunicipioIbge(self.CodigoMunicipio)
     def factory(*args_, **kwargs_):
         if CurrentSubclassModule_ is not None:
             subclass = getSubclassFromModule_(
@@ -2076,19 +2164,35 @@ class tcDadosServico(GeneratedsSuper):
     factory = staticmethod(factory)
     def validate_tsItemListaServico(self, value):
         # Validate type tsItemListaServico, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 5:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsItemListaServico' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsItemListaServico' % {"value" : value.encode("utf-8")} )
     def validate_tsCodigoCnae(self, value):
         # Validate type tsCodigoCnae, a restriction on xsd:int.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(str(value)) >= 7:
+                warnings_.warn('Value "%(value)s" does not match xsd maxInclusive restriction on tsCodigoCnae' % {"value" : value} )
     def validate_tsCodigoTributacao(self, value):
         # Validate type tsCodigoTributacao, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 20:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsCodigoTributacao' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsCodigoTributacao' % {"value" : value.encode("utf-8")} )
     def validate_tsDiscriminacao(self, value):
         # Validate type tsDiscriminacao, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 2000:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsDiscriminacao' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsDiscriminacao' % {"value" : value.encode("utf-8")} )
     def validate_tsCodigoMunicipioIbge(self, value):
         # Validate type tsCodigoMunicipioIbge, a restriction on xsd:int.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(str(value)) >= 7:
+                warnings_.warn('Value "%(value)s" does not match xsd maxInclusive restriction on tsCodigoMunicipioIbge' % {"value" : value} )
     def hasContent_(self):
         if (
             self.Valores is not None or
@@ -2096,7 +2200,7 @@ class tcDadosServico(GeneratedsSuper):
             self.CodigoCnae is not None or
             self.CodigoTributacaoMunicipio is not None or
             self.Discriminacao is not None or
-            self.MunicipioPrestacaoServico is not None
+            self.CodigoMunicipio is not None
         ):
             return True
         else:
@@ -2143,9 +2247,9 @@ class tcDadosServico(GeneratedsSuper):
         if self.Discriminacao is not None:
             showIndent(outfile, level, pretty_print)
             outfile.write('<%sDiscriminacao>%s</%sDiscriminacao>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.Discriminacao), input_name='Discriminacao')), namespaceprefix_ , eol_))
-        if self.MunicipioPrestacaoServico is not None:
+        if self.CodigoMunicipio is not None:
             showIndent(outfile, level, pretty_print)
-            outfile.write('<%sMunicipioPrestacaoServico>%s</%sMunicipioPrestacaoServico>%s' % (namespaceprefix_ , self.gds_format_integer(self.MunicipioPrestacaoServico, input_name='MunicipioPrestacaoServico'), namespaceprefix_ , eol_))
+            outfile.write('<%sCodigoMunicipio>%s</%sCodigoMunicipio>%s' % (namespaceprefix_ , self.gds_format_integer(self.CodigoMunicipio, input_name='CodigoMunicipio'), namespaceprefix_ , eol_))
     def build(self, node):
         already_processed = set()
         self.buildAttributes(node, node.attrib, already_processed)
@@ -2189,16 +2293,16 @@ class tcDadosServico(GeneratedsSuper):
             self.Discriminacao = Discriminacao_
             # validate type tsDiscriminacao
             self.validate_tsDiscriminacao(self.Discriminacao)
-        elif nodeName_ == 'MunicipioPrestacaoServico' and child_.text:
+        elif nodeName_ == 'CodigoMunicipio' and child_.text:
             sval_ = child_.text
             try:
                 ival_ = int(sval_)
             except (TypeError, ValueError) as exp:
                 raise_parse_error(child_, 'requires integer: %s' % exp)
-            ival_ = self.gds_validate_integer(ival_, node, 'MunicipioPrestacaoServico')
-            self.MunicipioPrestacaoServico = ival_
+            ival_ = self.gds_validate_integer(ival_, node, 'CodigoMunicipio')
+            self.CodigoMunicipio = ival_
             # validate type tsCodigoMunicipioIbge
-            self.validate_tsCodigoMunicipioIbge(self.MunicipioPrestacaoServico)
+            self.validate_tsCodigoMunicipioIbge(self.CodigoMunicipio)
 # end class tcDadosServico
 
 
@@ -2225,10 +2329,18 @@ class tcDadosConstrucaoCivil(GeneratedsSuper):
     factory = staticmethod(factory)
     def validate_tsCodigoObra(self, value):
         # Validate type tsCodigoObra, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 15:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsCodigoObra' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsCodigoObra' % {"value" : value.encode("utf-8")} )
     def validate_tsArt(self, value):
         # Validate type tsArt, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 15:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsArt' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsArt' % {"value" : value.encode("utf-8")} )
     def hasContent_(self):
         if (
             self.CodigoObra is not None or
@@ -2322,10 +2434,18 @@ class tcDadosPrestador(GeneratedsSuper):
     factory = staticmethod(factory)
     def validate_tsRazaoSocial(self, value):
         # Validate type tsRazaoSocial, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 115:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsRazaoSocial' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsRazaoSocial' % {"value" : value.encode("utf-8")} )
     def validate_tsNomeFantasia(self, value):
         # Validate type tsNomeFantasia, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 60:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsNomeFantasia' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsNomeFantasia' % {"value" : value.encode("utf-8")} )
     def hasContent_(self):
         if (
             self.IdentificacaoPrestador is not None or
@@ -2420,10 +2540,10 @@ class tcDadosPrestador(GeneratedsSuper):
 class tcInfRps(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, id=None, IdentificacaoRps=None, DataEmissao=None, NaturezaOperacao=None, RegimeEspecialTributacao=None, OptanteSimplesNacional=None, IncentivadorCultural=None, Status=None, RpsSubstituido=None, Servico=None, Prestador=None, Tomador=None, IntermediarioServico=None, ContrucaoCivil=None, **kwargs_):
+    def __init__(self, Id=None, IdentificacaoRps=None, DataEmissao=None, NaturezaOperacao=None, RegimeEspecialTributacao=None, OptanteSimplesNacional=None, IncentivadorCultural=None, Status=None, RpsSubstituido=None, Servico=None, Prestador=None, Tomador=None, IntermediarioServico=None, ContrucaoCivil=None, **kwargs_):
         self.original_tagname_ = None
         self.parent_object_ = kwargs_.get('parent_object_')
-        self.id = _cast(None, id)
+        self.Id = _cast(None, Id)
         self.IdentificacaoRps = IdentificacaoRps
         if isinstance(DataEmissao, BaseStrType_):
             initvalue_ = datetime_.datetime.strptime(DataEmissao, '%Y-%m-%dT%H:%M:%S')
@@ -2459,16 +2579,37 @@ class tcInfRps(GeneratedsSuper):
     factory = staticmethod(factory)
     def validate_tsNaturezaOperacao(self, value):
         # Validate type tsNaturezaOperacao, a restriction on xsd:byte.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if not self.gds_validate_simple_patterns(
+                    self.validate_tsNaturezaOperacao_patterns_, value):
+                warnings_.warn('Value "%s" does not match xsd pattern restrictions: %s' % (value.encode('utf-8'), self.validate_tsNaturezaOperacao_patterns_, ))
+    validate_tsNaturezaOperacao_patterns_ = [['^1|2|3|4|5|6$']]
     def validate_tsRegimeEspecialTributacao(self, value):
         # Validate type tsRegimeEspecialTributacao, a restriction on xsd:byte.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if not self.gds_validate_simple_patterns(
+                    self.validate_tsRegimeEspecialTributacao_patterns_, value):
+                warnings_.warn('Value "%s" does not match xsd pattern restrictions: %s' % (value.encode('utf-8'), self.validate_tsRegimeEspecialTributacao_patterns_, ))
+    validate_tsRegimeEspecialTributacao_patterns_ = [['^1|2|3|4|5|6$']]
     def validate_tsSimNao(self, value):
         # Validate type tsSimNao, a restriction on xsd:byte.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if not self.gds_validate_simple_patterns(
+                    self.validate_tsSimNao_patterns_, value):
+                warnings_.warn('Value "%s" does not match xsd pattern restrictions: %s' % (value.encode('utf-8'), self.validate_tsSimNao_patterns_, ))
+    validate_tsSimNao_patterns_ = [['^1|2$']]
     def validate_tsStatusRps(self, value):
         # Validate type tsStatusRps, a restriction on xsd:byte.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if not self.gds_validate_simple_patterns(
+                    self.validate_tsStatusRps_patterns_, value):
+                warnings_.warn('Value "%s" does not match xsd pattern restrictions: %s' % (value.encode('utf-8'), self.validate_tsStatusRps_patterns_, ))
+    validate_tsStatusRps_patterns_ = [['^1|2$']]
+    def validate_tsIdTag(self, value):
+        # Validate type tsIdTag, a restriction on xsd:string.
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 255:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsIdTag' % {"value" : value.encode("utf-8")} )
     def hasContent_(self):
         if (
             self.IdentificacaoRps is not None or
@@ -2510,9 +2651,9 @@ class tcInfRps(GeneratedsSuper):
         else:
             outfile.write('/>%s' % (eol_, ))
     def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='tcInfRps'):
-        if self.id is not None and 'id' not in already_processed:
-            already_processed.add('id')
-            outfile.write(' id=%s' % (quote_attrib(self.id), ))
+        if self.Id is not None and 'Id' not in already_processed:
+            already_processed.add('Id')
+            outfile.write(' Id=%s' % (quote_attrib(self.Id), ))
     def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='tcInfRps', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
@@ -2558,10 +2699,11 @@ class tcInfRps(GeneratedsSuper):
             self.buildChildren(child, node, nodeName_)
         return self
     def buildAttributes(self, node, attrs, already_processed):
-        value = find_attr_value_('id', node)
-        if value is not None and 'id' not in already_processed:
-            already_processed.add('id')
-            self.id = value
+        value = find_attr_value_('Id', node)
+        if value is not None and 'Id' not in already_processed:
+            already_processed.add('Id')
+            self.Id = value
+            self.validate_tsIdTag(self.Id)    # validate type tsIdTag
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
         if nodeName_ == 'IdentificacaoRps':
             obj_ = tcIdentificacaoRps.factory(parent_object_=self)
@@ -2764,16 +2906,26 @@ class tcIdentificacaoNfse(GeneratedsSuper):
     factory = staticmethod(factory)
     def validate_tsNumeroNfse(self, value):
         # Validate type tsNumeroNfse, a restriction on xsd:nonNegativeInteger.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(str(value)) >= 15:
+                warnings_.warn('Value "%(value)s" does not match xsd maxInclusive restriction on tsNumeroNfse' % {"value" : value} )
     def validate_tsCnpj(self, value):
         # Validate type tsCnpj, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) != 14:
+                warnings_.warn('Value "%(value)s" does not match xsd length restriction on tsCnpj' % {"value" : value.encode("utf-8")} )
     def validate_tsInscricaoMunicipal(self, value):
         # Validate type tsInscricaoMunicipal, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 15:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsInscricaoMunicipal' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsInscricaoMunicipal' % {"value" : value.encode("utf-8")} )
     def validate_tsCodigoMunicipioIbge(self, value):
         # Validate type tsCodigoMunicipioIbge, a restriction on xsd:int.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(str(value)) >= 7:
+                warnings_.warn('Value "%(value)s" does not match xsd maxInclusive restriction on tsCodigoMunicipioIbge' % {"value" : value} )
     def hasContent_(self):
         if (
             self.Numero is not None or
@@ -2874,10 +3026,10 @@ class tcIdentificacaoNfse(GeneratedsSuper):
 class tcInfNfse(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, id=None, Numero=None, CodigoVerificacao=None, DataEmissao=None, IdentificacaoRps=None, DataEmissaoRps=None, NaturezaOperacao=None, RegimeEspecialTributacao=None, OptanteSimplesNacional=None, IncentivadorCultural=None, Competencia=None, NfseSubstituida=None, OutrasInformacoes=None, Servico=None, ValorCredito=None, PrestadorServico=None, TomadorServico=None, IntermediarioServico=None, OrgaoGerador=None, ContrucaoCivil=None, **kwargs_):
+    def __init__(self, Id=None, Numero=None, CodigoVerificacao=None, DataEmissao=None, IdentificacaoRps=None, DataEmissaoRps=None, NaturezaOperacao=None, RegimeEspecialTributacao=None, OptanteSimplesNacional=None, IncentivadorCultural=None, Competencia=None, NfseSubstituida=None, OutrasInformacoes=None, Servico=None, ValorCredito=None, PrestadorServico=None, TomadorServico=None, IntermediarioServico=None, OrgaoGerador=None, ContrucaoCivil=None, **kwargs_):
         self.original_tagname_ = None
         self.parent_object_ = kwargs_.get('parent_object_')
-        self.id = _cast(None, id)
+        self.Id = _cast(None, Id)
         self.Numero = Numero
         self.validate_tsNumeroNfse(self.Numero)
         self.CodigoVerificacao = CodigoVerificacao
@@ -2889,7 +3041,7 @@ class tcInfNfse(GeneratedsSuper):
         self.DataEmissao = initvalue_
         self.IdentificacaoRps = IdentificacaoRps
         if isinstance(DataEmissaoRps, BaseStrType_):
-            initvalue_ = datetime_.datetime.strptime(DataEmissaoRps, '%Y-%m-%dT%H:%M:%S')
+            initvalue_ = datetime_.datetime.strptime(DataEmissaoRps, '%Y-%m-%d').date()
         else:
             initvalue_ = DataEmissaoRps
         self.DataEmissaoRps = initvalue_
@@ -2901,8 +3053,11 @@ class tcInfNfse(GeneratedsSuper):
         self.validate_tsSimNao(self.OptanteSimplesNacional)
         self.IncentivadorCultural = IncentivadorCultural
         self.validate_tsSimNao(self.IncentivadorCultural)
-        self.Competencia = Competencia
-        self.validate_tsCompetencia(self.Competencia)
+        if isinstance(Competencia, BaseStrType_):
+            initvalue_ = datetime_.datetime.strptime(Competencia, '%Y-%m-%dT%H:%M:%S')
+        else:
+            initvalue_ = Competencia
+        self.Competencia = initvalue_
         self.NfseSubstituida = NfseSubstituida
         self.validate_tsNumeroNfse(self.NfseSubstituida)
         self.OutrasInformacoes = OutrasInformacoes
@@ -2928,28 +3083,56 @@ class tcInfNfse(GeneratedsSuper):
     factory = staticmethod(factory)
     def validate_tsNumeroNfse(self, value):
         # Validate type tsNumeroNfse, a restriction on xsd:nonNegativeInteger.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(str(value)) >= 15:
+                warnings_.warn('Value "%(value)s" does not match xsd maxInclusive restriction on tsNumeroNfse' % {"value" : value} )
     def validate_tsCodigoVerificacao(self, value):
         # Validate type tsCodigoVerificacao, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 9:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsCodigoVerificacao' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsCodigoVerificacao' % {"value" : value.encode("utf-8")} )
     def validate_tsNaturezaOperacao(self, value):
         # Validate type tsNaturezaOperacao, a restriction on xsd:byte.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if not self.gds_validate_simple_patterns(
+                    self.validate_tsNaturezaOperacao_patterns_, value):
+                warnings_.warn('Value "%s" does not match xsd pattern restrictions: %s' % (value.encode('utf-8'), self.validate_tsNaturezaOperacao_patterns_, ))
+    validate_tsNaturezaOperacao_patterns_ = [['^1|2|3|4|5|6$']]
     def validate_tsRegimeEspecialTributacao(self, value):
         # Validate type tsRegimeEspecialTributacao, a restriction on xsd:byte.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if not self.gds_validate_simple_patterns(
+                    self.validate_tsRegimeEspecialTributacao_patterns_, value):
+                warnings_.warn('Value "%s" does not match xsd pattern restrictions: %s' % (value.encode('utf-8'), self.validate_tsRegimeEspecialTributacao_patterns_, ))
+    validate_tsRegimeEspecialTributacao_patterns_ = [['^1|2|3|4|5|6$']]
     def validate_tsSimNao(self, value):
         # Validate type tsSimNao, a restriction on xsd:byte.
-        pass
-    def validate_tsCompetencia(self, value):
-        # Validate type tsCompetencia, a restriction on xsd:nonNegativeInteger.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if not self.gds_validate_simple_patterns(
+                    self.validate_tsSimNao_patterns_, value):
+                warnings_.warn('Value "%s" does not match xsd pattern restrictions: %s' % (value.encode('utf-8'), self.validate_tsSimNao_patterns_, ))
+    validate_tsSimNao_patterns_ = [['^1|2$']]
     def validate_tsOutrasInformacoes(self, value):
         # Validate type tsOutrasInformacoes, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 255:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsOutrasInformacoes' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsOutrasInformacoes' % {"value" : value.encode("utf-8")} )
     def validate_tsValor(self, value):
         # Validate type tsValor, a restriction on xsd:decimal.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if value < 0:
+                warnings_.warn('Value "%(value)s" does not match xsd minInclusive restriction on tsValor' % {"value" : value} )
+            if len(str(value)) >= 15:
+                warnings_.warn('Value "%(value)s" does not match xsd maxInclusive restriction on tsValor' % {"value" : value} )
+    def validate_tsIdTag(self, value):
+        # Validate type tsIdTag, a restriction on xsd:string.
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 255:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsIdTag' % {"value" : value.encode("utf-8")} )
     def hasContent_(self):
         if (
             self.Numero is not None or
@@ -2997,9 +3180,9 @@ class tcInfNfse(GeneratedsSuper):
         else:
             outfile.write('/>%s' % (eol_, ))
     def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='tcInfNfse'):
-        if self.id is not None and 'id' not in already_processed:
-            already_processed.add('id')
-            outfile.write(' id=%s' % (quote_attrib(self.id), ))
+        if self.Id is not None and 'Id' not in already_processed:
+            already_processed.add('Id')
+            outfile.write(' Id=%s' % (quote_attrib(self.Id), ))
     def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='tcInfNfse', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
@@ -3018,7 +3201,7 @@ class tcInfNfse(GeneratedsSuper):
             self.IdentificacaoRps.export(outfile, level, namespaceprefix_, namespacedef_='', name_='IdentificacaoRps', pretty_print=pretty_print)
         if self.DataEmissaoRps is not None:
             showIndent(outfile, level, pretty_print)
-            outfile.write('<%sDataEmissaoRps>%s</%sDataEmissaoRps>%s' % (namespaceprefix_ , self.gds_format_datetime(self.DataEmissaoRps, input_name='DataEmissaoRps'), namespaceprefix_ , eol_))
+            outfile.write('<%sDataEmissaoRps>%s</%sDataEmissaoRps>%s' % (namespaceprefix_ , self.gds_format_date(self.DataEmissaoRps, input_name='DataEmissaoRps'), namespaceprefix_ , eol_))
         if self.NaturezaOperacao is not None:
             showIndent(outfile, level, pretty_print)
             outfile.write('<%sNaturezaOperacao>%s</%sNaturezaOperacao>%s' % (namespaceprefix_ , self.gds_format_integer(self.NaturezaOperacao, input_name='NaturezaOperacao'), namespaceprefix_ , eol_))
@@ -3033,7 +3216,7 @@ class tcInfNfse(GeneratedsSuper):
             outfile.write('<%sIncentivadorCultural>%s</%sIncentivadorCultural>%s' % (namespaceprefix_ , self.gds_format_integer(self.IncentivadorCultural, input_name='IncentivadorCultural'), namespaceprefix_ , eol_))
         if self.Competencia is not None:
             showIndent(outfile, level, pretty_print)
-            outfile.write('<%sCompetencia>%s</%sCompetencia>%s' % (namespaceprefix_ , self.gds_format_integer(self.Competencia, input_name='Competencia'), namespaceprefix_ , eol_))
+            outfile.write('<%sCompetencia>%s</%sCompetencia>%s' % (namespaceprefix_ , self.gds_format_datetime(self.Competencia, input_name='Competencia'), namespaceprefix_ , eol_))
         if self.NfseSubstituida is not None:
             showIndent(outfile, level, pretty_print)
             outfile.write('<%sNfseSubstituida>%s</%sNfseSubstituida>%s' % (namespaceprefix_ , self.gds_format_integer(self.NfseSubstituida, input_name='NfseSubstituida'), namespaceprefix_ , eol_))
@@ -3063,10 +3246,11 @@ class tcInfNfse(GeneratedsSuper):
             self.buildChildren(child, node, nodeName_)
         return self
     def buildAttributes(self, node, attrs, already_processed):
-        value = find_attr_value_('id', node)
-        if value is not None and 'id' not in already_processed:
-            already_processed.add('id')
-            self.id = value
+        value = find_attr_value_('Id', node)
+        if value is not None and 'Id' not in already_processed:
+            already_processed.add('Id')
+            self.Id = value
+            self.validate_tsIdTag(self.Id)    # validate type tsIdTag
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
         if nodeName_ == 'Numero' and child_.text:
             sval_ = child_.text
@@ -3097,7 +3281,7 @@ class tcInfNfse(GeneratedsSuper):
             obj_.original_tagname_ = 'IdentificacaoRps'
         elif nodeName_ == 'DataEmissaoRps':
             sval_ = child_.text
-            dval_ = self.gds_parse_datetime(sval_)
+            dval_ = self.gds_parse_date(sval_)
             self.DataEmissaoRps = dval_
         elif nodeName_ == 'NaturezaOperacao' and child_.text:
             sval_ = child_.text
@@ -3139,18 +3323,10 @@ class tcInfNfse(GeneratedsSuper):
             self.IncentivadorCultural = ival_
             # validate type tsSimNao
             self.validate_tsSimNao(self.IncentivadorCultural)
-        elif nodeName_ == 'Competencia' and child_.text:
+        elif nodeName_ == 'Competencia':
             sval_ = child_.text
-            try:
-                ival_ = int(sval_)
-            except (TypeError, ValueError) as exp:
-                raise_parse_error(child_, 'requires integer: %s' % exp)
-            if ival_ < 0:
-                raise_parse_error(child_, 'requires nonNegativeInteger')
-            ival_ = self.gds_validate_integer(ival_, node, 'Competencia')
-            self.Competencia = ival_
-            # validate type tsCompetencia
-            self.validate_tsCompetencia(self.Competencia)
+            dval_ = self.gds_parse_datetime(sval_)
+            self.Competencia = dval_
         elif nodeName_ == 'NfseSubstituida' and child_.text:
             sval_ = child_.text
             try:
@@ -3215,9 +3391,10 @@ class tcInfNfse(GeneratedsSuper):
 class tcNfse(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, InfNfse=None, Signature=None, **kwargs_):
+    def __init__(self, versao=None, InfNfse=None, Signature=None, **kwargs_):
         self.original_tagname_ = None
         self.parent_object_ = kwargs_.get('parent_object_')
+        self.versao = _cast(None, versao)
         self.InfNfse = InfNfse
         if Signature is None:
             self.Signature = []
@@ -3234,6 +3411,13 @@ class tcNfse(GeneratedsSuper):
         else:
             return tcNfse(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def validate_tsVersao(self, value):
+        # Validate type tsVersao, a restriction on xsd:token.
+        if value is not None and Validate_simpletypes_:
+            if not self.gds_validate_simple_patterns(
+                    self.validate_tsVersao_patterns_, value):
+                warnings_.warn('Value "%s" does not match xsd pattern restrictions: %s' % (value.encode('utf-8'), self.validate_tsVersao_patterns_, ))
+    validate_tsVersao_patterns_ = [['^[1-9]{1}[0-9]{0,1}\\.[0-9]{2}$']]
     def hasContent_(self):
         if (
             self.InfNfse is not None or
@@ -3264,7 +3448,9 @@ class tcNfse(GeneratedsSuper):
         else:
             outfile.write('/>%s' % (eol_, ))
     def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='tcNfse'):
-        pass
+        if self.versao is not None and 'versao' not in already_processed:
+            already_processed.add('versao')
+            outfile.write(' versao=%s' % (quote_attrib(self.versao), ))
     def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='tcNfse', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
@@ -3283,7 +3469,12 @@ class tcNfse(GeneratedsSuper):
             self.buildChildren(child, node, nodeName_)
         return self
     def buildAttributes(self, node, attrs, already_processed):
-        pass
+        value = find_attr_value_('versao', node)
+        if value is not None and 'versao' not in already_processed:
+            already_processed.add('versao')
+            self.versao = value
+            self.versao = ' '.join(self.versao.split())
+            self.validate_tsVersao(self.versao)    # validate type tsVersao
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
         if nodeName_ == 'InfNfse':
             obj_ = tcInfNfse.factory(parent_object_=self)
@@ -3300,10 +3491,10 @@ class tcNfse(GeneratedsSuper):
 class tcInfPedidoCancelamento(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, id=None, IdentificacaoNfse=None, CodigoCancelamento=None, **kwargs_):
+    def __init__(self, Id=None, IdentificacaoNfse=None, CodigoCancelamento=None, **kwargs_):
         self.original_tagname_ = None
         self.parent_object_ = kwargs_.get('parent_object_')
-        self.id = _cast(None, id)
+        self.Id = _cast(None, Id)
         self.IdentificacaoNfse = IdentificacaoNfse
         self.CodigoCancelamento = CodigoCancelamento
         self.validate_tsCodigoCancelamentoNfse(self.CodigoCancelamento)
@@ -3320,7 +3511,16 @@ class tcInfPedidoCancelamento(GeneratedsSuper):
     factory = staticmethod(factory)
     def validate_tsCodigoCancelamentoNfse(self, value):
         # Validate type tsCodigoCancelamentoNfse, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 4:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsCodigoCancelamentoNfse' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsCodigoCancelamentoNfse' % {"value" : value.encode("utf-8")} )
+    def validate_tsIdTag(self, value):
+        # Validate type tsIdTag, a restriction on xsd:string.
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 255:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsIdTag' % {"value" : value.encode("utf-8")} )
     def hasContent_(self):
         if (
             self.IdentificacaoNfse is not None or
@@ -3351,9 +3551,9 @@ class tcInfPedidoCancelamento(GeneratedsSuper):
         else:
             outfile.write('/>%s' % (eol_, ))
     def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='tcInfPedidoCancelamento'):
-        if self.id is not None and 'id' not in already_processed:
-            already_processed.add('id')
-            outfile.write(' id=%s' % (quote_attrib(self.id), ))
+        if self.Id is not None and 'Id' not in already_processed:
+            already_processed.add('Id')
+            outfile.write(' Id=%s' % (quote_attrib(self.Id), ))
     def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='tcInfPedidoCancelamento', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
@@ -3372,10 +3572,11 @@ class tcInfPedidoCancelamento(GeneratedsSuper):
             self.buildChildren(child, node, nodeName_)
         return self
     def buildAttributes(self, node, attrs, already_processed):
-        value = find_attr_value_('id', node)
-        if value is not None and 'id' not in already_processed:
-            already_processed.add('id')
-            self.id = value
+        value = find_attr_value_('Id', node)
+        if value is not None and 'Id' not in already_processed:
+            already_processed.add('Id')
+            self.Id = value
+            self.validate_tsIdTag(self.Id)    # validate type tsIdTag
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
         if nodeName_ == 'IdentificacaoNfse':
             obj_ = tcIdentificacaoNfse.factory(parent_object_=self)
@@ -3473,116 +3674,19 @@ class tcPedidoCancelamento(GeneratedsSuper):
 # end class tcPedidoCancelamento
 
 
-class tcInfConfirmacaoCancelamento(GeneratedsSuper):
-    subclass = None
-    superclass = None
-    def __init__(self, Sucesso=None, DataHora=None, ListaMensagemRetorno=None, **kwargs_):
-        self.original_tagname_ = None
-        self.parent_object_ = kwargs_.get('parent_object_')
-        self.Sucesso = Sucesso
-        if isinstance(DataHora, BaseStrType_):
-            initvalue_ = datetime_.datetime.strptime(DataHora, '%Y-%m-%dT%H:%M:%S')
-        else:
-            initvalue_ = DataHora
-        self.DataHora = initvalue_
-        self.ListaMensagemRetorno = ListaMensagemRetorno
-    def factory(*args_, **kwargs_):
-        if CurrentSubclassModule_ is not None:
-            subclass = getSubclassFromModule_(
-                CurrentSubclassModule_, tcInfConfirmacaoCancelamento)
-            if subclass is not None:
-                return subclass(*args_, **kwargs_)
-        if tcInfConfirmacaoCancelamento.subclass:
-            return tcInfConfirmacaoCancelamento.subclass(*args_, **kwargs_)
-        else:
-            return tcInfConfirmacaoCancelamento(*args_, **kwargs_)
-    factory = staticmethod(factory)
-    def hasContent_(self):
-        if (
-            self.Sucesso is not None or
-            self.DataHora is not None or
-            self.ListaMensagemRetorno is not None
-        ):
-            return True
-        else:
-            return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='tcInfConfirmacaoCancelamento', pretty_print=True):
-        imported_ns_def_ = GenerateDSNamespaceDefs_.get('tcInfConfirmacaoCancelamento')
-        if imported_ns_def_ is not None:
-            namespacedef_ = imported_ns_def_
-        if pretty_print:
-            eol_ = '\n'
-        else:
-            eol_ = ''
-        if self.original_tagname_ is not None:
-            name_ = self.original_tagname_
-        showIndent(outfile, level, pretty_print)
-        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
-        already_processed = set()
-        self.exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='tcInfConfirmacaoCancelamento')
-        if self.hasContent_():
-            outfile.write('>%s' % (eol_, ))
-            self.exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='tcInfConfirmacaoCancelamento', pretty_print=pretty_print)
-            showIndent(outfile, level, pretty_print)
-            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
-        else:
-            outfile.write('/>%s' % (eol_, ))
-    def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='tcInfConfirmacaoCancelamento'):
-        pass
-    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='tcInfConfirmacaoCancelamento', fromsubclass_=False, pretty_print=True):
-        if pretty_print:
-            eol_ = '\n'
-        else:
-            eol_ = ''
-        if self.Sucesso is not None:
-            showIndent(outfile, level, pretty_print)
-            outfile.write('<%sSucesso>%s</%sSucesso>%s' % (namespaceprefix_ , self.gds_format_boolean(self.Sucesso, input_name='Sucesso'), namespaceprefix_ , eol_))
-        if self.DataHora is not None:
-            showIndent(outfile, level, pretty_print)
-            outfile.write('<%sDataHora>%s</%sDataHora>%s' % (namespaceprefix_ , self.gds_format_datetime(self.DataHora, input_name='DataHora'), namespaceprefix_ , eol_))
-        if self.ListaMensagemRetorno is not None:
-            self.ListaMensagemRetorno.export(outfile, level, namespaceprefix_, namespacedef_='', name_='ListaMensagemRetorno', pretty_print=pretty_print)
-    def build(self, node):
-        already_processed = set()
-        self.buildAttributes(node, node.attrib, already_processed)
-        for child in node:
-            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
-            self.buildChildren(child, node, nodeName_)
-        return self
-    def buildAttributes(self, node, attrs, already_processed):
-        pass
-    def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
-        if nodeName_ == 'Sucesso':
-            sval_ = child_.text
-            if sval_ in ('true', '1'):
-                ival_ = True
-            elif sval_ in ('false', '0'):
-                ival_ = False
-            else:
-                raise_parse_error(child_, 'requires boolean')
-            ival_ = self.gds_validate_boolean(ival_, node, 'Sucesso')
-            self.Sucesso = ival_
-        elif nodeName_ == 'DataHora':
-            sval_ = child_.text
-            dval_ = self.gds_parse_datetime(sval_)
-            self.DataHora = dval_
-        elif nodeName_ == 'ListaMensagemRetorno':
-            obj_ = ListaMensagemRetornoType.factory(parent_object_=self)
-            obj_.build(child_)
-            self.ListaMensagemRetorno = obj_
-            obj_.original_tagname_ = 'ListaMensagemRetorno'
-# end class tcInfConfirmacaoCancelamento
-
-
 class tcConfirmacaoCancelamento(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, id=None, Pedido=None, InfConfirmacaoCancelamento=None, **kwargs_):
+    def __init__(self, Id=None, Pedido=None, DataHoraCancelamento=None, **kwargs_):
         self.original_tagname_ = None
         self.parent_object_ = kwargs_.get('parent_object_')
-        self.id = _cast(None, id)
+        self.Id = _cast(None, Id)
         self.Pedido = Pedido
-        self.InfConfirmacaoCancelamento = InfConfirmacaoCancelamento
+        if isinstance(DataHoraCancelamento, BaseStrType_):
+            initvalue_ = datetime_.datetime.strptime(DataHoraCancelamento, '%Y-%m-%dT%H:%M:%S')
+        else:
+            initvalue_ = DataHoraCancelamento
+        self.DataHoraCancelamento = initvalue_
     def factory(*args_, **kwargs_):
         if CurrentSubclassModule_ is not None:
             subclass = getSubclassFromModule_(
@@ -3594,10 +3698,15 @@ class tcConfirmacaoCancelamento(GeneratedsSuper):
         else:
             return tcConfirmacaoCancelamento(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def validate_tsIdTag(self, value):
+        # Validate type tsIdTag, a restriction on xsd:string.
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 255:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsIdTag' % {"value" : value.encode("utf-8")} )
     def hasContent_(self):
         if (
             self.Pedido is not None or
-            self.InfConfirmacaoCancelamento is not None
+            self.DataHoraCancelamento is not None
         ):
             return True
         else:
@@ -3624,9 +3733,9 @@ class tcConfirmacaoCancelamento(GeneratedsSuper):
         else:
             outfile.write('/>%s' % (eol_, ))
     def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='tcConfirmacaoCancelamento'):
-        if self.id is not None and 'id' not in already_processed:
-            already_processed.add('id')
-            outfile.write(' id=%s' % (quote_attrib(self.id), ))
+        if self.Id is not None and 'Id' not in already_processed:
+            already_processed.add('Id')
+            outfile.write(' Id=%s' % (quote_attrib(self.Id), ))
     def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='tcConfirmacaoCancelamento', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
@@ -3634,8 +3743,9 @@ class tcConfirmacaoCancelamento(GeneratedsSuper):
             eol_ = ''
         if self.Pedido is not None:
             self.Pedido.export(outfile, level, namespaceprefix_, namespacedef_='', name_='Pedido', pretty_print=pretty_print)
-        if self.InfConfirmacaoCancelamento is not None:
-            self.InfConfirmacaoCancelamento.export(outfile, level, namespaceprefix_, namespacedef_='', name_='InfConfirmacaoCancelamento', pretty_print=pretty_print)
+        if self.DataHoraCancelamento is not None:
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sDataHoraCancelamento>%s</%sDataHoraCancelamento>%s' % (namespaceprefix_ , self.gds_format_datetime(self.DataHoraCancelamento, input_name='DataHoraCancelamento'), namespaceprefix_ , eol_))
     def build(self, node):
         already_processed = set()
         self.buildAttributes(node, node.attrib, already_processed)
@@ -3644,30 +3754,107 @@ class tcConfirmacaoCancelamento(GeneratedsSuper):
             self.buildChildren(child, node, nodeName_)
         return self
     def buildAttributes(self, node, attrs, already_processed):
-        value = find_attr_value_('id', node)
-        if value is not None and 'id' not in already_processed:
-            already_processed.add('id')
-            self.id = value
+        value = find_attr_value_('Id', node)
+        if value is not None and 'Id' not in already_processed:
+            already_processed.add('Id')
+            self.Id = value
+            self.validate_tsIdTag(self.Id)    # validate type tsIdTag
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
         if nodeName_ == 'Pedido':
             obj_ = tcPedidoCancelamento.factory(parent_object_=self)
             obj_.build(child_)
             self.Pedido = obj_
             obj_.original_tagname_ = 'Pedido'
-        elif nodeName_ == 'InfConfirmacaoCancelamento':
-            obj_ = tcInfConfirmacaoCancelamento.factory(parent_object_=self)
-            obj_.build(child_)
-            self.InfConfirmacaoCancelamento = obj_
-            obj_.original_tagname_ = 'InfConfirmacaoCancelamento'
+        elif nodeName_ == 'DataHoraCancelamento':
+            sval_ = child_.text
+            dval_ = self.gds_parse_datetime(sval_)
+            self.DataHoraCancelamento = dval_
 # end class tcConfirmacaoCancelamento
+
+
+class RetCancelamento(GeneratedsSuper):
+    subclass = None
+    superclass = None
+    def __init__(self, NfseCancelamento=None, **kwargs_):
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        if NfseCancelamento is None:
+            self.NfseCancelamento = []
+        else:
+            self.NfseCancelamento = NfseCancelamento
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, RetCancelamento)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if RetCancelamento.subclass:
+            return RetCancelamento.subclass(*args_, **kwargs_)
+        else:
+            return RetCancelamento(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def hasContent_(self):
+        if (
+            self.NfseCancelamento
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='RetCancelamento', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('RetCancelamento')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None:
+            name_ = self.original_tagname_
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self.exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='RetCancelamento')
+        if self.hasContent_():
+            outfile.write('>%s' % (eol_, ))
+            self.exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='RetCancelamento', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='RetCancelamento'):
+        pass
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='RetCancelamento', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for NfseCancelamento_ in self.NfseCancelamento:
+            NfseCancelamento_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='NfseCancelamento', pretty_print=pretty_print)
+    def build(self, node):
+        already_processed = set()
+        self.buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self.buildChildren(child, node, nodeName_)
+        return self
+    def buildAttributes(self, node, attrs, already_processed):
+        pass
+    def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
+        if nodeName_ == 'NfseCancelamento':
+            obj_ = tcCancelamentoNfse.factory(parent_object_=self)
+            obj_.build(child_)
+            self.NfseCancelamento.append(obj_)
+            obj_.original_tagname_ = 'NfseCancelamento'
+# end class RetCancelamento
 
 
 class tcCancelamentoNfse(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, Confirmacao=None, Signature=None, **kwargs_):
+    def __init__(self, versao=None, Confirmacao=None, Signature=None, **kwargs_):
         self.original_tagname_ = None
         self.parent_object_ = kwargs_.get('parent_object_')
+        self.versao = _cast(None, versao)
         self.Confirmacao = Confirmacao
         self.Signature = Signature
     def factory(*args_, **kwargs_):
@@ -3681,6 +3868,13 @@ class tcCancelamentoNfse(GeneratedsSuper):
         else:
             return tcCancelamentoNfse(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def validate_tsVersao(self, value):
+        # Validate type tsVersao, a restriction on xsd:token.
+        if value is not None and Validate_simpletypes_:
+            if not self.gds_validate_simple_patterns(
+                    self.validate_tsVersao_patterns_, value):
+                warnings_.warn('Value "%s" does not match xsd pattern restrictions: %s' % (value.encode('utf-8'), self.validate_tsVersao_patterns_, ))
+    validate_tsVersao_patterns_ = [['^[1-9]{1}[0-9]{0,1}\\.[0-9]{2}$']]
     def hasContent_(self):
         if (
             self.Confirmacao is not None or
@@ -3711,7 +3905,9 @@ class tcCancelamentoNfse(GeneratedsSuper):
         else:
             outfile.write('/>%s' % (eol_, ))
     def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='tcCancelamentoNfse'):
-        pass
+        if self.versao is not None and 'versao' not in already_processed:
+            already_processed.add('versao')
+            outfile.write(' versao=%s' % (quote_attrib(self.versao), ))
     def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='tcCancelamentoNfse', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
@@ -3730,7 +3926,12 @@ class tcCancelamentoNfse(GeneratedsSuper):
             self.buildChildren(child, node, nodeName_)
         return self
     def buildAttributes(self, node, attrs, already_processed):
-        pass
+        value = find_attr_value_('versao', node)
+        if value is not None and 'versao' not in already_processed:
+            already_processed.add('versao')
+            self.versao = value
+            self.versao = ' '.join(self.versao.split())
+            self.validate_tsVersao(self.versao)    # validate type tsVersao
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
         if nodeName_ == 'Confirmacao':
             obj_ = tcConfirmacaoCancelamento.factory(parent_object_=self)
@@ -3747,10 +3948,10 @@ class tcCancelamentoNfse(GeneratedsSuper):
 class tcInfSubstituicaoNfse(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, id=None, NfseSubstituidora=None, **kwargs_):
+    def __init__(self, Id=None, NfseSubstituidora=None, **kwargs_):
         self.original_tagname_ = None
         self.parent_object_ = kwargs_.get('parent_object_')
-        self.id = _cast(None, id)
+        self.Id = _cast(None, Id)
         self.NfseSubstituidora = NfseSubstituidora
         self.validate_tsNumeroNfse(self.NfseSubstituidora)
     def factory(*args_, **kwargs_):
@@ -3766,7 +3967,14 @@ class tcInfSubstituicaoNfse(GeneratedsSuper):
     factory = staticmethod(factory)
     def validate_tsNumeroNfse(self, value):
         # Validate type tsNumeroNfse, a restriction on xsd:nonNegativeInteger.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(str(value)) >= 15:
+                warnings_.warn('Value "%(value)s" does not match xsd maxInclusive restriction on tsNumeroNfse' % {"value" : value} )
+    def validate_tsIdTag(self, value):
+        # Validate type tsIdTag, a restriction on xsd:string.
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 255:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsIdTag' % {"value" : value.encode("utf-8")} )
     def hasContent_(self):
         if (
             self.NfseSubstituidora is not None
@@ -3796,9 +4004,9 @@ class tcInfSubstituicaoNfse(GeneratedsSuper):
         else:
             outfile.write('/>%s' % (eol_, ))
     def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='tcInfSubstituicaoNfse'):
-        if self.id is not None and 'id' not in already_processed:
-            already_processed.add('id')
-            outfile.write(' id=%s' % (quote_attrib(self.id), ))
+        if self.Id is not None and 'Id' not in already_processed:
+            already_processed.add('Id')
+            outfile.write(' Id=%s' % (quote_attrib(self.Id), ))
     def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='tcInfSubstituicaoNfse', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
@@ -3815,10 +4023,11 @@ class tcInfSubstituicaoNfse(GeneratedsSuper):
             self.buildChildren(child, node, nodeName_)
         return self
     def buildAttributes(self, node, attrs, already_processed):
-        value = find_attr_value_('id', node)
-        if value is not None and 'id' not in already_processed:
-            already_processed.add('id')
-            self.id = value
+        value = find_attr_value_('Id', node)
+        if value is not None and 'Id' not in already_processed:
+            already_processed.add('Id')
+            self.Id = value
+            self.validate_tsIdTag(self.Id)    # validate type tsIdTag
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
         if nodeName_ == 'NfseSubstituidora' and child_.text:
             sval_ = child_.text
@@ -3838,9 +4047,10 @@ class tcInfSubstituicaoNfse(GeneratedsSuper):
 class tcSubstituicaoNfse(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, SubstituicaoNfse=None, Signature=None, **kwargs_):
+    def __init__(self, versao=None, SubstituicaoNfse=None, Signature=None, **kwargs_):
         self.original_tagname_ = None
         self.parent_object_ = kwargs_.get('parent_object_')
+        self.versao = _cast(None, versao)
         self.SubstituicaoNfse = SubstituicaoNfse
         if Signature is None:
             self.Signature = []
@@ -3857,6 +4067,13 @@ class tcSubstituicaoNfse(GeneratedsSuper):
         else:
             return tcSubstituicaoNfse(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def validate_tsVersao(self, value):
+        # Validate type tsVersao, a restriction on xsd:token.
+        if value is not None and Validate_simpletypes_:
+            if not self.gds_validate_simple_patterns(
+                    self.validate_tsVersao_patterns_, value):
+                warnings_.warn('Value "%s" does not match xsd pattern restrictions: %s' % (value.encode('utf-8'), self.validate_tsVersao_patterns_, ))
+    validate_tsVersao_patterns_ = [['^[1-9]{1}[0-9]{0,1}\\.[0-9]{2}$']]
     def hasContent_(self):
         if (
             self.SubstituicaoNfse is not None or
@@ -3887,7 +4104,9 @@ class tcSubstituicaoNfse(GeneratedsSuper):
         else:
             outfile.write('/>%s' % (eol_, ))
     def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='tcSubstituicaoNfse'):
-        pass
+        if self.versao is not None and 'versao' not in already_processed:
+            already_processed.add('versao')
+            outfile.write(' versao=%s' % (quote_attrib(self.versao), ))
     def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='tcSubstituicaoNfse', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
@@ -3906,7 +4125,12 @@ class tcSubstituicaoNfse(GeneratedsSuper):
             self.buildChildren(child, node, nodeName_)
         return self
     def buildAttributes(self, node, attrs, already_processed):
-        pass
+        value = find_attr_value_('versao', node)
+        if value is not None and 'versao' not in already_processed:
+            already_processed.add('versao')
+            self.versao = value
+            self.versao = ' '.join(self.versao.split())
+            self.validate_tsVersao(self.versao)    # validate type tsVersao
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
         if nodeName_ == 'SubstituicaoNfse':
             obj_ = tcInfSubstituicaoNfse.factory(parent_object_=self)
@@ -4011,6 +4235,158 @@ class tcCompNfse(GeneratedsSuper):
 # end class tcCompNfse
 
 
+class ListaMensagemRetorno(GeneratedsSuper):
+    subclass = None
+    superclass = None
+    def __init__(self, MensagemRetorno=None, **kwargs_):
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        if MensagemRetorno is None:
+            self.MensagemRetorno = []
+        else:
+            self.MensagemRetorno = MensagemRetorno
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ListaMensagemRetorno)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ListaMensagemRetorno.subclass:
+            return ListaMensagemRetorno.subclass(*args_, **kwargs_)
+        else:
+            return ListaMensagemRetorno(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def hasContent_(self):
+        if (
+            self.MensagemRetorno
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ListaMensagemRetorno', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ListaMensagemRetorno')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None:
+            name_ = self.original_tagname_
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self.exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ListaMensagemRetorno')
+        if self.hasContent_():
+            outfile.write('>%s' % (eol_, ))
+            self.exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ListaMensagemRetorno', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ListaMensagemRetorno'):
+        pass
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ListaMensagemRetorno', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for MensagemRetorno_ in self.MensagemRetorno:
+            MensagemRetorno_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='MensagemRetorno', pretty_print=pretty_print)
+    def build(self, node):
+        already_processed = set()
+        self.buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self.buildChildren(child, node, nodeName_)
+        return self
+    def buildAttributes(self, node, attrs, already_processed):
+        pass
+    def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
+        if nodeName_ == 'MensagemRetorno':
+            obj_ = tcMensagemRetorno.factory(parent_object_=self)
+            obj_.build(child_)
+            self.MensagemRetorno.append(obj_)
+            obj_.original_tagname_ = 'MensagemRetorno'
+# end class ListaMensagemRetorno
+
+
+class ListaMensagemRetornoLote(GeneratedsSuper):
+    subclass = None
+    superclass = None
+    def __init__(self, MensagemRetorno=None, **kwargs_):
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        if MensagemRetorno is None:
+            self.MensagemRetorno = []
+        else:
+            self.MensagemRetorno = MensagemRetorno
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ListaMensagemRetornoLote)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ListaMensagemRetornoLote.subclass:
+            return ListaMensagemRetornoLote.subclass(*args_, **kwargs_)
+        else:
+            return ListaMensagemRetornoLote(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def hasContent_(self):
+        if (
+            self.MensagemRetorno
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ListaMensagemRetornoLote', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ListaMensagemRetornoLote')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None:
+            name_ = self.original_tagname_
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self.exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ListaMensagemRetornoLote')
+        if self.hasContent_():
+            outfile.write('>%s' % (eol_, ))
+            self.exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ListaMensagemRetornoLote', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ListaMensagemRetornoLote'):
+        pass
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ListaMensagemRetornoLote', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for MensagemRetorno_ in self.MensagemRetorno:
+            MensagemRetorno_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='MensagemRetorno', pretty_print=pretty_print)
+    def build(self, node):
+        already_processed = set()
+        self.buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self.buildChildren(child, node, nodeName_)
+        return self
+    def buildAttributes(self, node, attrs, already_processed):
+        pass
+    def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
+        if nodeName_ == 'MensagemRetorno':
+            obj_ = tcMensagemRetornoLote.factory(parent_object_=self)
+            obj_.build(child_)
+            self.MensagemRetorno.append(obj_)
+            obj_.original_tagname_ = 'MensagemRetorno'
+# end class ListaMensagemRetornoLote
+
+
 class tcMensagemRetorno(GeneratedsSuper):
     subclass = None
     superclass = None
@@ -4036,10 +4412,18 @@ class tcMensagemRetorno(GeneratedsSuper):
     factory = staticmethod(factory)
     def validate_tsCodigoMensagemAlerta(self, value):
         # Validate type tsCodigoMensagemAlerta, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 4:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsCodigoMensagemAlerta' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsCodigoMensagemAlerta' % {"value" : value.encode("utf-8")} )
     def validate_tsDescricaoMensagemAlerta(self, value):
         # Validate type tsDescricaoMensagemAlerta, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 200:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsDescricaoMensagemAlerta' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsDescricaoMensagemAlerta' % {"value" : value.encode("utf-8")} )
     def hasContent_(self):
         if (
             self.Codigo is not None or
@@ -4141,10 +4525,18 @@ class tcMensagemRetornoLote(GeneratedsSuper):
     factory = staticmethod(factory)
     def validate_tsCodigoMensagemAlerta(self, value):
         # Validate type tsCodigoMensagemAlerta, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 4:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsCodigoMensagemAlerta' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsCodigoMensagemAlerta' % {"value" : value.encode("utf-8")} )
     def validate_tsDescricaoMensagemAlerta(self, value):
         # Validate type tsDescricaoMensagemAlerta, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 200:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsDescricaoMensagemAlerta' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsDescricaoMensagemAlerta' % {"value" : value.encode("utf-8")} )
     def hasContent_(self):
         if (
             self.IdentificacaoRps is not None or
@@ -4223,13 +4615,15 @@ class tcMensagemRetornoLote(GeneratedsSuper):
 class tcLoteRps(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, id=None, NumeroLote=None, CpfCnpj=None, InscricaoMunicipal=None, QuantidadeRps=None, ListaRps=None, **kwargs_):
+    def __init__(self, Id=None, versao=None, NumeroLote=None, Cnpj=None, InscricaoMunicipal=None, QuantidadeRps=None, ListaRps=None, **kwargs_):
         self.original_tagname_ = None
         self.parent_object_ = kwargs_.get('parent_object_')
-        self.id = _cast(None, id)
+        self.Id = _cast(None, Id)
+        self.versao = _cast(None, versao)
         self.NumeroLote = NumeroLote
         self.validate_tsNumeroLote(self.NumeroLote)
-        self.CpfCnpj = CpfCnpj
+        self.Cnpj = Cnpj
+        self.validate_tsCnpj(self.Cnpj)
         self.InscricaoMunicipal = InscricaoMunicipal
         self.validate_tsInscricaoMunicipal(self.InscricaoMunicipal)
         self.QuantidadeRps = QuantidadeRps
@@ -4248,17 +4642,41 @@ class tcLoteRps(GeneratedsSuper):
     factory = staticmethod(factory)
     def validate_tsNumeroLote(self, value):
         # Validate type tsNumeroLote, a restriction on xsd:nonNegativeInteger.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(str(value)) >= 15:
+                warnings_.warn('Value "%(value)s" does not match xsd maxInclusive restriction on tsNumeroLote' % {"value" : value} )
+    def validate_tsCnpj(self, value):
+        # Validate type tsCnpj, a restriction on xsd:string.
+        if value is not None and Validate_simpletypes_:
+            if len(value) != 14:
+                warnings_.warn('Value "%(value)s" does not match xsd length restriction on tsCnpj' % {"value" : value.encode("utf-8")} )
     def validate_tsInscricaoMunicipal(self, value):
         # Validate type tsInscricaoMunicipal, a restriction on xsd:string.
-        pass
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 15:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsInscricaoMunicipal' % {"value" : value.encode("utf-8")} )
+            if len(value) < 1:
+                warnings_.warn('Value "%(value)s" does not match xsd minLength restriction on tsInscricaoMunicipal' % {"value" : value.encode("utf-8")} )
     def validate_tsQuantidadeRps(self, value):
         # Validate type tsQuantidadeRps, a restriction on xsd:int.
-        pass
+        if value is not None and Validate_simpletypes_:
+            pass
+    def validate_tsIdTag(self, value):
+        # Validate type tsIdTag, a restriction on xsd:string.
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 255:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsIdTag' % {"value" : value.encode("utf-8")} )
+    def validate_tsVersao(self, value):
+        # Validate type tsVersao, a restriction on xsd:token.
+        if value is not None and Validate_simpletypes_:
+            if not self.gds_validate_simple_patterns(
+                    self.validate_tsVersao_patterns_, value):
+                warnings_.warn('Value "%s" does not match xsd pattern restrictions: %s' % (value.encode('utf-8'), self.validate_tsVersao_patterns_, ))
+    validate_tsVersao_patterns_ = [['^[1-9]{1}[0-9]{0,1}\\.[0-9]{2}$']]
     def hasContent_(self):
         if (
             self.NumeroLote is not None or
-            self.CpfCnpj is not None or
+            self.Cnpj is not None or
             self.InscricaoMunicipal is not None or
             self.QuantidadeRps is not None or
             self.ListaRps is not None
@@ -4288,9 +4706,12 @@ class tcLoteRps(GeneratedsSuper):
         else:
             outfile.write('/>%s' % (eol_, ))
     def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='tcLoteRps'):
-        if self.id is not None and 'id' not in already_processed:
-            already_processed.add('id')
-            outfile.write(' id=%s' % (quote_attrib(self.id), ))
+        if self.Id is not None and 'Id' not in already_processed:
+            already_processed.add('Id')
+            outfile.write(' Id=%s' % (quote_attrib(self.Id), ))
+        if self.versao is not None and 'versao' not in already_processed:
+            already_processed.add('versao')
+            outfile.write(' versao=%s' % (quote_attrib(self.versao), ))
     def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='tcLoteRps', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
@@ -4299,8 +4720,9 @@ class tcLoteRps(GeneratedsSuper):
         if self.NumeroLote is not None:
             showIndent(outfile, level, pretty_print)
             outfile.write('<%sNumeroLote>%s</%sNumeroLote>%s' % (namespaceprefix_ , self.gds_format_integer(self.NumeroLote, input_name='NumeroLote'), namespaceprefix_ , eol_))
-        if self.CpfCnpj is not None:
-            self.CpfCnpj.export(outfile, level, namespaceprefix_, namespacedef_='', name_='CpfCnpj', pretty_print=pretty_print)
+        if self.Cnpj is not None:
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sCnpj>%s</%sCnpj>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.Cnpj), input_name='Cnpj')), namespaceprefix_ , eol_))
         if self.InscricaoMunicipal is not None:
             showIndent(outfile, level, pretty_print)
             outfile.write('<%sInscricaoMunicipal>%s</%sInscricaoMunicipal>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.InscricaoMunicipal), input_name='InscricaoMunicipal')), namespaceprefix_ , eol_))
@@ -4317,10 +4739,17 @@ class tcLoteRps(GeneratedsSuper):
             self.buildChildren(child, node, nodeName_)
         return self
     def buildAttributes(self, node, attrs, already_processed):
-        value = find_attr_value_('id', node)
-        if value is not None and 'id' not in already_processed:
-            already_processed.add('id')
-            self.id = value
+        value = find_attr_value_('Id', node)
+        if value is not None and 'Id' not in already_processed:
+            already_processed.add('Id')
+            self.Id = value
+            self.validate_tsIdTag(self.Id)    # validate type tsIdTag
+        value = find_attr_value_('versao', node)
+        if value is not None and 'versao' not in already_processed:
+            already_processed.add('versao')
+            self.versao = value
+            self.versao = ' '.join(self.versao.split())
+            self.validate_tsVersao(self.versao)    # validate type tsVersao
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
         if nodeName_ == 'NumeroLote' and child_.text:
             sval_ = child_.text
@@ -4334,11 +4763,12 @@ class tcLoteRps(GeneratedsSuper):
             self.NumeroLote = ival_
             # validate type tsNumeroLote
             self.validate_tsNumeroLote(self.NumeroLote)
-        elif nodeName_ == 'CpfCnpj':
-            obj_ = tcCpfCnpj.factory(parent_object_=self)
-            obj_.build(child_)
-            self.CpfCnpj = obj_
-            obj_.original_tagname_ = 'CpfCnpj'
+        elif nodeName_ == 'Cnpj':
+            Cnpj_ = child_.text
+            Cnpj_ = self.gds_validate_string(Cnpj_, node, 'Cnpj')
+            self.Cnpj = Cnpj_
+            # validate type tsCnpj
+            self.validate_tsCnpj(self.Cnpj)
         elif nodeName_ == 'InscricaoMunicipal':
             InscricaoMunicipal_ = child_.text
             InscricaoMunicipal_ = self.gds_validate_string(InscricaoMunicipal_, node, 'InscricaoMunicipal')
@@ -4363,36 +4793,55 @@ class tcLoteRps(GeneratedsSuper):
 # end class tcLoteRps
 
 
-class ListaMensagemRetornoType(GeneratedsSuper):
+class EnviarLoteRpsResposta(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, MensagemRetorno=None, **kwargs_):
+    def __init__(self, NumeroLote=None, DataRecebimento=None, Protocolo=None, ListaMensagemRetorno=None, **kwargs_):
         self.original_tagname_ = None
         self.parent_object_ = kwargs_.get('parent_object_')
-        if MensagemRetorno is None:
-            self.MensagemRetorno = []
+        self.NumeroLote = NumeroLote
+        self.validate_tsNumeroLote(self.NumeroLote)
+        if isinstance(DataRecebimento, BaseStrType_):
+            initvalue_ = datetime_.datetime.strptime(DataRecebimento, '%Y-%m-%dT%H:%M:%S')
         else:
-            self.MensagemRetorno = MensagemRetorno
+            initvalue_ = DataRecebimento
+        self.DataRecebimento = initvalue_
+        self.Protocolo = Protocolo
+        self.validate_tsNumeroProtocolo(self.Protocolo)
+        self.ListaMensagemRetorno = ListaMensagemRetorno
     def factory(*args_, **kwargs_):
         if CurrentSubclassModule_ is not None:
             subclass = getSubclassFromModule_(
-                CurrentSubclassModule_, ListaMensagemRetornoType)
+                CurrentSubclassModule_, EnviarLoteRpsResposta)
             if subclass is not None:
                 return subclass(*args_, **kwargs_)
-        if ListaMensagemRetornoType.subclass:
-            return ListaMensagemRetornoType.subclass(*args_, **kwargs_)
+        if EnviarLoteRpsResposta.subclass:
+            return EnviarLoteRpsResposta.subclass(*args_, **kwargs_)
         else:
-            return ListaMensagemRetornoType(*args_, **kwargs_)
+            return EnviarLoteRpsResposta(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def validate_tsNumeroLote(self, value):
+        # Validate type tsNumeroLote, a restriction on xsd:nonNegativeInteger.
+        if value is not None and Validate_simpletypes_:
+            if len(str(value)) >= 15:
+                warnings_.warn('Value "%(value)s" does not match xsd maxInclusive restriction on tsNumeroLote' % {"value" : value} )
+    def validate_tsNumeroProtocolo(self, value):
+        # Validate type tsNumeroProtocolo, a restriction on xsd:string.
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 50:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsNumeroProtocolo' % {"value" : value.encode("utf-8")} )
     def hasContent_(self):
         if (
-            self.MensagemRetorno
+            self.NumeroLote is not None or
+            self.DataRecebimento is not None or
+            self.Protocolo is not None or
+            self.ListaMensagemRetorno is not None
         ):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ListaMensagemRetornoType', pretty_print=True):
-        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ListaMensagemRetornoType')
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='EnviarLoteRpsResposta', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('EnviarLoteRpsResposta')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
         if pretty_print:
@@ -4404,23 +4853,32 @@ class ListaMensagemRetornoType(GeneratedsSuper):
         showIndent(outfile, level, pretty_print)
         outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = set()
-        self.exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ListaMensagemRetornoType')
+        self.exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='EnviarLoteRpsResposta')
         if self.hasContent_():
             outfile.write('>%s' % (eol_, ))
-            self.exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ListaMensagemRetornoType', pretty_print=pretty_print)
+            self.exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='EnviarLoteRpsResposta', pretty_print=pretty_print)
             showIndent(outfile, level, pretty_print)
             outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
         else:
             outfile.write('/>%s' % (eol_, ))
-    def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ListaMensagemRetornoType'):
+    def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='EnviarLoteRpsResposta'):
         pass
-    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ListaMensagemRetornoType', fromsubclass_=False, pretty_print=True):
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='EnviarLoteRpsResposta', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
         else:
             eol_ = ''
-        for MensagemRetorno_ in self.MensagemRetorno:
-            MensagemRetorno_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='MensagemRetorno', pretty_print=pretty_print)
+        if self.NumeroLote is not None:
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sNumeroLote>%s</%sNumeroLote>%s' % (namespaceprefix_ , self.gds_format_integer(self.NumeroLote, input_name='NumeroLote'), namespaceprefix_ , eol_))
+        if self.DataRecebimento is not None:
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sDataRecebimento>%s</%sDataRecebimento>%s' % (namespaceprefix_ , self.gds_format_datetime(self.DataRecebimento, input_name='DataRecebimento'), namespaceprefix_ , eol_))
+        if self.Protocolo is not None:
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sProtocolo>%s</%sProtocolo>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.Protocolo), input_name='Protocolo')), namespaceprefix_ , eol_))
+        if self.ListaMensagemRetorno is not None:
+            self.ListaMensagemRetorno.export(outfile, level, namespaceprefix_, namespacedef_='', name_='ListaMensagemRetorno', pretty_print=pretty_print)
     def build(self, node):
         already_processed = set()
         self.buildAttributes(node, node.attrib, already_processed)
@@ -4431,12 +4889,1125 @@ class ListaMensagemRetornoType(GeneratedsSuper):
     def buildAttributes(self, node, attrs, already_processed):
         pass
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
-        if nodeName_ == 'MensagemRetorno':
-            obj_ = tcMensagemRetorno.factory(parent_object_=self)
+        if nodeName_ == 'NumeroLote' and child_.text:
+            sval_ = child_.text
+            try:
+                ival_ = int(sval_)
+            except (TypeError, ValueError) as exp:
+                raise_parse_error(child_, 'requires integer: %s' % exp)
+            if ival_ < 0:
+                raise_parse_error(child_, 'requires nonNegativeInteger')
+            ival_ = self.gds_validate_integer(ival_, node, 'NumeroLote')
+            self.NumeroLote = ival_
+            # validate type tsNumeroLote
+            self.validate_tsNumeroLote(self.NumeroLote)
+        elif nodeName_ == 'DataRecebimento':
+            sval_ = child_.text
+            dval_ = self.gds_parse_datetime(sval_)
+            self.DataRecebimento = dval_
+        elif nodeName_ == 'Protocolo':
+            Protocolo_ = child_.text
+            Protocolo_ = self.gds_validate_string(Protocolo_, node, 'Protocolo')
+            self.Protocolo = Protocolo_
+            # validate type tsNumeroProtocolo
+            self.validate_tsNumeroProtocolo(self.Protocolo)
+        elif nodeName_ == 'ListaMensagemRetorno':
+            obj_ = ListaMensagemRetorno.factory(parent_object_=self)
             obj_.build(child_)
-            self.MensagemRetorno.append(obj_)
-            obj_.original_tagname_ = 'MensagemRetorno'
-# end class ListaMensagemRetornoType
+            self.ListaMensagemRetorno = obj_
+            obj_.original_tagname_ = 'ListaMensagemRetorno'
+# end class EnviarLoteRpsResposta
+
+
+class EnviarLoteRpsEnvio(GeneratedsSuper):
+    subclass = None
+    superclass = None
+    def __init__(self, LoteRps=None, Signature=None, **kwargs_):
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.LoteRps = LoteRps
+        self.Signature = Signature
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, EnviarLoteRpsEnvio)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if EnviarLoteRpsEnvio.subclass:
+            return EnviarLoteRpsEnvio.subclass(*args_, **kwargs_)
+        else:
+            return EnviarLoteRpsEnvio(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def hasContent_(self):
+        if (
+            self.LoteRps is not None or
+            self.Signature is not None
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='EnviarLoteRpsEnvio', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('EnviarLoteRpsEnvio')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None:
+            name_ = self.original_tagname_
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self.exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='EnviarLoteRpsEnvio')
+        if self.hasContent_():
+            outfile.write('>%s' % (eol_, ))
+            self.exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='EnviarLoteRpsEnvio', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='EnviarLoteRpsEnvio'):
+        pass
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='EnviarLoteRpsEnvio', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.LoteRps is not None:
+            self.LoteRps.export(outfile, level, namespaceprefix_, namespacedef_='', name_='LoteRps', pretty_print=pretty_print)
+        if self.Signature is not None:
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sSignature>%s</%sSignature>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.Signature), input_name='Signature')), namespaceprefix_ , eol_))
+    def build(self, node):
+        already_processed = set()
+        self.buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self.buildChildren(child, node, nodeName_)
+        return self
+    def buildAttributes(self, node, attrs, already_processed):
+        pass
+    def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
+        if nodeName_ == 'LoteRps':
+            obj_ = tcLoteRps.factory(parent_object_=self)
+            obj_.build(child_)
+            self.LoteRps = obj_
+            obj_.original_tagname_ = 'LoteRps'
+        elif nodeName_ == 'Signature':
+            Signature_ = child_.text
+            Signature_ = self.gds_validate_string(Signature_, node, 'Signature')
+            self.Signature = Signature_
+# end class EnviarLoteRpsEnvio
+
+
+class ConsultarSituacaoLoteRpsResposta(GeneratedsSuper):
+    subclass = None
+    superclass = None
+    def __init__(self, NumeroLote=None, Situacao=None, ListaMensagemRetorno=None, **kwargs_):
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.NumeroLote = NumeroLote
+        self.validate_tsNumeroLote(self.NumeroLote)
+        self.Situacao = Situacao
+        self.validate_tsSituacaoLoteRps(self.Situacao)
+        self.ListaMensagemRetorno = ListaMensagemRetorno
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ConsultarSituacaoLoteRpsResposta)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ConsultarSituacaoLoteRpsResposta.subclass:
+            return ConsultarSituacaoLoteRpsResposta.subclass(*args_, **kwargs_)
+        else:
+            return ConsultarSituacaoLoteRpsResposta(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def validate_tsNumeroLote(self, value):
+        # Validate type tsNumeroLote, a restriction on xsd:nonNegativeInteger.
+        if value is not None and Validate_simpletypes_:
+            if len(str(value)) >= 15:
+                warnings_.warn('Value "%(value)s" does not match xsd maxInclusive restriction on tsNumeroLote' % {"value" : value} )
+    def validate_tsSituacaoLoteRps(self, value):
+        # Validate type tsSituacaoLoteRps, a restriction on xsd:byte.
+        if value is not None and Validate_simpletypes_:
+            if not self.gds_validate_simple_patterns(
+                    self.validate_tsSituacaoLoteRps_patterns_, value):
+                warnings_.warn('Value "%s" does not match xsd pattern restrictions: %s' % (value.encode('utf-8'), self.validate_tsSituacaoLoteRps_patterns_, ))
+    validate_tsSituacaoLoteRps_patterns_ = [['^1|2|3|4$']]
+    def hasContent_(self):
+        if (
+            self.NumeroLote is not None or
+            self.Situacao is not None or
+            self.ListaMensagemRetorno is not None
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ConsultarSituacaoLoteRpsResposta', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ConsultarSituacaoLoteRpsResposta')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None:
+            name_ = self.original_tagname_
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self.exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ConsultarSituacaoLoteRpsResposta')
+        if self.hasContent_():
+            outfile.write('>%s' % (eol_, ))
+            self.exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ConsultarSituacaoLoteRpsResposta', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ConsultarSituacaoLoteRpsResposta'):
+        pass
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ConsultarSituacaoLoteRpsResposta', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.NumeroLote is not None:
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sNumeroLote>%s</%sNumeroLote>%s' % (namespaceprefix_ , self.gds_format_integer(self.NumeroLote, input_name='NumeroLote'), namespaceprefix_ , eol_))
+        if self.Situacao is not None:
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sSituacao>%s</%sSituacao>%s' % (namespaceprefix_ , self.gds_format_integer(self.Situacao, input_name='Situacao'), namespaceprefix_ , eol_))
+        if self.ListaMensagemRetorno is not None:
+            self.ListaMensagemRetorno.export(outfile, level, namespaceprefix_, namespacedef_='', name_='ListaMensagemRetorno', pretty_print=pretty_print)
+    def build(self, node):
+        already_processed = set()
+        self.buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self.buildChildren(child, node, nodeName_)
+        return self
+    def buildAttributes(self, node, attrs, already_processed):
+        pass
+    def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
+        if nodeName_ == 'NumeroLote' and child_.text:
+            sval_ = child_.text
+            try:
+                ival_ = int(sval_)
+            except (TypeError, ValueError) as exp:
+                raise_parse_error(child_, 'requires integer: %s' % exp)
+            if ival_ < 0:
+                raise_parse_error(child_, 'requires nonNegativeInteger')
+            ival_ = self.gds_validate_integer(ival_, node, 'NumeroLote')
+            self.NumeroLote = ival_
+            # validate type tsNumeroLote
+            self.validate_tsNumeroLote(self.NumeroLote)
+        elif nodeName_ == 'Situacao' and child_.text:
+            sval_ = child_.text
+            try:
+                ival_ = int(sval_)
+            except (TypeError, ValueError) as exp:
+                raise_parse_error(child_, 'requires integer: %s' % exp)
+            ival_ = self.gds_validate_integer(ival_, node, 'Situacao')
+            self.Situacao = ival_
+            # validate type tsSituacaoLoteRps
+            self.validate_tsSituacaoLoteRps(self.Situacao)
+        elif nodeName_ == 'ListaMensagemRetorno':
+            obj_ = ListaMensagemRetorno.factory(parent_object_=self)
+            obj_.build(child_)
+            self.ListaMensagemRetorno = obj_
+            obj_.original_tagname_ = 'ListaMensagemRetorno'
+# end class ConsultarSituacaoLoteRpsResposta
+
+
+class ConsultarSituacaoLoteRpsEnvio(GeneratedsSuper):
+    subclass = None
+    superclass = None
+    def __init__(self, Prestador=None, Protocolo=None, **kwargs_):
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.Prestador = Prestador
+        self.Protocolo = Protocolo
+        self.validate_tsNumeroProtocolo(self.Protocolo)
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ConsultarSituacaoLoteRpsEnvio)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ConsultarSituacaoLoteRpsEnvio.subclass:
+            return ConsultarSituacaoLoteRpsEnvio.subclass(*args_, **kwargs_)
+        else:
+            return ConsultarSituacaoLoteRpsEnvio(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def validate_tsNumeroProtocolo(self, value):
+        # Validate type tsNumeroProtocolo, a restriction on xsd:string.
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 50:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsNumeroProtocolo' % {"value" : value.encode("utf-8")} )
+    def hasContent_(self):
+        if (
+            self.Prestador is not None or
+            self.Protocolo is not None
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ConsultarSituacaoLoteRpsEnvio', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ConsultarSituacaoLoteRpsEnvio')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None:
+            name_ = self.original_tagname_
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self.exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ConsultarSituacaoLoteRpsEnvio')
+        if self.hasContent_():
+            outfile.write('>%s' % (eol_, ))
+            self.exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ConsultarSituacaoLoteRpsEnvio', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ConsultarSituacaoLoteRpsEnvio'):
+        pass
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ConsultarSituacaoLoteRpsEnvio', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.Prestador is not None:
+            self.Prestador.export(outfile, level, namespaceprefix_, namespacedef_='', name_='Prestador', pretty_print=pretty_print)
+        if self.Protocolo is not None:
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sProtocolo>%s</%sProtocolo>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.Protocolo), input_name='Protocolo')), namespaceprefix_ , eol_))
+    def build(self, node):
+        already_processed = set()
+        self.buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self.buildChildren(child, node, nodeName_)
+        return self
+    def buildAttributes(self, node, attrs, already_processed):
+        pass
+    def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
+        if nodeName_ == 'Prestador':
+            obj_ = tcIdentificacaoPrestador.factory(parent_object_=self)
+            obj_.build(child_)
+            self.Prestador = obj_
+            obj_.original_tagname_ = 'Prestador'
+        elif nodeName_ == 'Protocolo':
+            Protocolo_ = child_.text
+            Protocolo_ = self.gds_validate_string(Protocolo_, node, 'Protocolo')
+            self.Protocolo = Protocolo_
+            # validate type tsNumeroProtocolo
+            self.validate_tsNumeroProtocolo(self.Protocolo)
+# end class ConsultarSituacaoLoteRpsEnvio
+
+
+class ConsultarNfseRpsResposta(GeneratedsSuper):
+    subclass = None
+    superclass = None
+    def __init__(self, CompNfse=None, ListaMensagemRetorno=None, **kwargs_):
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.CompNfse = CompNfse
+        self.ListaMensagemRetorno = ListaMensagemRetorno
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ConsultarNfseRpsResposta)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ConsultarNfseRpsResposta.subclass:
+            return ConsultarNfseRpsResposta.subclass(*args_, **kwargs_)
+        else:
+            return ConsultarNfseRpsResposta(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def hasContent_(self):
+        if (
+            self.CompNfse is not None or
+            self.ListaMensagemRetorno is not None
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ConsultarNfseRpsResposta', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ConsultarNfseRpsResposta')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None:
+            name_ = self.original_tagname_
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self.exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ConsultarNfseRpsResposta')
+        if self.hasContent_():
+            outfile.write('>%s' % (eol_, ))
+            self.exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ConsultarNfseRpsResposta', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ConsultarNfseRpsResposta'):
+        pass
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ConsultarNfseRpsResposta', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.CompNfse is not None:
+            self.CompNfse.export(outfile, level, namespaceprefix_, namespacedef_='', name_='CompNfse', pretty_print=pretty_print)
+        if self.ListaMensagemRetorno is not None:
+            self.ListaMensagemRetorno.export(outfile, level, namespaceprefix_, namespacedef_='', name_='ListaMensagemRetorno', pretty_print=pretty_print)
+    def build(self, node):
+        already_processed = set()
+        self.buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self.buildChildren(child, node, nodeName_)
+        return self
+    def buildAttributes(self, node, attrs, already_processed):
+        pass
+    def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
+        if nodeName_ == 'CompNfse':
+            obj_ = tcCompNfse.factory(parent_object_=self)
+            obj_.build(child_)
+            self.CompNfse = obj_
+            obj_.original_tagname_ = 'CompNfse'
+        elif nodeName_ == 'ListaMensagemRetorno':
+            obj_ = ListaMensagemRetorno.factory(parent_object_=self)
+            obj_.build(child_)
+            self.ListaMensagemRetorno = obj_
+            obj_.original_tagname_ = 'ListaMensagemRetorno'
+# end class ConsultarNfseRpsResposta
+
+
+class ConsultarNfseRpsEnvio(GeneratedsSuper):
+    subclass = None
+    superclass = None
+    def __init__(self, IdentificacaoRps=None, Prestador=None, **kwargs_):
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.IdentificacaoRps = IdentificacaoRps
+        self.Prestador = Prestador
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ConsultarNfseRpsEnvio)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ConsultarNfseRpsEnvio.subclass:
+            return ConsultarNfseRpsEnvio.subclass(*args_, **kwargs_)
+        else:
+            return ConsultarNfseRpsEnvio(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def hasContent_(self):
+        if (
+            self.IdentificacaoRps is not None or
+            self.Prestador is not None
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ConsultarNfseRpsEnvio', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ConsultarNfseRpsEnvio')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None:
+            name_ = self.original_tagname_
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self.exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ConsultarNfseRpsEnvio')
+        if self.hasContent_():
+            outfile.write('>%s' % (eol_, ))
+            self.exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ConsultarNfseRpsEnvio', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ConsultarNfseRpsEnvio'):
+        pass
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ConsultarNfseRpsEnvio', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.IdentificacaoRps is not None:
+            self.IdentificacaoRps.export(outfile, level, namespaceprefix_, namespacedef_='', name_='IdentificacaoRps', pretty_print=pretty_print)
+        if self.Prestador is not None:
+            self.Prestador.export(outfile, level, namespaceprefix_, namespacedef_='', name_='Prestador', pretty_print=pretty_print)
+    def build(self, node):
+        already_processed = set()
+        self.buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self.buildChildren(child, node, nodeName_)
+        return self
+    def buildAttributes(self, node, attrs, already_processed):
+        pass
+    def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
+        if nodeName_ == 'IdentificacaoRps':
+            obj_ = tcIdentificacaoRps.factory(parent_object_=self)
+            obj_.build(child_)
+            self.IdentificacaoRps = obj_
+            obj_.original_tagname_ = 'IdentificacaoRps'
+        elif nodeName_ == 'Prestador':
+            obj_ = tcIdentificacaoPrestador.factory(parent_object_=self)
+            obj_.build(child_)
+            self.Prestador = obj_
+            obj_.original_tagname_ = 'Prestador'
+# end class ConsultarNfseRpsEnvio
+
+
+class ConsultarNfseResposta(GeneratedsSuper):
+    subclass = None
+    superclass = None
+    def __init__(self, ListaNfse=None, ListaMensagemRetorno=None, **kwargs_):
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ListaNfse = ListaNfse
+        self.ListaMensagemRetorno = ListaMensagemRetorno
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ConsultarNfseResposta)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ConsultarNfseResposta.subclass:
+            return ConsultarNfseResposta.subclass(*args_, **kwargs_)
+        else:
+            return ConsultarNfseResposta(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def hasContent_(self):
+        if (
+            self.ListaNfse is not None or
+            self.ListaMensagemRetorno is not None
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ConsultarNfseResposta', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ConsultarNfseResposta')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None:
+            name_ = self.original_tagname_
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self.exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ConsultarNfseResposta')
+        if self.hasContent_():
+            outfile.write('>%s' % (eol_, ))
+            self.exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ConsultarNfseResposta', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ConsultarNfseResposta'):
+        pass
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ConsultarNfseResposta', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.ListaNfse is not None:
+            self.ListaNfse.export(outfile, level, namespaceprefix_, namespacedef_='', name_='ListaNfse', pretty_print=pretty_print)
+        if self.ListaMensagemRetorno is not None:
+            self.ListaMensagemRetorno.export(outfile, level, namespaceprefix_, namespacedef_='', name_='ListaMensagemRetorno', pretty_print=pretty_print)
+    def build(self, node):
+        already_processed = set()
+        self.buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self.buildChildren(child, node, nodeName_)
+        return self
+    def buildAttributes(self, node, attrs, already_processed):
+        pass
+    def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
+        if nodeName_ == 'ListaNfse':
+            obj_ = ListaNfseType.factory(parent_object_=self)
+            obj_.build(child_)
+            self.ListaNfse = obj_
+            obj_.original_tagname_ = 'ListaNfse'
+        elif nodeName_ == 'ListaMensagemRetorno':
+            obj_ = ListaMensagemRetorno.factory(parent_object_=self)
+            obj_.build(child_)
+            self.ListaMensagemRetorno = obj_
+            obj_.original_tagname_ = 'ListaMensagemRetorno'
+# end class ConsultarNfseResposta
+
+
+class ConsultarNfseEnvio(GeneratedsSuper):
+    subclass = None
+    superclass = None
+    def __init__(self, Prestador=None, NumeroNfse=None, PeriodoEmissao=None, Tomador=None, IntermediarioServico=None, **kwargs_):
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.Prestador = Prestador
+        self.NumeroNfse = NumeroNfse
+        self.validate_tsNumeroNfse(self.NumeroNfse)
+        self.PeriodoEmissao = PeriodoEmissao
+        self.Tomador = Tomador
+        self.IntermediarioServico = IntermediarioServico
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ConsultarNfseEnvio)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ConsultarNfseEnvio.subclass:
+            return ConsultarNfseEnvio.subclass(*args_, **kwargs_)
+        else:
+            return ConsultarNfseEnvio(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def validate_tsNumeroNfse(self, value):
+        # Validate type tsNumeroNfse, a restriction on xsd:nonNegativeInteger.
+        if value is not None and Validate_simpletypes_:
+            if len(str(value)) >= 15:
+                warnings_.warn('Value "%(value)s" does not match xsd maxInclusive restriction on tsNumeroNfse' % {"value" : value} )
+    def hasContent_(self):
+        if (
+            self.Prestador is not None or
+            self.NumeroNfse is not None or
+            self.PeriodoEmissao is not None or
+            self.Tomador is not None or
+            self.IntermediarioServico is not None
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ConsultarNfseEnvio', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ConsultarNfseEnvio')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None:
+            name_ = self.original_tagname_
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self.exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ConsultarNfseEnvio')
+        if self.hasContent_():
+            outfile.write('>%s' % (eol_, ))
+            self.exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ConsultarNfseEnvio', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ConsultarNfseEnvio'):
+        pass
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ConsultarNfseEnvio', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.Prestador is not None:
+            self.Prestador.export(outfile, level, namespaceprefix_, namespacedef_='', name_='Prestador', pretty_print=pretty_print)
+        if self.NumeroNfse is not None:
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sNumeroNfse>%s</%sNumeroNfse>%s' % (namespaceprefix_ , self.gds_format_integer(self.NumeroNfse, input_name='NumeroNfse'), namespaceprefix_ , eol_))
+        if self.PeriodoEmissao is not None:
+            self.PeriodoEmissao.export(outfile, level, namespaceprefix_, namespacedef_='', name_='PeriodoEmissao', pretty_print=pretty_print)
+        if self.Tomador is not None:
+            self.Tomador.export(outfile, level, namespaceprefix_, namespacedef_='', name_='Tomador', pretty_print=pretty_print)
+        if self.IntermediarioServico is not None:
+            self.IntermediarioServico.export(outfile, level, namespaceprefix_, namespacedef_='', name_='IntermediarioServico', pretty_print=pretty_print)
+    def build(self, node):
+        already_processed = set()
+        self.buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self.buildChildren(child, node, nodeName_)
+        return self
+    def buildAttributes(self, node, attrs, already_processed):
+        pass
+    def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
+        if nodeName_ == 'Prestador':
+            obj_ = tcIdentificacaoPrestador.factory(parent_object_=self)
+            obj_.build(child_)
+            self.Prestador = obj_
+            obj_.original_tagname_ = 'Prestador'
+        elif nodeName_ == 'NumeroNfse' and child_.text:
+            sval_ = child_.text
+            try:
+                ival_ = int(sval_)
+            except (TypeError, ValueError) as exp:
+                raise_parse_error(child_, 'requires integer: %s' % exp)
+            if ival_ < 0:
+                raise_parse_error(child_, 'requires nonNegativeInteger')
+            ival_ = self.gds_validate_integer(ival_, node, 'NumeroNfse')
+            self.NumeroNfse = ival_
+            # validate type tsNumeroNfse
+            self.validate_tsNumeroNfse(self.NumeroNfse)
+        elif nodeName_ == 'PeriodoEmissao':
+            obj_ = PeriodoEmissaoType.factory(parent_object_=self)
+            obj_.build(child_)
+            self.PeriodoEmissao = obj_
+            obj_.original_tagname_ = 'PeriodoEmissao'
+        elif nodeName_ == 'Tomador':
+            obj_ = tcIdentificacaoTomador.factory(parent_object_=self)
+            obj_.build(child_)
+            self.Tomador = obj_
+            obj_.original_tagname_ = 'Tomador'
+        elif nodeName_ == 'IntermediarioServico':
+            obj_ = tcIdentificacaoIntermediarioServico.factory(parent_object_=self)
+            obj_.build(child_)
+            self.IntermediarioServico = obj_
+            obj_.original_tagname_ = 'IntermediarioServico'
+# end class ConsultarNfseEnvio
+
+
+class ConsultarLoteRpsResposta(GeneratedsSuper):
+    subclass = None
+    superclass = None
+    def __init__(self, ListaNfse=None, ListaMensagemRetorno=None, ListaMensagemRetornoLote=None, **kwargs_):
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ListaNfse = ListaNfse
+        self.ListaMensagemRetorno = ListaMensagemRetorno
+        self.ListaMensagemRetornoLote = ListaMensagemRetornoLote
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ConsultarLoteRpsResposta)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ConsultarLoteRpsResposta.subclass:
+            return ConsultarLoteRpsResposta.subclass(*args_, **kwargs_)
+        else:
+            return ConsultarLoteRpsResposta(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def hasContent_(self):
+        if (
+            self.ListaNfse is not None or
+            self.ListaMensagemRetorno is not None or
+            self.ListaMensagemRetornoLote is not None
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ConsultarLoteRpsResposta', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ConsultarLoteRpsResposta')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None:
+            name_ = self.original_tagname_
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self.exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ConsultarLoteRpsResposta')
+        if self.hasContent_():
+            outfile.write('>%s' % (eol_, ))
+            self.exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ConsultarLoteRpsResposta', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ConsultarLoteRpsResposta'):
+        pass
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ConsultarLoteRpsResposta', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.ListaNfse is not None:
+            self.ListaNfse.export(outfile, level, namespaceprefix_, namespacedef_='', name_='ListaNfse', pretty_print=pretty_print)
+        if self.ListaMensagemRetorno is not None:
+            self.ListaMensagemRetorno.export(outfile, level, namespaceprefix_, namespacedef_='', name_='ListaMensagemRetorno', pretty_print=pretty_print)
+        if self.ListaMensagemRetornoLote is not None:
+            self.ListaMensagemRetornoLote.export(outfile, level, namespaceprefix_, namespacedef_='', name_='ListaMensagemRetornoLote', pretty_print=pretty_print)
+    def build(self, node):
+        already_processed = set()
+        self.buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self.buildChildren(child, node, nodeName_)
+        return self
+    def buildAttributes(self, node, attrs, already_processed):
+        pass
+    def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
+        if nodeName_ == 'ListaNfse':
+            obj_ = ListaNfseType1.factory(parent_object_=self)
+            obj_.build(child_)
+            self.ListaNfse = obj_
+            obj_.original_tagname_ = 'ListaNfse'
+        elif nodeName_ == 'ListaMensagemRetorno':
+            obj_ = ListaMensagemRetorno.factory(parent_object_=self)
+            obj_.build(child_)
+            self.ListaMensagemRetorno = obj_
+            obj_.original_tagname_ = 'ListaMensagemRetorno'
+        elif nodeName_ == 'ListaMensagemRetornoLote':
+            obj_ = ListaMensagemRetornoLote.factory(parent_object_=self)
+            obj_.build(child_)
+            self.ListaMensagemRetornoLote = obj_
+            obj_.original_tagname_ = 'ListaMensagemRetornoLote'
+# end class ConsultarLoteRpsResposta
+
+
+class ConsultarLoteRpsEnvio(GeneratedsSuper):
+    subclass = None
+    superclass = None
+    def __init__(self, Prestador=None, Protocolo=None, **kwargs_):
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.Prestador = Prestador
+        self.Protocolo = Protocolo
+        self.validate_tsNumeroProtocolo(self.Protocolo)
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ConsultarLoteRpsEnvio)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ConsultarLoteRpsEnvio.subclass:
+            return ConsultarLoteRpsEnvio.subclass(*args_, **kwargs_)
+        else:
+            return ConsultarLoteRpsEnvio(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def validate_tsNumeroProtocolo(self, value):
+        # Validate type tsNumeroProtocolo, a restriction on xsd:string.
+        if value is not None and Validate_simpletypes_:
+            if len(value) > 50:
+                warnings_.warn('Value "%(value)s" does not match xsd maxLength restriction on tsNumeroProtocolo' % {"value" : value.encode("utf-8")} )
+    def hasContent_(self):
+        if (
+            self.Prestador is not None or
+            self.Protocolo is not None
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ConsultarLoteRpsEnvio', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ConsultarLoteRpsEnvio')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None:
+            name_ = self.original_tagname_
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self.exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ConsultarLoteRpsEnvio')
+        if self.hasContent_():
+            outfile.write('>%s' % (eol_, ))
+            self.exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ConsultarLoteRpsEnvio', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ConsultarLoteRpsEnvio'):
+        pass
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ConsultarLoteRpsEnvio', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.Prestador is not None:
+            self.Prestador.export(outfile, level, namespaceprefix_, namespacedef_='', name_='Prestador', pretty_print=pretty_print)
+        if self.Protocolo is not None:
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sProtocolo>%s</%sProtocolo>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.Protocolo), input_name='Protocolo')), namespaceprefix_ , eol_))
+    def build(self, node):
+        already_processed = set()
+        self.buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self.buildChildren(child, node, nodeName_)
+        return self
+    def buildAttributes(self, node, attrs, already_processed):
+        pass
+    def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
+        if nodeName_ == 'Prestador':
+            obj_ = tcIdentificacaoPrestador.factory(parent_object_=self)
+            obj_.build(child_)
+            self.Prestador = obj_
+            obj_.original_tagname_ = 'Prestador'
+        elif nodeName_ == 'Protocolo':
+            Protocolo_ = child_.text
+            Protocolo_ = self.gds_validate_string(Protocolo_, node, 'Protocolo')
+            self.Protocolo = Protocolo_
+            # validate type tsNumeroProtocolo
+            self.validate_tsNumeroProtocolo(self.Protocolo)
+# end class ConsultarLoteRpsEnvio
+
+
+class CancelarNfseResposta(GeneratedsSuper):
+    subclass = None
+    superclass = None
+    def __init__(self, RetCancelamento=None, ListaMensagemRetorno=None, **kwargs_):
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.RetCancelamento = RetCancelamento
+        self.ListaMensagemRetorno = ListaMensagemRetorno
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, CancelarNfseResposta)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if CancelarNfseResposta.subclass:
+            return CancelarNfseResposta.subclass(*args_, **kwargs_)
+        else:
+            return CancelarNfseResposta(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def hasContent_(self):
+        if (
+            self.RetCancelamento is not None or
+            self.ListaMensagemRetorno is not None
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='CancelarNfseResposta', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('CancelarNfseResposta')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None:
+            name_ = self.original_tagname_
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self.exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='CancelarNfseResposta')
+        if self.hasContent_():
+            outfile.write('>%s' % (eol_, ))
+            self.exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='CancelarNfseResposta', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='CancelarNfseResposta'):
+        pass
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='CancelarNfseResposta', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.RetCancelamento is not None:
+            self.RetCancelamento.export(outfile, level, namespaceprefix_, namespacedef_='', name_='RetCancelamento', pretty_print=pretty_print)
+        if self.ListaMensagemRetorno is not None:
+            self.ListaMensagemRetorno.export(outfile, level, namespaceprefix_, namespacedef_='', name_='ListaMensagemRetorno', pretty_print=pretty_print)
+    def build(self, node):
+        already_processed = set()
+        self.buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self.buildChildren(child, node, nodeName_)
+        return self
+    def buildAttributes(self, node, attrs, already_processed):
+        pass
+    def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
+        if nodeName_ == 'RetCancelamento':
+            obj_ = RetCancelamento.factory(parent_object_=self)
+            obj_.build(child_)
+            self.RetCancelamento = obj_
+            obj_.original_tagname_ = 'RetCancelamento'
+        elif nodeName_ == 'ListaMensagemRetorno':
+            obj_ = ListaMensagemRetorno.factory(parent_object_=self)
+            obj_.build(child_)
+            self.ListaMensagemRetorno = obj_
+            obj_.original_tagname_ = 'ListaMensagemRetorno'
+# end class CancelarNfseResposta
+
+
+class CancelarNfseEnvio(GeneratedsSuper):
+    subclass = None
+    superclass = None
+    def __init__(self, Pedido=None, **kwargs_):
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.Pedido = Pedido
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, CancelarNfseEnvio)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if CancelarNfseEnvio.subclass:
+            return CancelarNfseEnvio.subclass(*args_, **kwargs_)
+        else:
+            return CancelarNfseEnvio(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def hasContent_(self):
+        if (
+            self.Pedido is not None
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='CancelarNfseEnvio', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('CancelarNfseEnvio')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None:
+            name_ = self.original_tagname_
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self.exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='CancelarNfseEnvio')
+        if self.hasContent_():
+            outfile.write('>%s' % (eol_, ))
+            self.exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='CancelarNfseEnvio', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='CancelarNfseEnvio'):
+        pass
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='CancelarNfseEnvio', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.Pedido is not None:
+            self.Pedido.export(outfile, level, namespaceprefix_, namespacedef_='', name_='Pedido', pretty_print=pretty_print)
+    def build(self, node):
+        already_processed = set()
+        self.buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self.buildChildren(child, node, nodeName_)
+        return self
+    def buildAttributes(self, node, attrs, already_processed):
+        pass
+    def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
+        if nodeName_ == 'Pedido':
+            obj_ = tcPedidoCancelamento.factory(parent_object_=self)
+            obj_.build(child_)
+            self.Pedido = obj_
+            obj_.original_tagname_ = 'Pedido'
+# end class CancelarNfseEnvio
+
+
+class cabecalho(GeneratedsSuper):
+    subclass = None
+    superclass = None
+    def __init__(self, versao=None, versaoDados=None, **kwargs_):
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.versao = _cast(None, versao)
+        self.versaoDados = versaoDados
+        self.validate_tsVersao(self.versaoDados)
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, cabecalho)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if cabecalho.subclass:
+            return cabecalho.subclass(*args_, **kwargs_)
+        else:
+            return cabecalho(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def validate_tsVersao(self, value):
+        # Validate type tsVersao, a restriction on xsd:token.
+        if value is not None and Validate_simpletypes_:
+            if not self.gds_validate_simple_patterns(
+                    self.validate_tsVersao_patterns_, value):
+                warnings_.warn('Value "%s" does not match xsd pattern restrictions: %s' % (value.encode('utf-8'), self.validate_tsVersao_patterns_, ))
+    validate_tsVersao_patterns_ = [['^[1-9]{1}[0-9]{0,1}\\.[0-9]{2}$']]
+    def hasContent_(self):
+        if (
+            self.versaoDados is not None
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='cabecalho', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('cabecalho')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None:
+            name_ = self.original_tagname_
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self.exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='cabecalho')
+        if self.hasContent_():
+            outfile.write('>%s' % (eol_, ))
+            self.exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='cabecalho', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='cabecalho'):
+        if self.versao is not None and 'versao' not in already_processed:
+            already_processed.add('versao')
+            outfile.write(' versao=%s' % (quote_attrib(self.versao), ))
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='cabecalho', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.versaoDados is not None:
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sversaoDados>%s</%sversaoDados>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.versaoDados), input_name='versaoDados')), namespaceprefix_ , eol_))
+    def build(self, node):
+        already_processed = set()
+        self.buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self.buildChildren(child, node, nodeName_)
+        return self
+    def buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('versao', node)
+        if value is not None and 'versao' not in already_processed:
+            already_processed.add('versao')
+            self.versao = value
+            self.versao = ' '.join(self.versao.split())
+            self.validate_tsVersao(self.versao)    # validate type tsVersao
+    def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
+        if nodeName_ == 'versaoDados':
+            versaoDados_ = child_.text
+            if versaoDados_:
+                versaoDados_ = re_.sub(String_cleanup_pat_, " ", versaoDados_).strip()
+            else:
+                versaoDados_ = ""
+            versaoDados_ = self.gds_validate_string(versaoDados_, node, 'versaoDados')
+            self.versaoDados = versaoDados_
+            # validate type tsVersao
+            self.validate_tsVersao(self.versaoDados)
+# end class cabecalho
 
 
 class ListaRpsType(GeneratedsSuper):
@@ -4515,6 +6086,245 @@ class ListaRpsType(GeneratedsSuper):
 # end class ListaRpsType
 
 
+class ListaNfseType(GeneratedsSuper):
+    subclass = None
+    superclass = None
+    def __init__(self, CompNfse=None, **kwargs_):
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.CompNfse = CompNfse
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ListaNfseType)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ListaNfseType.subclass:
+            return ListaNfseType.subclass(*args_, **kwargs_)
+        else:
+            return ListaNfseType(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def hasContent_(self):
+        if (
+            self.CompNfse is not None
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ListaNfseType', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ListaNfseType')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None:
+            name_ = self.original_tagname_
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self.exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ListaNfseType')
+        if self.hasContent_():
+            outfile.write('>%s' % (eol_, ))
+            self.exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ListaNfseType', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ListaNfseType'):
+        pass
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ListaNfseType', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.CompNfse is not None:
+            self.CompNfse.export(outfile, level, namespaceprefix_, namespacedef_='', name_='CompNfse', pretty_print=pretty_print)
+    def build(self, node):
+        already_processed = set()
+        self.buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self.buildChildren(child, node, nodeName_)
+        return self
+    def buildAttributes(self, node, attrs, already_processed):
+        pass
+    def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
+        if nodeName_ == 'CompNfse':
+            obj_ = tcCompNfse.factory(parent_object_=self)
+            obj_.build(child_)
+            self.CompNfse = obj_
+            obj_.original_tagname_ = 'CompNfse'
+# end class ListaNfseType
+
+
+class PeriodoEmissaoType(GeneratedsSuper):
+    subclass = None
+    superclass = None
+    def __init__(self, DataInicial=None, DataFinal=None, **kwargs_):
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        if isinstance(DataInicial, BaseStrType_):
+            initvalue_ = datetime_.datetime.strptime(DataInicial, '%Y-%m-%d').date()
+        else:
+            initvalue_ = DataInicial
+        self.DataInicial = initvalue_
+        if isinstance(DataFinal, BaseStrType_):
+            initvalue_ = datetime_.datetime.strptime(DataFinal, '%Y-%m-%d').date()
+        else:
+            initvalue_ = DataFinal
+        self.DataFinal = initvalue_
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, PeriodoEmissaoType)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if PeriodoEmissaoType.subclass:
+            return PeriodoEmissaoType.subclass(*args_, **kwargs_)
+        else:
+            return PeriodoEmissaoType(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def hasContent_(self):
+        if (
+            self.DataInicial is not None or
+            self.DataFinal is not None
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='PeriodoEmissaoType', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('PeriodoEmissaoType')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None:
+            name_ = self.original_tagname_
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self.exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='PeriodoEmissaoType')
+        if self.hasContent_():
+            outfile.write('>%s' % (eol_, ))
+            self.exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='PeriodoEmissaoType', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='PeriodoEmissaoType'):
+        pass
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='PeriodoEmissaoType', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.DataInicial is not None:
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sDataInicial>%s</%sDataInicial>%s' % (namespaceprefix_ , self.gds_format_date(self.DataInicial, input_name='DataInicial'), namespaceprefix_ , eol_))
+        if self.DataFinal is not None:
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sDataFinal>%s</%sDataFinal>%s' % (namespaceprefix_ , self.gds_format_date(self.DataFinal, input_name='DataFinal'), namespaceprefix_ , eol_))
+    def build(self, node):
+        already_processed = set()
+        self.buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self.buildChildren(child, node, nodeName_)
+        return self
+    def buildAttributes(self, node, attrs, already_processed):
+        pass
+    def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
+        if nodeName_ == 'DataInicial':
+            sval_ = child_.text
+            dval_ = self.gds_parse_date(sval_)
+            self.DataInicial = dval_
+        elif nodeName_ == 'DataFinal':
+            sval_ = child_.text
+            dval_ = self.gds_parse_date(sval_)
+            self.DataFinal = dval_
+# end class PeriodoEmissaoType
+
+
+class ListaNfseType1(GeneratedsSuper):
+    subclass = None
+    superclass = None
+    def __init__(self, CompNfse=None, **kwargs_):
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        if CompNfse is None:
+            self.CompNfse = []
+        else:
+            self.CompNfse = CompNfse
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ListaNfseType1)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ListaNfseType1.subclass:
+            return ListaNfseType1.subclass(*args_, **kwargs_)
+        else:
+            return ListaNfseType1(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def hasContent_(self):
+        if (
+            self.CompNfse
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ListaNfseType1', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ListaNfseType1')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None:
+            name_ = self.original_tagname_
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self.exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ListaNfseType1')
+        if self.hasContent_():
+            outfile.write('>%s' % (eol_, ))
+            self.exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ListaNfseType1', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ListaNfseType1'):
+        pass
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ListaNfseType1', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for CompNfse_ in self.CompNfse:
+            CompNfse_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='CompNfse', pretty_print=pretty_print)
+    def build(self, node):
+        already_processed = set()
+        self.buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self.buildChildren(child, node, nodeName_)
+        return self
+    def buildAttributes(self, node, attrs, already_processed):
+        pass
+    def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
+        if nodeName_ == 'CompNfse':
+            obj_ = tcCompNfse.factory(parent_object_=self)
+            obj_.build(child_)
+            self.CompNfse.append(obj_)
+            obj_.original_tagname_ = 'CompNfse'
+# end class ListaNfseType1
+
+
 GDSClassesMapping = {
 }
 
@@ -4553,7 +6363,7 @@ def parse(inFileName, silence=False):
         sys.stdout.write('<?xml version="1.0" ?>\n')
         rootObj.export(
             sys.stdout, 0, name_=rootTag,
-            namespacedef_='xmlns:tc="http://www.issnetonline.com.br/webserviceabrasf/vsd/tipos_complexos.xsd"',
+            namespacedef_='',
             pretty_print=True)
     return rootObj
 
@@ -4604,7 +6414,7 @@ def parseString(inString, silence=False):
         sys.stdout.write('<?xml version="1.0" ?>\n')
         rootObj.export(
             sys.stdout, 0, name_=rootTag,
-            namespacedef_='xmlns:tc="http://www.issnetonline.com.br/webserviceabrasf/vsd/tipos_complexos.xsd"')
+            namespacedef_='')
     return rootObj
 
 
@@ -4621,8 +6431,8 @@ def parseLiteral(inFileName, silence=False):
     # Enable Python to collect the space used by the DOM.
     doc = None
     if not silence:
-        sys.stdout.write('#from tipos_complexos import *\n\n')
-        sys.stdout.write('import tipos_complexos as model_\n\n')
+        sys.stdout.write('#from nfse import *\n\n')
+        sys.stdout.write('import nfse as model_\n\n')
         sys.stdout.write('rootObj = model_.rootClass(\n')
         rootObj.exportLiteral(sys.stdout, 0, name_=rootTag)
         sys.stdout.write(')\n')
@@ -4643,8 +6453,26 @@ if __name__ == '__main__':
 
 
 __all__ = [
-    "ListaMensagemRetornoType",
+    "CancelarNfseEnvio",
+    "CancelarNfseResposta",
+    "ConsultarLoteRpsEnvio",
+    "ConsultarLoteRpsResposta",
+    "ConsultarNfseEnvio",
+    "ConsultarNfseResposta",
+    "ConsultarNfseRpsEnvio",
+    "ConsultarNfseRpsResposta",
+    "ConsultarSituacaoLoteRpsEnvio",
+    "ConsultarSituacaoLoteRpsResposta",
+    "EnviarLoteRpsEnvio",
+    "EnviarLoteRpsResposta",
+    "ListaMensagemRetorno",
+    "ListaMensagemRetornoLote",
+    "ListaNfseType",
+    "ListaNfseType1",
     "ListaRpsType",
+    "PeriodoEmissaoType",
+    "RetCancelamento",
+    "cabecalho",
     "tcCancelamentoNfse",
     "tcCompNfse",
     "tcConfirmacaoCancelamento",
@@ -4661,7 +6489,6 @@ __all__ = [
     "tcIdentificacaoPrestador",
     "tcIdentificacaoRps",
     "tcIdentificacaoTomador",
-    "tcInfConfirmacaoCancelamento",
     "tcInfNfse",
     "tcInfPedidoCancelamento",
     "tcInfRps",

@@ -1,0 +1,11 @@
+Module contents
+=================
+
+.. automodule:: nfse.xsd
+    :members:
+    :undoc-members:
+    :show-inheritance:
+.. automodule:: xmldsig-core-schema20020212.xsd
+    :members:
+    :undoc-members:
+    :show-inheritance:
