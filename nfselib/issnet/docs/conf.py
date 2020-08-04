@@ -1,1 +1,0 @@
-sys.path.append(os.path.abspath('../issnetlib/v1_00'))

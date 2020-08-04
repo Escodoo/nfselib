@@ -1,38 +1,69 @@
 nfselib Python library
 ======================
 
-TODO
 
 Como Usar
 =========
-virtualenv .
-source bin/activate
-hg clone https://bitbucket.org/kmee/generateds --branch=odoo-plugin
-git clone git@github.com:erpbrasil/erpbrasil.edoc.gen.git
 
-cd generateds
-pip install .
+TODO
 
-cd ..
+Como Converter XSD em Código Python
+===================================
 
-cd erpbrasil.edoc.gen
-pip install .
+Crie um diretório qualquer:
 
-wget https://www.notacontrol.com.br/download/manuais.zip
-unzip manuais.zip
+    mkdir laboratorio
 
-cd Manuais/
-unzip Schemas.zip
-cd ..
-mkdir issnet-teste
-cd issnet-teste/
-mkdir -p issnet/v1_0
-mv ../Manuais/Schemas/* issnet/v1_0/
+    cd laboratorio
 
-erpbrasil-edoc-gen-generate-python -n issnet -v v1.0 -s . -d .
+Crie um ambiente virtual e ative o mesmo:
 
-ls issnetlib/v1_0/
+    virtualenv .
 
+    source bin/activate
 
-erpbrasil-edoc-gen-download-schema -n paulistana -v v02 -u http://nfpaulistana.prefeitura.sp.gov.br/arquivos/schemasv02.zip -t /tmp/paulistana
-erpbrasil-edoc-gen-generate-python -n paulistana -v v02 -s . -d .
+Baixe os fontes necessários:
+
+    hg clone https://bitbucket.org/kmee/generateds --branch=odoo-plugin
+
+    git clone git@github.com:erpbrasil/erpbrasil.edoc.gen.git
+
+Agora faça a instalação de cada um deles:
+
+    cd generateds
+
+    pip install .
+
+    cd ..
+
+    cd erpbrasil.edoc.gen
+
+    pip install .
+
+Baixe e descompacte os arquivos do provedor NFSe:
+
+    wget https://www.notacontrol.com.br/download/manuais.zip
+
+    unzip manuais.zip
+
+    cd Manuais/
+
+    unzip Schemas.zip
+
+    cd ..
+
+    mkdir issnet-teste
+
+    cd issnet-teste/
+
+    mkdir -p issnet/v1_0
+
+    mv ../Manuais/Schemas/* issnet/v1_0/
+
+Agora execute o comando abaixo para gerar os arquivos python:
+
+    erpbrasil-edoc-gen-generate-python -n issnet -v v1.0 -s . -d .
+
+Verifique se os arquivos foram criados:
+
+    ls issnetlib/v1_0/

@@ -2,24 +2,21 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Thu Jul 30 18:18:38 2020 by generateDS.py version 2.30.15.
+# Generated Tue Aug  4 16:48:45 2020 by generateDS.py version 2.30.15.
 # Python 3.8.5 (default, Jul 21 2020, 10:42:08)  [Clang 11.0.0 (clang-1100.0.33.17)]
 #
 # Command line options:
-#   ('--no-namespace-defs', '')
-#   ('--no-collect-includes', '')
-#   ('--use-getter-setter', 'none')
 #   ('-f', '')
-#   ('-o', './issnetlib/v1_00/xmldsig-core-schema20020212.py')
+#   ('-o', 'xmldsig-core-schema20020212.py')
 #
 # Command line arguments:
-#   ./process_includes/xmldsig-core-schema20020212.xsd
+#   xmldsig-core-schema20020212.xsd
 #
 # Command line:
-#   /Users/marcelsavegnago/Projetos/odoo/python-libs/issnet-test/bin/erpbrasil-edoc-gen-generate-python --no-namespace-defs --no-collect-includes --use-getter-setter="none" -f -o "./issnetlib/v1_00/xmldsig-core-schema20020212.py" ./process_includes/xmldsig-core-schema20020212.xsd
+#   /Users/marcelsavegnago/Projetos/odoo/python-libs/issnet-test/bin/generateDS -f -o "xmldsig-core-schema20020212.py" xmldsig-core-schema20020212.xsd
 #
 # Current working directory (os.getcwd()):
-#   issnet-test
+#   v1_00
 #
 
 import os
@@ -775,6 +772,32 @@ class SignatureType(GeneratedsSuper):
         else:
             return SignatureType(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def get_SignedInfo(self):
+        return self.SignedInfo
+    def set_SignedInfo(self, SignedInfo):
+        self.SignedInfo = SignedInfo
+    def get_SignatureValue(self):
+        return self.SignatureValue
+    def set_SignatureValue(self, SignatureValue):
+        self.SignatureValue = SignatureValue
+    def get_KeyInfo(self):
+        return self.KeyInfo
+    def set_KeyInfo(self, KeyInfo):
+        self.KeyInfo = KeyInfo
+    def get_Object(self):
+        return self.Object
+    def set_Object(self, Object):
+        self.Object = Object
+    def add_Object(self, value):
+        self.Object.append(value)
+    def insert_Object_at(self, index, value):
+        self.Object.insert(index, value)
+    def replace_Object_at(self, index, value):
+        self.Object[index] = value
+    def get_Id(self):
+        return self.Id
+    def set_Id(self, Id):
+        self.Id = Id
     def hasContent_(self):
         if (
             self.SignedInfo is not None or
@@ -785,7 +808,7 @@ class SignatureType(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='SignatureType', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#"', name_='SignatureType', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('SignatureType')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
@@ -810,7 +833,7 @@ class SignatureType(GeneratedsSuper):
         if self.Id is not None and 'Id' not in already_processed:
             already_processed.add('Id')
             outfile.write(' Id=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.Id), input_name='Id')), ))
-    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='SignatureType', fromsubclass_=False, pretty_print=True):
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#"', name_='SignatureType', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
         else:
@@ -878,6 +901,12 @@ class SignatureValueType(GeneratedsSuper):
         else:
             return SignatureValueType(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def get_Id(self):
+        return self.Id
+    def set_Id(self, Id):
+        self.Id = Id
+    def get_valueOf_(self): return self.valueOf_
+    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def hasContent_(self):
         if (
             (1 if type(self.valueOf_) in [int,float] else self.valueOf_)
@@ -885,7 +914,7 @@ class SignatureValueType(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='SignatureValueType', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#"', name_='SignatureValueType', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('SignatureValueType')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
@@ -910,7 +939,7 @@ class SignatureValueType(GeneratedsSuper):
         if self.Id is not None and 'Id' not in already_processed:
             already_processed.add('Id')
             outfile.write(' Id=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.Id), input_name='Id')), ))
-    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='SignatureValueType', fromsubclass_=False, pretty_print=True):
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#"', name_='SignatureValueType', fromsubclass_=False, pretty_print=True):
         pass
     def build(self, node):
         already_processed = set()
@@ -954,6 +983,28 @@ class SignedInfoType(GeneratedsSuper):
         else:
             return SignedInfoType(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def get_CanonicalizationMethod(self):
+        return self.CanonicalizationMethod
+    def set_CanonicalizationMethod(self, CanonicalizationMethod):
+        self.CanonicalizationMethod = CanonicalizationMethod
+    def get_SignatureMethod(self):
+        return self.SignatureMethod
+    def set_SignatureMethod(self, SignatureMethod):
+        self.SignatureMethod = SignatureMethod
+    def get_Reference(self):
+        return self.Reference
+    def set_Reference(self, Reference):
+        self.Reference = Reference
+    def add_Reference(self, value):
+        self.Reference.append(value)
+    def insert_Reference_at(self, index, value):
+        self.Reference.insert(index, value)
+    def replace_Reference_at(self, index, value):
+        self.Reference[index] = value
+    def get_Id(self):
+        return self.Id
+    def set_Id(self, Id):
+        self.Id = Id
     def hasContent_(self):
         if (
             self.CanonicalizationMethod is not None or
@@ -963,7 +1014,7 @@ class SignedInfoType(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='SignedInfoType', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#"', name_='SignedInfoType', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('SignedInfoType')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
@@ -988,7 +1039,7 @@ class SignedInfoType(GeneratedsSuper):
         if self.Id is not None and 'Id' not in already_processed:
             already_processed.add('Id')
             outfile.write(' Id=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.Id), input_name='Id')), ))
-    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='SignedInfoType', fromsubclass_=False, pretty_print=True):
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#"', name_='SignedInfoType', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
         else:
@@ -1062,6 +1113,16 @@ class CanonicalizationMethodType(GeneratedsSuper):
         else:
             return CanonicalizationMethodType(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def get_anytypeobjs_(self): return self.anytypeobjs_
+    def set_anytypeobjs_(self, anytypeobjs_): self.anytypeobjs_ = anytypeobjs_
+    def add_anytypeobjs_(self, value): self.anytypeobjs_.append(value)
+    def insert_anytypeobjs_(self, index, value): self._anytypeobjs_[index] = value
+    def get_Algorithm(self):
+        return self.Algorithm
+    def set_Algorithm(self, Algorithm):
+        self.Algorithm = Algorithm
+    def get_valueOf_(self): return self.valueOf_
+    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def hasContent_(self):
         if (
             self.anytypeobjs_ or
@@ -1070,7 +1131,7 @@ class CanonicalizationMethodType(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='CanonicalizationMethodType', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:None="http://www.w3.org/2001/XMLSchema" ', name_='CanonicalizationMethodType', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('CanonicalizationMethodType')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
@@ -1095,7 +1156,7 @@ class CanonicalizationMethodType(GeneratedsSuper):
         if self.Algorithm is not None and 'Algorithm' not in already_processed:
             already_processed.add('Algorithm')
             outfile.write(' Algorithm=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.Algorithm), input_name='Algorithm')), ))
-    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='CanonicalizationMethodType', fromsubclass_=False, pretty_print=True):
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:None="http://www.w3.org/2001/XMLSchema" ', name_='CanonicalizationMethodType', fromsubclass_=False, pretty_print=True):
         if not fromsubclass_:
             for item_ in self.content_:
                 item_.export(outfile, level, item_.name, namespaceprefix_, pretty_print=pretty_print)
@@ -1174,6 +1235,20 @@ class SignatureMethodType(GeneratedsSuper):
         else:
             return SignatureMethodType(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def get_HMACOutputLength(self):
+        return self.HMACOutputLength
+    def set_HMACOutputLength(self, HMACOutputLength):
+        self.HMACOutputLength = HMACOutputLength
+    def get_anytypeobjs_(self): return self.anytypeobjs_
+    def set_anytypeobjs_(self, anytypeobjs_): self.anytypeobjs_ = anytypeobjs_
+    def add_anytypeobjs_(self, value): self.anytypeobjs_.append(value)
+    def insert_anytypeobjs_(self, index, value): self._anytypeobjs_[index] = value
+    def get_Algorithm(self):
+        return self.Algorithm
+    def set_Algorithm(self, Algorithm):
+        self.Algorithm = Algorithm
+    def get_valueOf_(self): return self.valueOf_
+    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def validate_HMACOutputLengthType(self, value):
         # Validate type HMACOutputLengthType, a restriction on integer.
         if value is not None and Validate_simpletypes_:
@@ -1187,7 +1262,7 @@ class SignatureMethodType(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='SignatureMethodType', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:None="http://www.w3.org/2001/XMLSchema" ', name_='SignatureMethodType', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('SignatureMethodType')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
@@ -1212,7 +1287,7 @@ class SignatureMethodType(GeneratedsSuper):
         if self.Algorithm is not None and 'Algorithm' not in already_processed:
             already_processed.add('Algorithm')
             outfile.write(' Algorithm=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.Algorithm), input_name='Algorithm')), ))
-    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='SignatureMethodType', fromsubclass_=False, pretty_print=True):
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:None="http://www.w3.org/2001/XMLSchema" ', name_='SignatureMethodType', fromsubclass_=False, pretty_print=True):
         if not fromsubclass_:
             for item_ in self.content_:
                 item_.export(outfile, level, item_.name, namespaceprefix_, pretty_print=pretty_print)
@@ -1292,6 +1367,30 @@ class ReferenceType(GeneratedsSuper):
         else:
             return ReferenceType(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def get_Transforms(self):
+        return self.Transforms
+    def set_Transforms(self, Transforms):
+        self.Transforms = Transforms
+    def get_DigestMethod(self):
+        return self.DigestMethod
+    def set_DigestMethod(self, DigestMethod):
+        self.DigestMethod = DigestMethod
+    def get_DigestValue(self):
+        return self.DigestValue
+    def set_DigestValue(self, DigestValue):
+        self.DigestValue = DigestValue
+    def get_Id(self):
+        return self.Id
+    def set_Id(self, Id):
+        self.Id = Id
+    def get_URI(self):
+        return self.URI
+    def set_URI(self, URI):
+        self.URI = URI
+    def get_Type(self):
+        return self.Type
+    def set_Type(self, Type):
+        self.Type = Type
     def hasContent_(self):
         if (
             self.Transforms is not None or
@@ -1301,7 +1400,7 @@ class ReferenceType(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ReferenceType', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#"', name_='ReferenceType', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('ReferenceType')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
@@ -1332,7 +1431,7 @@ class ReferenceType(GeneratedsSuper):
         if self.Type is not None and 'Type' not in already_processed:
             already_processed.add('Type')
             outfile.write(' Type=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.Type), input_name='Type')), ))
-    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ReferenceType', fromsubclass_=False, pretty_print=True):
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#"', name_='ReferenceType', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
         else:
@@ -1410,6 +1509,16 @@ class TransformsType(GeneratedsSuper):
         else:
             return TransformsType(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def get_Transform(self):
+        return self.Transform
+    def set_Transform(self, Transform):
+        self.Transform = Transform
+    def add_Transform(self, value):
+        self.Transform.append(value)
+    def insert_Transform_at(self, index, value):
+        self.Transform.insert(index, value)
+    def replace_Transform_at(self, index, value):
+        self.Transform[index] = value
     def hasContent_(self):
         if (
             self.Transform
@@ -1417,7 +1526,7 @@ class TransformsType(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='TransformsType', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#"', name_='TransformsType', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('TransformsType')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
@@ -1440,7 +1549,7 @@ class TransformsType(GeneratedsSuper):
             outfile.write('/>%s' % (eol_, ))
     def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='TransformsType'):
         pass
-    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='TransformsType', fromsubclass_=False, pretty_print=True):
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#"', name_='TransformsType', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
         else:
@@ -1498,6 +1607,24 @@ class TransformType(GeneratedsSuper):
         else:
             return TransformType(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def get_anytypeobjs_(self): return self.anytypeobjs_
+    def set_anytypeobjs_(self, anytypeobjs_): self.anytypeobjs_ = anytypeobjs_
+    def get_XPath(self):
+        return self.XPath
+    def set_XPath(self, XPath):
+        self.XPath = XPath
+    def add_XPath(self, value):
+        self.XPath.append(value)
+    def insert_XPath_at(self, index, value):
+        self.XPath.insert(index, value)
+    def replace_XPath_at(self, index, value):
+        self.XPath[index] = value
+    def get_Algorithm(self):
+        return self.Algorithm
+    def set_Algorithm(self, Algorithm):
+        self.Algorithm = Algorithm
+    def get_valueOf_(self): return self.valueOf_
+    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def hasContent_(self):
         if (
             self.anytypeobjs_ is not None or
@@ -1507,7 +1634,7 @@ class TransformType(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='TransformType', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:None="http://www.w3.org/2001/XMLSchema" ', name_='TransformType', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('TransformType')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
@@ -1532,7 +1659,7 @@ class TransformType(GeneratedsSuper):
         if self.Algorithm is not None and 'Algorithm' not in already_processed:
             already_processed.add('Algorithm')
             outfile.write(' Algorithm=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.Algorithm), input_name='Algorithm')), ))
-    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='TransformType', fromsubclass_=False, pretty_print=True):
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:None="http://www.w3.org/2001/XMLSchema" ', name_='TransformType', fromsubclass_=False, pretty_print=True):
         if not fromsubclass_:
             for item_ in self.content_:
                 item_.export(outfile, level, item_.name, namespaceprefix_, pretty_print=pretty_print)
@@ -1617,6 +1744,16 @@ class DigestMethodType(GeneratedsSuper):
         else:
             return DigestMethodType(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def get_anytypeobjs_(self): return self.anytypeobjs_
+    def set_anytypeobjs_(self, anytypeobjs_): self.anytypeobjs_ = anytypeobjs_
+    def add_anytypeobjs_(self, value): self.anytypeobjs_.append(value)
+    def insert_anytypeobjs_(self, index, value): self._anytypeobjs_[index] = value
+    def get_Algorithm(self):
+        return self.Algorithm
+    def set_Algorithm(self, Algorithm):
+        self.Algorithm = Algorithm
+    def get_valueOf_(self): return self.valueOf_
+    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def hasContent_(self):
         if (
             self.anytypeobjs_ or
@@ -1625,7 +1762,7 @@ class DigestMethodType(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='DigestMethodType', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:None="http://www.w3.org/2001/XMLSchema" ', name_='DigestMethodType', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('DigestMethodType')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
@@ -1650,7 +1787,7 @@ class DigestMethodType(GeneratedsSuper):
         if self.Algorithm is not None and 'Algorithm' not in already_processed:
             already_processed.add('Algorithm')
             outfile.write(' Algorithm=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.Algorithm), input_name='Algorithm')), ))
-    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='DigestMethodType', fromsubclass_=False, pretty_print=True):
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:None="http://www.w3.org/2001/XMLSchema" ', name_='DigestMethodType', fromsubclass_=False, pretty_print=True):
         if not fromsubclass_:
             for item_ in self.content_:
                 item_.export(outfile, level, item_.name, namespaceprefix_, pretty_print=pretty_print)
@@ -1752,6 +1889,84 @@ class KeyInfoType(GeneratedsSuper):
         else:
             return KeyInfoType(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def get_KeyName(self):
+        return self.KeyName
+    def set_KeyName(self, KeyName):
+        self.KeyName = KeyName
+    def add_KeyName(self, value):
+        self.KeyName.append(value)
+    def insert_KeyName_at(self, index, value):
+        self.KeyName.insert(index, value)
+    def replace_KeyName_at(self, index, value):
+        self.KeyName[index] = value
+    def get_KeyValue(self):
+        return self.KeyValue
+    def set_KeyValue(self, KeyValue):
+        self.KeyValue = KeyValue
+    def add_KeyValue(self, value):
+        self.KeyValue.append(value)
+    def insert_KeyValue_at(self, index, value):
+        self.KeyValue.insert(index, value)
+    def replace_KeyValue_at(self, index, value):
+        self.KeyValue[index] = value
+    def get_RetrievalMethod(self):
+        return self.RetrievalMethod
+    def set_RetrievalMethod(self, RetrievalMethod):
+        self.RetrievalMethod = RetrievalMethod
+    def add_RetrievalMethod(self, value):
+        self.RetrievalMethod.append(value)
+    def insert_RetrievalMethod_at(self, index, value):
+        self.RetrievalMethod.insert(index, value)
+    def replace_RetrievalMethod_at(self, index, value):
+        self.RetrievalMethod[index] = value
+    def get_X509Data(self):
+        return self.X509Data
+    def set_X509Data(self, X509Data):
+        self.X509Data = X509Data
+    def add_X509Data(self, value):
+        self.X509Data.append(value)
+    def insert_X509Data_at(self, index, value):
+        self.X509Data.insert(index, value)
+    def replace_X509Data_at(self, index, value):
+        self.X509Data[index] = value
+    def get_PGPData(self):
+        return self.PGPData
+    def set_PGPData(self, PGPData):
+        self.PGPData = PGPData
+    def add_PGPData(self, value):
+        self.PGPData.append(value)
+    def insert_PGPData_at(self, index, value):
+        self.PGPData.insert(index, value)
+    def replace_PGPData_at(self, index, value):
+        self.PGPData[index] = value
+    def get_SPKIData(self):
+        return self.SPKIData
+    def set_SPKIData(self, SPKIData):
+        self.SPKIData = SPKIData
+    def add_SPKIData(self, value):
+        self.SPKIData.append(value)
+    def insert_SPKIData_at(self, index, value):
+        self.SPKIData.insert(index, value)
+    def replace_SPKIData_at(self, index, value):
+        self.SPKIData[index] = value
+    def get_MgmtData(self):
+        return self.MgmtData
+    def set_MgmtData(self, MgmtData):
+        self.MgmtData = MgmtData
+    def add_MgmtData(self, value):
+        self.MgmtData.append(value)
+    def insert_MgmtData_at(self, index, value):
+        self.MgmtData.insert(index, value)
+    def replace_MgmtData_at(self, index, value):
+        self.MgmtData[index] = value
+    def get_anytypeobjs_(self): return self.anytypeobjs_
+    def set_anytypeobjs_(self, anytypeobjs_): self.anytypeobjs_ = anytypeobjs_
+    def get_Id(self):
+        return self.Id
+    def set_Id(self, Id):
+        self.Id = Id
+    def get_valueOf_(self): return self.valueOf_
+    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def hasContent_(self):
         if (
             self.KeyName or
@@ -1767,7 +1982,7 @@ class KeyInfoType(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='KeyInfoType', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:None="http://www.w3.org/2001/XMLSchema" ', name_='KeyInfoType', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('KeyInfoType')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
@@ -1792,7 +2007,7 @@ class KeyInfoType(GeneratedsSuper):
         if self.Id is not None and 'Id' not in already_processed:
             already_processed.add('Id')
             outfile.write(' Id=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.Id), input_name='Id')), ))
-    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='KeyInfoType', fromsubclass_=False, pretty_print=True):
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:None="http://www.w3.org/2001/XMLSchema" ', name_='KeyInfoType', fromsubclass_=False, pretty_print=True):
         if not fromsubclass_:
             for item_ in self.content_:
                 item_.export(outfile, level, item_.name, namespaceprefix_, pretty_print=pretty_print)
@@ -1943,6 +2158,18 @@ class KeyValueType(GeneratedsSuper):
         else:
             return KeyValueType(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def get_DSAKeyValue(self):
+        return self.DSAKeyValue
+    def set_DSAKeyValue(self, DSAKeyValue):
+        self.DSAKeyValue = DSAKeyValue
+    def get_RSAKeyValue(self):
+        return self.RSAKeyValue
+    def set_RSAKeyValue(self, RSAKeyValue):
+        self.RSAKeyValue = RSAKeyValue
+    def get_anytypeobjs_(self): return self.anytypeobjs_
+    def set_anytypeobjs_(self, anytypeobjs_): self.anytypeobjs_ = anytypeobjs_
+    def get_valueOf_(self): return self.valueOf_
+    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def hasContent_(self):
         if (
             self.DSAKeyValue is not None or
@@ -1953,7 +2180,7 @@ class KeyValueType(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='KeyValueType', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:None="http://www.w3.org/2001/XMLSchema" ', name_='KeyValueType', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('KeyValueType')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
@@ -1976,7 +2203,7 @@ class KeyValueType(GeneratedsSuper):
             outfile.write('/>%s' % (eol_, ))
     def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='KeyValueType'):
         pass
-    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='KeyValueType', fromsubclass_=False, pretty_print=True):
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:None="http://www.w3.org/2001/XMLSchema" ', name_='KeyValueType', fromsubclass_=False, pretty_print=True):
         if not fromsubclass_:
             for item_ in self.content_:
                 item_.export(outfile, level, item_.name, namespaceprefix_, pretty_print=pretty_print)
@@ -2062,6 +2289,18 @@ class RetrievalMethodType(GeneratedsSuper):
         else:
             return RetrievalMethodType(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def get_Transforms(self):
+        return self.Transforms
+    def set_Transforms(self, Transforms):
+        self.Transforms = Transforms
+    def get_URI(self):
+        return self.URI
+    def set_URI(self, URI):
+        self.URI = URI
+    def get_Type(self):
+        return self.Type
+    def set_Type(self, Type):
+        self.Type = Type
     def hasContent_(self):
         if (
             self.Transforms is not None
@@ -2069,7 +2308,7 @@ class RetrievalMethodType(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='RetrievalMethodType', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#"', name_='RetrievalMethodType', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('RetrievalMethodType')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
@@ -2097,7 +2336,7 @@ class RetrievalMethodType(GeneratedsSuper):
         if self.Type is not None and 'Type' not in already_processed:
             already_processed.add('Type')
             outfile.write(' Type=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.Type), input_name='Type')), ))
-    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='RetrievalMethodType', fromsubclass_=False, pretty_print=True):
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#"', name_='RetrievalMethodType', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
         else:
@@ -2167,6 +2406,58 @@ class X509DataType(GeneratedsSuper):
         else:
             return X509DataType(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def get_X509IssuerSerial(self):
+        return self.X509IssuerSerial
+    def set_X509IssuerSerial(self, X509IssuerSerial):
+        self.X509IssuerSerial = X509IssuerSerial
+    def add_X509IssuerSerial(self, value):
+        self.X509IssuerSerial.append(value)
+    def insert_X509IssuerSerial_at(self, index, value):
+        self.X509IssuerSerial.insert(index, value)
+    def replace_X509IssuerSerial_at(self, index, value):
+        self.X509IssuerSerial[index] = value
+    def get_X509SKI(self):
+        return self.X509SKI
+    def set_X509SKI(self, X509SKI):
+        self.X509SKI = X509SKI
+    def add_X509SKI(self, value):
+        self.X509SKI.append(value)
+    def insert_X509SKI_at(self, index, value):
+        self.X509SKI.insert(index, value)
+    def replace_X509SKI_at(self, index, value):
+        self.X509SKI[index] = value
+    def get_X509SubjectName(self):
+        return self.X509SubjectName
+    def set_X509SubjectName(self, X509SubjectName):
+        self.X509SubjectName = X509SubjectName
+    def add_X509SubjectName(self, value):
+        self.X509SubjectName.append(value)
+    def insert_X509SubjectName_at(self, index, value):
+        self.X509SubjectName.insert(index, value)
+    def replace_X509SubjectName_at(self, index, value):
+        self.X509SubjectName[index] = value
+    def get_X509Certificate(self):
+        return self.X509Certificate
+    def set_X509Certificate(self, X509Certificate):
+        self.X509Certificate = X509Certificate
+    def add_X509Certificate(self, value):
+        self.X509Certificate.append(value)
+    def insert_X509Certificate_at(self, index, value):
+        self.X509Certificate.insert(index, value)
+    def replace_X509Certificate_at(self, index, value):
+        self.X509Certificate[index] = value
+    def get_X509CRL(self):
+        return self.X509CRL
+    def set_X509CRL(self, X509CRL):
+        self.X509CRL = X509CRL
+    def add_X509CRL(self, value):
+        self.X509CRL.append(value)
+    def insert_X509CRL_at(self, index, value):
+        self.X509CRL.insert(index, value)
+    def replace_X509CRL_at(self, index, value):
+        self.X509CRL[index] = value
+    def get_anytypeobjs_(self): return self.anytypeobjs_
+    def set_anytypeobjs_(self, anytypeobjs_): self.anytypeobjs_ = anytypeobjs_
     def hasContent_(self):
         if (
             self.X509IssuerSerial or
@@ -2179,7 +2470,7 @@ class X509DataType(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='X509DataType', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:None="http://www.w3.org/2001/XMLSchema" ', name_='X509DataType', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('X509DataType')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
@@ -2202,7 +2493,7 @@ class X509DataType(GeneratedsSuper):
             outfile.write('/>%s' % (eol_, ))
     def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='X509DataType'):
         pass
-    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='X509DataType', fromsubclass_=False, pretty_print=True):
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:None="http://www.w3.org/2001/XMLSchema" ', name_='X509DataType', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
         else:
@@ -2301,6 +2592,14 @@ class X509IssuerSerialType(GeneratedsSuper):
         else:
             return X509IssuerSerialType(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def get_X509IssuerName(self):
+        return self.X509IssuerName
+    def set_X509IssuerName(self, X509IssuerName):
+        self.X509IssuerName = X509IssuerName
+    def get_X509SerialNumber(self):
+        return self.X509SerialNumber
+    def set_X509SerialNumber(self, X509SerialNumber):
+        self.X509SerialNumber = X509SerialNumber
     def hasContent_(self):
         if (
             self.X509IssuerName is not None or
@@ -2309,7 +2608,7 @@ class X509IssuerSerialType(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='X509IssuerSerialType', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:None="http://www.w3.org/2001/XMLSchema" ', name_='X509IssuerSerialType', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('X509IssuerSerialType')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
@@ -2332,7 +2631,7 @@ class X509IssuerSerialType(GeneratedsSuper):
             outfile.write('/>%s' % (eol_, ))
     def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='X509IssuerSerialType'):
         pass
-    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='X509IssuerSerialType', fromsubclass_=False, pretty_print=True):
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:None="http://www.w3.org/2001/XMLSchema" ', name_='X509IssuerSerialType', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
         else:
@@ -2391,6 +2690,18 @@ class PGPDataType(GeneratedsSuper):
         else:
             return PGPDataType(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def get_PGPKeyID(self):
+        return self.PGPKeyID
+    def set_PGPKeyID(self, PGPKeyID):
+        self.PGPKeyID = PGPKeyID
+    def get_PGPKeyPacket(self):
+        return self.PGPKeyPacket
+    def set_PGPKeyPacket(self, PGPKeyPacket):
+        self.PGPKeyPacket = PGPKeyPacket
+    def get_anytypeobjs_(self): return self.anytypeobjs_
+    def set_anytypeobjs_(self, anytypeobjs_): self.anytypeobjs_ = anytypeobjs_
+    def add_anytypeobjs_(self, value): self.anytypeobjs_.append(value)
+    def insert_anytypeobjs_(self, index, value): self._anytypeobjs_[index] = value
     def hasContent_(self):
         if (
             self.PGPKeyID is not None or
@@ -2400,7 +2711,7 @@ class PGPDataType(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='PGPDataType', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:None="http://www.w3.org/2001/XMLSchema" ', name_='PGPDataType', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('PGPDataType')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
@@ -2423,7 +2734,7 @@ class PGPDataType(GeneratedsSuper):
             outfile.write('/>%s' % (eol_, ))
     def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='PGPDataType'):
         pass
-    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='PGPDataType', fromsubclass_=False, pretty_print=True):
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:None="http://www.w3.org/2001/XMLSchema" ', name_='PGPDataType', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
         else:
@@ -2497,6 +2808,18 @@ class SPKIDataType(GeneratedsSuper):
         else:
             return SPKIDataType(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def get_SPKISexp(self):
+        return self.SPKISexp
+    def set_SPKISexp(self, SPKISexp):
+        self.SPKISexp = SPKISexp
+    def add_SPKISexp(self, value):
+        self.SPKISexp.append(value)
+    def insert_SPKISexp_at(self, index, value):
+        self.SPKISexp.insert(index, value)
+    def replace_SPKISexp_at(self, index, value):
+        self.SPKISexp[index] = value
+    def get_anytypeobjs_(self): return self.anytypeobjs_
+    def set_anytypeobjs_(self, anytypeobjs_): self.anytypeobjs_ = anytypeobjs_
     def hasContent_(self):
         if (
             self.SPKISexp or
@@ -2505,7 +2828,7 @@ class SPKIDataType(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='SPKIDataType', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:None="http://www.w3.org/2001/XMLSchema" ', name_='SPKIDataType', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('SPKIDataType')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
@@ -2528,7 +2851,7 @@ class SPKIDataType(GeneratedsSuper):
             outfile.write('/>%s' % (eol_, ))
     def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='SPKIDataType'):
         pass
-    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='SPKIDataType', fromsubclass_=False, pretty_print=True):
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:None="http://www.w3.org/2001/XMLSchema" ', name_='SPKIDataType', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
         else:
@@ -2597,6 +2920,22 @@ class ObjectType(GeneratedsSuper):
         else:
             return ObjectType(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def get_anytypeobjs_(self): return self.anytypeobjs_
+    def set_anytypeobjs_(self, anytypeobjs_): self.anytypeobjs_ = anytypeobjs_
+    def get_Id(self):
+        return self.Id
+    def set_Id(self, Id):
+        self.Id = Id
+    def get_MimeType(self):
+        return self.MimeType
+    def set_MimeType(self, MimeType):
+        self.MimeType = MimeType
+    def get_Encoding(self):
+        return self.Encoding
+    def set_Encoding(self, Encoding):
+        self.Encoding = Encoding
+    def get_valueOf_(self): return self.valueOf_
+    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def hasContent_(self):
         if (
             self.anytypeobjs_ is not None or
@@ -2605,7 +2944,7 @@ class ObjectType(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ObjectType', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:None="http://www.w3.org/2001/XMLSchema" ', name_='ObjectType', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('ObjectType')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
@@ -2636,7 +2975,7 @@ class ObjectType(GeneratedsSuper):
         if self.Encoding is not None and 'Encoding' not in already_processed:
             already_processed.add('Encoding')
             outfile.write(' Encoding=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.Encoding), input_name='Encoding')), ))
-    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ObjectType', fromsubclass_=False, pretty_print=True):
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:None="http://www.w3.org/2001/XMLSchema" ', name_='ObjectType', fromsubclass_=False, pretty_print=True):
         if not fromsubclass_:
             for item_ in self.content_:
                 item_.export(outfile, level, item_.name, namespaceprefix_, pretty_print=pretty_print)
@@ -2711,6 +3050,20 @@ class ManifestType(GeneratedsSuper):
         else:
             return ManifestType(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def get_Reference(self):
+        return self.Reference
+    def set_Reference(self, Reference):
+        self.Reference = Reference
+    def add_Reference(self, value):
+        self.Reference.append(value)
+    def insert_Reference_at(self, index, value):
+        self.Reference.insert(index, value)
+    def replace_Reference_at(self, index, value):
+        self.Reference[index] = value
+    def get_Id(self):
+        return self.Id
+    def set_Id(self, Id):
+        self.Id = Id
     def hasContent_(self):
         if (
             self.Reference
@@ -2718,7 +3071,7 @@ class ManifestType(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ManifestType', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#"', name_='ManifestType', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('ManifestType')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
@@ -2743,7 +3096,7 @@ class ManifestType(GeneratedsSuper):
         if self.Id is not None and 'Id' not in already_processed:
             already_processed.add('Id')
             outfile.write(' Id=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.Id), input_name='Id')), ))
-    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='ManifestType', fromsubclass_=False, pretty_print=True):
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#"', name_='ManifestType', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
         else:
@@ -2793,6 +3146,20 @@ class SignaturePropertiesType(GeneratedsSuper):
         else:
             return SignaturePropertiesType(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def get_SignatureProperty(self):
+        return self.SignatureProperty
+    def set_SignatureProperty(self, SignatureProperty):
+        self.SignatureProperty = SignatureProperty
+    def add_SignatureProperty(self, value):
+        self.SignatureProperty.append(value)
+    def insert_SignatureProperty_at(self, index, value):
+        self.SignatureProperty.insert(index, value)
+    def replace_SignatureProperty_at(self, index, value):
+        self.SignatureProperty[index] = value
+    def get_Id(self):
+        return self.Id
+    def set_Id(self, Id):
+        self.Id = Id
     def hasContent_(self):
         if (
             self.SignatureProperty
@@ -2800,7 +3167,7 @@ class SignaturePropertiesType(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='SignaturePropertiesType', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#"', name_='SignaturePropertiesType', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('SignaturePropertiesType')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
@@ -2825,7 +3192,7 @@ class SignaturePropertiesType(GeneratedsSuper):
         if self.Id is not None and 'Id' not in already_processed:
             already_processed.add('Id')
             outfile.write(' Id=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.Id), input_name='Id')), ))
-    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='SignaturePropertiesType', fromsubclass_=False, pretty_print=True):
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#"', name_='SignaturePropertiesType', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
         else:
@@ -2883,6 +3250,18 @@ class SignaturePropertyType(GeneratedsSuper):
         else:
             return SignaturePropertyType(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def get_anytypeobjs_(self): return self.anytypeobjs_
+    def set_anytypeobjs_(self, anytypeobjs_): self.anytypeobjs_ = anytypeobjs_
+    def get_Target(self):
+        return self.Target
+    def set_Target(self, Target):
+        self.Target = Target
+    def get_Id(self):
+        return self.Id
+    def set_Id(self, Id):
+        self.Id = Id
+    def get_valueOf_(self): return self.valueOf_
+    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def hasContent_(self):
         if (
             self.anytypeobjs_ is not None or
@@ -2891,7 +3270,7 @@ class SignaturePropertyType(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='SignaturePropertyType', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:None="http://www.w3.org/2001/XMLSchema" ', name_='SignaturePropertyType', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('SignaturePropertyType')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
@@ -2919,7 +3298,7 @@ class SignaturePropertyType(GeneratedsSuper):
         if self.Id is not None and 'Id' not in already_processed:
             already_processed.add('Id')
             outfile.write(' Id=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.Id), input_name='Id')), ))
-    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='SignaturePropertyType', fromsubclass_=False, pretty_print=True):
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:None="http://www.w3.org/2001/XMLSchema" ', name_='SignaturePropertyType', fromsubclass_=False, pretty_print=True):
         if not fromsubclass_:
             for item_ in self.content_:
                 item_.export(outfile, level, item_.name, namespaceprefix_, pretty_print=pretty_print)
@@ -2999,6 +3378,34 @@ class DSAKeyValueType(GeneratedsSuper):
         else:
             return DSAKeyValueType(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def get_P(self):
+        return self.P
+    def set_P(self, P):
+        self.P = P
+    def get_Q(self):
+        return self.Q
+    def set_Q(self, Q):
+        self.Q = Q
+    def get_G(self):
+        return self.G
+    def set_G(self, G):
+        self.G = G
+    def get_Y(self):
+        return self.Y
+    def set_Y(self, Y):
+        self.Y = Y
+    def get_J(self):
+        return self.J
+    def set_J(self, J):
+        self.J = J
+    def get_Seed(self):
+        return self.Seed
+    def set_Seed(self, Seed):
+        self.Seed = Seed
+    def get_PgenCounter(self):
+        return self.PgenCounter
+    def set_PgenCounter(self, PgenCounter):
+        self.PgenCounter = PgenCounter
     def validate_CryptoBinary(self, value):
         # Validate type CryptoBinary, a restriction on base64Binary.
         if value is not None and Validate_simpletypes_:
@@ -3016,7 +3423,7 @@ class DSAKeyValueType(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='DSAKeyValueType', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#"', name_='DSAKeyValueType', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('DSAKeyValueType')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
@@ -3039,7 +3446,7 @@ class DSAKeyValueType(GeneratedsSuper):
             outfile.write('/>%s' % (eol_, ))
     def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='DSAKeyValueType'):
         pass
-    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='DSAKeyValueType', fromsubclass_=False, pretty_print=True):
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#"', name_='DSAKeyValueType', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
         else:
@@ -3190,6 +3597,14 @@ class RSAKeyValueType(GeneratedsSuper):
         else:
             return RSAKeyValueType(*args_, **kwargs_)
     factory = staticmethod(factory)
+    def get_Modulus(self):
+        return self.Modulus
+    def set_Modulus(self, Modulus):
+        self.Modulus = Modulus
+    def get_Exponent(self):
+        return self.Exponent
+    def set_Exponent(self, Exponent):
+        self.Exponent = Exponent
     def validate_CryptoBinary(self, value):
         # Validate type CryptoBinary, a restriction on base64Binary.
         if value is not None and Validate_simpletypes_:
@@ -3202,7 +3617,7 @@ class RSAKeyValueType(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='RSAKeyValueType', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#"', name_='RSAKeyValueType', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('RSAKeyValueType')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
@@ -3225,7 +3640,7 @@ class RSAKeyValueType(GeneratedsSuper):
             outfile.write('/>%s' % (eol_, ))
     def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='RSAKeyValueType'):
         pass
-    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='RSAKeyValueType', fromsubclass_=False, pretty_print=True):
+    def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:ds="http://www.w3.org/2000/09/xmldsig#"', name_='RSAKeyValueType', fromsubclass_=False, pretty_print=True):
         if pretty_print:
             eol_ = '\n'
         else:
