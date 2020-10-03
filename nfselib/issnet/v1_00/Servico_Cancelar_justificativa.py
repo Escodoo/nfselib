@@ -2,22 +2,25 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Fri Aug  7 04:10:28 2020 by generateDS.py version 2.35.24.
-# Python 3.7.8 (default, Jul  8 2020, 14:16:55)  [Clang 11.0.0 (clang-1100.0.33.17)]
+# Generated  by generateDS.py version 2.36.2.
+# Python 3.8.5 (default, Jul 21 2020, 10:42:08)  [Clang 11.0.0 (clang-1100.0.33.17)]
 #
 # Command line options:
 #   ('--no-namespace-defs', '')
+#   ('--no-dates', '')
+#   ('--member-specs', 'list')
+#   ('--use-getter-setter', 'none')
 #   ('-f', '')
-#   ('-o', './issnet/Servico_Cancelar_justificativa.py')
+#   ('-o', '/tmp/issnet/issnetlib/v1_00/Servico_Cancelar_justificativa.xsd.py')
 #
 # Command line arguments:
-#   ./issnet/v1_00/Servico_Cancelar_justificativa.xsd
+#   /tmp/generated/schemas/issnet/v1_00/Servico_Cancelar_justificativa.xsd
 #
 # Command line:
-#   /Users/marcelsavegnago/Projetos/odoo/python-libs/issnet-test/venv/bin/generateDS --no-namespace-defs -f -o "./issnet/Servico_Cancelar_justificativa.py" ./issnet/v1_00/Servico_Cancelar_justificativa.xsd
+#   /tmp/issnet/bin/generateDS.py --no-namespace-defs --no-dates --member-specs="list" --use-getter-setter="none" -f -o "/tmp/issnet/issnetlib/v1_00/Servico_Cancelar_justificativa.xsd.py" /tmp/generated/schemas/issnet/v1_00/Servico_Cancelar_justificativa.xsd
 #
 # Current working directory (os.getcwd()):
-#   issnet-test
+#   v1_00
 #
 
 from six.moves import zip_longest
@@ -107,7 +110,7 @@ def parsexmlstring_(instring, parser=None, **kwargs):
 #
 
 try:
-    from nfselib.issnet.v1_00.generatedsnamespaces import GenerateDSNamespaceDefs as GenerateDSNamespaceDefs_
+    from generatedsnamespaces import GenerateDSNamespaceDefs as GenerateDSNamespaceDefs_
 except ImportError:
     GenerateDSNamespaceDefs_ = {}
 try:
@@ -1139,6 +1142,143 @@ if __name__ == '__main__':
 
 RenameMappings_ = {
 }
+
+#
+# Mapping of namespaces to types defined in them
+# and the file in which each is defined.
+# simpleTypes are marked "ST" and complexTypes "CT".
+NamespaceToDefMappings_ = {'http://www.issnetonline.com.br/webserviceabrasf/vsd/tipos_simples.xsd': [('tsNumeroNfse',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsCodigoVerificacao',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsStatusRps',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsStatusNfse',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsNaturezaOperacao',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsRegimeEspecialTributacao',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsSimNao',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsNumeroRps',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsSerieRps',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsTipoRps',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsOutrasInformacoes',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsValor',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsItemListaServico',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsCodigoCnae',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsCodigoTributacao',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsAliquota',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsDiscriminacao',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsCodigoMunicipioIbge',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsInscricaoMunicipal',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsRazaoSocial',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsNomeFantasia',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsCnpj',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsEndereco',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsNumeroEndereco',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsComplementoEndereco',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsBairro',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsUf',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsCep',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsEmail',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsTelefone',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsCpf',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsIndicacaoCpfCnpj',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsCodigoObra',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsArt',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsNumeroLote',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsNumeroProtocolo',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsSituacaoLoteRps',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsQuantidadeRps',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsCodigoMensagemAlerta',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsDescricaoMensagemAlerta',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsCodigoCancelamentoNfse',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsIdTag',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsCompetencia',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST'),
+                                                                           ('tsMotivoCancelamentoNfse',
+                                                                            'Servico_Cancelar_justificativa.xsd',
+                                                                            'ST')]}
 
 __all__ = [
     

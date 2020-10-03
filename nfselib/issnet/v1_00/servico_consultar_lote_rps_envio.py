@@ -2,22 +2,25 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Fri Aug  7 04:15:34 2020 by generateDS.py version 2.35.24.
-# Python 3.7.8 (default, Jul  8 2020, 14:16:55)  [Clang 11.0.0 (clang-1100.0.33.17)]
+# Generated  by generateDS.py version 2.36.2.
+# Python 3.8.5 (default, Jul 21 2020, 10:42:08)  [Clang 11.0.0 (clang-1100.0.33.17)]
 #
 # Command line options:
 #   ('--no-namespace-defs', '')
+#   ('--no-dates', '')
+#   ('--member-specs', 'list')
+#   ('--use-getter-setter', 'none')
 #   ('-f', '')
-#   ('-o', './issnet/servico_consultar_lote_rps_envio.py')
+#   ('-o', '/tmp/issnet/issnetlib/v1_00/servico_consultar_lote_rps_envio.xsd.py')
 #
 # Command line arguments:
-#   ./issnet/v1_00/servico_consultar_lote_rps_envio.xsd
+#   /tmp/generated/schemas/issnet/v1_00/servico_consultar_lote_rps_envio.xsd
 #
 # Command line:
-#   /Users/marcelsavegnago/Projetos/odoo/python-libs/issnet-test/venv/bin/generateDS --no-namespace-defs -f -o "./issnet/servico_consultar_lote_rps_envio.py" ./issnet/v1_00/servico_consultar_lote_rps_envio.xsd
+#   /tmp/issnet/bin/generateDS.py --no-namespace-defs --no-dates --member-specs="list" --use-getter-setter="none" -f -o "/tmp/issnet/issnetlib/v1_00/servico_consultar_lote_rps_envio.xsd.py" /tmp/generated/schemas/issnet/v1_00/servico_consultar_lote_rps_envio.xsd
 #
 # Current working directory (os.getcwd()):
-#   issnet-test
+#   v1_00
 #
 
 from six.moves import zip_longest
@@ -107,7 +110,7 @@ def parsexmlstring_(instring, parser=None, **kwargs):
 #
 
 try:
-    from nfselib.issnet.v1_00.generatedsnamespaces import GenerateDSNamespaceDefs as GenerateDSNamespaceDefs_
+    from generatedsnamespaces import GenerateDSNamespaceDefs as GenerateDSNamespaceDefs_
 except ImportError:
     GenerateDSNamespaceDefs_ = {}
 try:
@@ -953,6 +956,10 @@ def _cast(typ, value):
 
 class ConsultarLoteRpsEnvio(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Prestador', 'tcIdentificacaoPrestador', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Prestador', 'type': 'tcIdentificacaoPrestador'}, None),
+        MemberSpec_('Protocolo', ['tsNumeroProtocolo', 'xsd:string'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Protocolo', 'type': 'xsd:string'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Prestador=None, Protocolo=None, gds_collector_=None, **kwargs_):
@@ -977,18 +984,6 @@ class ConsultarLoteRpsEnvio(GeneratedsSuper):
         else:
             return ConsultarLoteRpsEnvio(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_Prestador(self):
-        return self.Prestador
-    def set_Prestador(self, Prestador):
-        self.Prestador = Prestador
-    def get_Protocolo(self):
-        return self.Protocolo
-    def set_Protocolo(self, Protocolo):
-        self.Protocolo = Protocolo
     def validate_tsNumeroProtocolo(self, value):
         result = True
         # Validate type tsNumeroProtocolo, a restriction on xsd:string.
@@ -1083,6 +1078,10 @@ class ConsultarLoteRpsEnvio(GeneratedsSuper):
 
 class tcCpfCnpj(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Cpf', ['tsCpf', 'xsd:string'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Cpf', 'type': 'xsd:string'}, 1),
+        MemberSpec_('Cnpj', ['tsCnpj', 'xsd:string'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Cnpj', 'type': 'xsd:string'}, 1),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Cpf=None, Cnpj=None, gds_collector_=None, **kwargs_):
@@ -1108,18 +1107,6 @@ class tcCpfCnpj(GeneratedsSuper):
         else:
             return tcCpfCnpj(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_Cpf(self):
-        return self.Cpf
-    def set_Cpf(self, Cpf):
-        self.Cpf = Cpf
-    def get_Cnpj(self):
-        return self.Cnpj
-    def set_Cnpj(self, Cnpj):
-        self.Cnpj = Cnpj
     def validate_tsCpf(self, value):
         result = True
         # Validate type tsCpf, a restriction on xsd:string.
@@ -1227,6 +1214,15 @@ class tcCpfCnpj(GeneratedsSuper):
 
 class tcEndereco(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Endereco', ['tsEndereco', 'xsd:string'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'Endereco', 'type': 'xsd:string'}, None),
+        MemberSpec_('Numero', ['tsNumeroEndereco', 'xsd:string'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'Numero', 'type': 'xsd:string'}, None),
+        MemberSpec_('Complemento', ['tsComplementoEndereco', 'xsd:string'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'Complemento', 'type': 'xsd:string'}, None),
+        MemberSpec_('Bairro', ['tsBairro', 'xsd:string'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'Bairro', 'type': 'xsd:string'}, None),
+        MemberSpec_('Cidade', ['tsCodigoMunicipioIbge', 'xsd:int'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'Cidade', 'type': 'xsd:int'}, None),
+        MemberSpec_('Estado', ['tsUf', 'xsd:string'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'Estado', 'type': 'xsd:string'}, None),
+        MemberSpec_('Cep', ['tsCep', 'xsd:int'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'Cep', 'type': 'xsd:int'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Endereco=None, Numero=None, Complemento=None, Bairro=None, Cidade=None, Estado=None, Cep=None, gds_collector_=None, **kwargs_):
@@ -1267,38 +1263,6 @@ class tcEndereco(GeneratedsSuper):
         else:
             return tcEndereco(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_Endereco(self):
-        return self.Endereco
-    def set_Endereco(self, Endereco):
-        self.Endereco = Endereco
-    def get_Numero(self):
-        return self.Numero
-    def set_Numero(self, Numero):
-        self.Numero = Numero
-    def get_Complemento(self):
-        return self.Complemento
-    def set_Complemento(self, Complemento):
-        self.Complemento = Complemento
-    def get_Bairro(self):
-        return self.Bairro
-    def set_Bairro(self, Bairro):
-        self.Bairro = Bairro
-    def get_Cidade(self):
-        return self.Cidade
-    def set_Cidade(self, Cidade):
-        self.Cidade = Cidade
-    def get_Estado(self):
-        return self.Estado
-    def set_Estado(self, Estado):
-        self.Estado = Estado
-    def get_Cep(self):
-        return self.Cep
-    def set_Cep(self, Cep):
-        self.Cep = Cep
     def validate_tsEndereco(self, value):
         result = True
         # Validate type tsEndereco, a restriction on xsd:string.
@@ -1552,6 +1516,10 @@ class tcEndereco(GeneratedsSuper):
 
 class tcContato(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Telefone', ['tsTelefone', 'xsd:string'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'Telefone', 'type': 'xsd:string'}, None),
+        MemberSpec_('Email', ['tsEmail', 'xsd:string'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'Email', 'type': 'xsd:string'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Telefone=None, Email=None, gds_collector_=None, **kwargs_):
@@ -1577,18 +1545,6 @@ class tcContato(GeneratedsSuper):
         else:
             return tcContato(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_Telefone(self):
-        return self.Telefone
-    def set_Telefone(self, Telefone):
-        self.Telefone = Telefone
-    def get_Email(self):
-        return self.Email
-    def set_Email(self, Email):
-        self.Email = Email
     def validate_tsTelefone(self, value):
         result = True
         # Validate type tsTelefone, a restriction on xsd:string.
@@ -1704,6 +1660,10 @@ class tcContato(GeneratedsSuper):
 
 class tcIdentificacaoOrgaoGerador(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('CodigoMunicipio', ['tsCodigoMunicipioIbge', 'xsd:int'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'CodigoMunicipio', 'type': 'xsd:int'}, None),
+        MemberSpec_('Uf', ['tsUf', 'xsd:string'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Uf', 'type': 'xsd:string'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, CodigoMunicipio=None, Uf=None, gds_collector_=None, **kwargs_):
@@ -1729,18 +1689,6 @@ class tcIdentificacaoOrgaoGerador(GeneratedsSuper):
         else:
             return tcIdentificacaoOrgaoGerador(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_CodigoMunicipio(self):
-        return self.CodigoMunicipio
-    def set_CodigoMunicipio(self, CodigoMunicipio):
-        self.CodigoMunicipio = CodigoMunicipio
-    def get_Uf(self):
-        return self.Uf
-    def set_Uf(self, Uf):
-        self.Uf = Uf
     def validate_tsCodigoMunicipioIbge(self, value):
         result = True
         # Validate type tsCodigoMunicipioIbge, a restriction on xsd:int.
@@ -1848,6 +1796,11 @@ class tcIdentificacaoOrgaoGerador(GeneratedsSuper):
 
 class tcIdentificacaoRps(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Numero', ['tsNumeroRps', 'xsd:nonNegativeInteger'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Numero', 'type': 'xsd:nonNegativeInteger'}, None),
+        MemberSpec_('Serie', ['tsSerieRps', 'xsd:string'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Serie', 'type': 'xsd:string'}, None),
+        MemberSpec_('Tipo', ['tsTipoRps', 'xsd:byte'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Tipo', 'type': 'xsd:byte'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Numero=None, Serie=None, Tipo=None, gds_collector_=None, **kwargs_):
@@ -1876,22 +1829,6 @@ class tcIdentificacaoRps(GeneratedsSuper):
         else:
             return tcIdentificacaoRps(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_Numero(self):
-        return self.Numero
-    def set_Numero(self, Numero):
-        self.Numero = Numero
-    def get_Serie(self):
-        return self.Serie
-    def set_Serie(self, Serie):
-        self.Serie = Serie
-    def get_Tipo(self):
-        return self.Tipo
-    def set_Tipo(self, Tipo):
-        self.Tipo = Tipo
     def validate_tsNumeroRps(self, value):
         result = True
         # Validate type tsNumeroRps, a restriction on xsd:nonNegativeInteger.
@@ -2032,6 +1969,10 @@ class tcIdentificacaoRps(GeneratedsSuper):
 
 class tcIdentificacaoPrestador(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('CpfCnpj', 'tcCpfCnpj', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'CpfCnpj', 'type': 'tcCpfCnpj'}, None),
+        MemberSpec_('InscricaoMunicipal', ['tsInscricaoMunicipal', 'xsd:string'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'InscricaoMunicipal', 'type': 'xsd:string'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, CpfCnpj=None, InscricaoMunicipal=None, gds_collector_=None, **kwargs_):
@@ -2056,18 +1997,6 @@ class tcIdentificacaoPrestador(GeneratedsSuper):
         else:
             return tcIdentificacaoPrestador(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_CpfCnpj(self):
-        return self.CpfCnpj
-    def set_CpfCnpj(self, CpfCnpj):
-        self.CpfCnpj = CpfCnpj
-    def get_InscricaoMunicipal(self):
-        return self.InscricaoMunicipal
-    def set_InscricaoMunicipal(self, InscricaoMunicipal):
-        self.InscricaoMunicipal = InscricaoMunicipal
     def validate_tsInscricaoMunicipal(self, value):
         result = True
         # Validate type tsInscricaoMunicipal, a restriction on xsd:string.
@@ -2162,6 +2091,10 @@ class tcIdentificacaoPrestador(GeneratedsSuper):
 
 class tcIdentificacaoTomador(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('CpfCnpj', 'tcCpfCnpj', 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'CpfCnpj', 'type': 'tcCpfCnpj'}, None),
+        MemberSpec_('InscricaoMunicipal', ['tsInscricaoMunicipal', 'xsd:string'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'InscricaoMunicipal', 'type': 'xsd:string'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, CpfCnpj=None, InscricaoMunicipal=None, gds_collector_=None, **kwargs_):
@@ -2186,18 +2119,6 @@ class tcIdentificacaoTomador(GeneratedsSuper):
         else:
             return tcIdentificacaoTomador(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_CpfCnpj(self):
-        return self.CpfCnpj
-    def set_CpfCnpj(self, CpfCnpj):
-        self.CpfCnpj = CpfCnpj
-    def get_InscricaoMunicipal(self):
-        return self.InscricaoMunicipal
-    def set_InscricaoMunicipal(self, InscricaoMunicipal):
-        self.InscricaoMunicipal = InscricaoMunicipal
     def validate_tsInscricaoMunicipal(self, value):
         result = True
         # Validate type tsInscricaoMunicipal, a restriction on xsd:string.
@@ -2292,6 +2213,12 @@ class tcIdentificacaoTomador(GeneratedsSuper):
 
 class tcDadosTomador(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('IdentificacaoTomador', 'tcIdentificacaoTomador', 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'IdentificacaoTomador', 'type': 'tcIdentificacaoTomador'}, None),
+        MemberSpec_('RazaoSocial', ['tsRazaoSocial', 'xsd:string'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'RazaoSocial', 'type': 'xsd:string'}, None),
+        MemberSpec_('Endereco', 'tcEndereco', 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'Endereco', 'type': 'tcEndereco'}, None),
+        MemberSpec_('Contato', 'tcContato', 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'Contato', 'type': 'tcContato'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, IdentificacaoTomador=None, RazaoSocial=None, Endereco=None, Contato=None, gds_collector_=None, **kwargs_):
@@ -2320,26 +2247,6 @@ class tcDadosTomador(GeneratedsSuper):
         else:
             return tcDadosTomador(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_IdentificacaoTomador(self):
-        return self.IdentificacaoTomador
-    def set_IdentificacaoTomador(self, IdentificacaoTomador):
-        self.IdentificacaoTomador = IdentificacaoTomador
-    def get_RazaoSocial(self):
-        return self.RazaoSocial
-    def set_RazaoSocial(self, RazaoSocial):
-        self.RazaoSocial = RazaoSocial
-    def get_Endereco(self):
-        return self.Endereco
-    def set_Endereco(self, Endereco):
-        self.Endereco = Endereco
-    def get_Contato(self):
-        return self.Contato
-    def set_Contato(self, Contato):
-        self.Contato = Contato
     def validate_tsRazaoSocial(self, value):
         result = True
         # Validate type tsRazaoSocial, a restriction on xsd:string.
@@ -2452,6 +2359,11 @@ class tcDadosTomador(GeneratedsSuper):
 
 class tcIdentificacaoIntermediarioServico(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('RazaoSocial', ['tsRazaoSocial', 'xsd:string'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'RazaoSocial', 'type': 'xsd:string'}, None),
+        MemberSpec_('CpfCnpj', 'tcCpfCnpj', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'CpfCnpj', 'type': 'tcCpfCnpj'}, None),
+        MemberSpec_('InscricaoMunicipal', ['tsInscricaoMunicipal', 'xsd:string'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'InscricaoMunicipal', 'type': 'xsd:string'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, RazaoSocial=None, CpfCnpj=None, InscricaoMunicipal=None, gds_collector_=None, **kwargs_):
@@ -2479,22 +2391,6 @@ class tcIdentificacaoIntermediarioServico(GeneratedsSuper):
         else:
             return tcIdentificacaoIntermediarioServico(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_RazaoSocial(self):
-        return self.RazaoSocial
-    def set_RazaoSocial(self, RazaoSocial):
-        self.RazaoSocial = RazaoSocial
-    def get_CpfCnpj(self):
-        return self.CpfCnpj
-    def set_CpfCnpj(self, CpfCnpj):
-        self.CpfCnpj = CpfCnpj
-    def get_InscricaoMunicipal(self):
-        return self.InscricaoMunicipal
-    def set_InscricaoMunicipal(self, InscricaoMunicipal):
-        self.InscricaoMunicipal = InscricaoMunicipal
     def validate_tsRazaoSocial(self, value):
         result = True
         # Validate type tsRazaoSocial, a restriction on xsd:string.
@@ -2619,6 +2515,24 @@ class tcIdentificacaoIntermediarioServico(GeneratedsSuper):
 
 class tcValores(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('ValorServicos', ['tsValor', 'xsd:decimal'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'ValorServicos', 'type': 'xsd:decimal'}, None),
+        MemberSpec_('ValorDeducoes', ['tsValor', 'xsd:decimal'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'ValorDeducoes', 'type': 'xsd:decimal'}, None),
+        MemberSpec_('ValorPis', ['tsValor', 'xsd:decimal'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'ValorPis', 'type': 'xsd:decimal'}, None),
+        MemberSpec_('ValorCofins', ['tsValor', 'xsd:decimal'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'ValorCofins', 'type': 'xsd:decimal'}, None),
+        MemberSpec_('ValorInss', ['tsValor', 'xsd:decimal'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'ValorInss', 'type': 'xsd:decimal'}, None),
+        MemberSpec_('ValorIr', ['tsValor', 'xsd:decimal'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'ValorIr', 'type': 'xsd:decimal'}, None),
+        MemberSpec_('ValorCsll', ['tsValor', 'xsd:decimal'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'ValorCsll', 'type': 'xsd:decimal'}, None),
+        MemberSpec_('IssRetido', ['tsSimNao', 'xsd:byte'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'IssRetido', 'type': 'xsd:byte'}, None),
+        MemberSpec_('ValorIss', ['tsValor', 'xsd:decimal'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'ValorIss', 'type': 'xsd:decimal'}, None),
+        MemberSpec_('ValorIssRetido', ['tsValor', 'xsd:decimal'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'ValorIssRetido', 'type': 'xsd:decimal'}, None),
+        MemberSpec_('OutrasRetencoes', ['tsValor', 'xsd:decimal'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'OutrasRetencoes', 'type': 'xsd:decimal'}, None),
+        MemberSpec_('BaseCalculo', ['tsValor', 'xsd:decimal'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'BaseCalculo', 'type': 'xsd:decimal'}, None),
+        MemberSpec_('Aliquota', ['tsAliquota', 'xsd:decimal'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'Aliquota', 'type': 'xsd:decimal'}, None),
+        MemberSpec_('ValorLiquidoNfse', ['tsValor', 'xsd:decimal'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'ValorLiquidoNfse', 'type': 'xsd:decimal'}, None),
+        MemberSpec_('DescontoIncondicionado', ['tsValor', 'xsd:decimal'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'DescontoIncondicionado', 'type': 'xsd:decimal'}, None),
+        MemberSpec_('DescontoCondicionado', ['tsValor', 'xsd:decimal'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'DescontoCondicionado', 'type': 'xsd:decimal'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, ValorServicos=None, ValorDeducoes=None, ValorPis=None, ValorCofins=None, ValorInss=None, ValorIr=None, ValorCsll=None, IssRetido=None, ValorIss=None, ValorIssRetido=None, OutrasRetencoes=None, BaseCalculo=None, Aliquota=None, ValorLiquidoNfse=None, DescontoIncondicionado=None, DescontoCondicionado=None, gds_collector_=None, **kwargs_):
@@ -2686,74 +2600,6 @@ class tcValores(GeneratedsSuper):
         else:
             return tcValores(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_ValorServicos(self):
-        return self.ValorServicos
-    def set_ValorServicos(self, ValorServicos):
-        self.ValorServicos = ValorServicos
-    def get_ValorDeducoes(self):
-        return self.ValorDeducoes
-    def set_ValorDeducoes(self, ValorDeducoes):
-        self.ValorDeducoes = ValorDeducoes
-    def get_ValorPis(self):
-        return self.ValorPis
-    def set_ValorPis(self, ValorPis):
-        self.ValorPis = ValorPis
-    def get_ValorCofins(self):
-        return self.ValorCofins
-    def set_ValorCofins(self, ValorCofins):
-        self.ValorCofins = ValorCofins
-    def get_ValorInss(self):
-        return self.ValorInss
-    def set_ValorInss(self, ValorInss):
-        self.ValorInss = ValorInss
-    def get_ValorIr(self):
-        return self.ValorIr
-    def set_ValorIr(self, ValorIr):
-        self.ValorIr = ValorIr
-    def get_ValorCsll(self):
-        return self.ValorCsll
-    def set_ValorCsll(self, ValorCsll):
-        self.ValorCsll = ValorCsll
-    def get_IssRetido(self):
-        return self.IssRetido
-    def set_IssRetido(self, IssRetido):
-        self.IssRetido = IssRetido
-    def get_ValorIss(self):
-        return self.ValorIss
-    def set_ValorIss(self, ValorIss):
-        self.ValorIss = ValorIss
-    def get_ValorIssRetido(self):
-        return self.ValorIssRetido
-    def set_ValorIssRetido(self, ValorIssRetido):
-        self.ValorIssRetido = ValorIssRetido
-    def get_OutrasRetencoes(self):
-        return self.OutrasRetencoes
-    def set_OutrasRetencoes(self, OutrasRetencoes):
-        self.OutrasRetencoes = OutrasRetencoes
-    def get_BaseCalculo(self):
-        return self.BaseCalculo
-    def set_BaseCalculo(self, BaseCalculo):
-        self.BaseCalculo = BaseCalculo
-    def get_Aliquota(self):
-        return self.Aliquota
-    def set_Aliquota(self, Aliquota):
-        self.Aliquota = Aliquota
-    def get_ValorLiquidoNfse(self):
-        return self.ValorLiquidoNfse
-    def set_ValorLiquidoNfse(self, ValorLiquidoNfse):
-        self.ValorLiquidoNfse = ValorLiquidoNfse
-    def get_DescontoIncondicionado(self):
-        return self.DescontoIncondicionado
-    def set_DescontoIncondicionado(self, DescontoIncondicionado):
-        self.DescontoIncondicionado = DescontoIncondicionado
-    def get_DescontoCondicionado(self):
-        return self.DescontoCondicionado
-    def set_DescontoCondicionado(self, DescontoCondicionado):
-        self.DescontoCondicionado = DescontoCondicionado
     def validate_tsValor(self, value):
         result = True
         # Validate type tsValor, a restriction on xsd:decimal.
@@ -3065,6 +2911,14 @@ class tcValores(GeneratedsSuper):
 
 class tcDadosServico(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Valores', 'tcValores', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Valores', 'type': 'tcValores'}, None),
+        MemberSpec_('ItemListaServico', ['tsItemListaServico', 'xsd:string'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'ItemListaServico', 'type': 'xsd:string'}, None),
+        MemberSpec_('CodigoCnae', ['tsCodigoCnae', 'xsd:int'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'CodigoCnae', 'type': 'xsd:int'}, None),
+        MemberSpec_('CodigoTributacaoMunicipio', ['tsCodigoTributacao', 'xsd:string'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'CodigoTributacaoMunicipio', 'type': 'xsd:string'}, None),
+        MemberSpec_('Discriminacao', ['tsDiscriminacao', 'xsd:string'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Discriminacao', 'type': 'xsd:string'}, None),
+        MemberSpec_('MunicipioPrestacaoServico', ['tsCodigoMunicipioIbge', 'xsd:int'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'MunicipioPrestacaoServico', 'type': 'xsd:int'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Valores=None, ItemListaServico=None, CodigoCnae=None, CodigoTributacaoMunicipio=None, Discriminacao=None, MunicipioPrestacaoServico=None, gds_collector_=None, **kwargs_):
@@ -3101,34 +2955,6 @@ class tcDadosServico(GeneratedsSuper):
         else:
             return tcDadosServico(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_Valores(self):
-        return self.Valores
-    def set_Valores(self, Valores):
-        self.Valores = Valores
-    def get_ItemListaServico(self):
-        return self.ItemListaServico
-    def set_ItemListaServico(self, ItemListaServico):
-        self.ItemListaServico = ItemListaServico
-    def get_CodigoCnae(self):
-        return self.CodigoCnae
-    def set_CodigoCnae(self, CodigoCnae):
-        self.CodigoCnae = CodigoCnae
-    def get_CodigoTributacaoMunicipio(self):
-        return self.CodigoTributacaoMunicipio
-    def set_CodigoTributacaoMunicipio(self, CodigoTributacaoMunicipio):
-        self.CodigoTributacaoMunicipio = CodigoTributacaoMunicipio
-    def get_Discriminacao(self):
-        return self.Discriminacao
-    def set_Discriminacao(self, Discriminacao):
-        self.Discriminacao = Discriminacao
-    def get_MunicipioPrestacaoServico(self):
-        return self.MunicipioPrestacaoServico
-    def set_MunicipioPrestacaoServico(self, MunicipioPrestacaoServico):
-        self.MunicipioPrestacaoServico = MunicipioPrestacaoServico
     def validate_tsItemListaServico(self, value):
         result = True
         # Validate type tsItemListaServico, a restriction on xsd:string.
@@ -3335,6 +3161,10 @@ class tcDadosServico(GeneratedsSuper):
 
 class tcDadosConstrucaoCivil(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('CodigoObra', ['tsCodigoObra', 'xsd:string'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'CodigoObra', 'type': 'xsd:string'}, None),
+        MemberSpec_('Art', ['tsArt', 'xsd:string'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Art', 'type': 'xsd:string'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, CodigoObra=None, Art=None, gds_collector_=None, **kwargs_):
@@ -3360,18 +3190,6 @@ class tcDadosConstrucaoCivil(GeneratedsSuper):
         else:
             return tcDadosConstrucaoCivil(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_CodigoObra(self):
-        return self.CodigoObra
-    def set_CodigoObra(self, CodigoObra):
-        self.CodigoObra = CodigoObra
-    def get_Art(self):
-        return self.Art
-    def set_Art(self, Art):
-        self.Art = Art
     def validate_tsCodigoObra(self, value):
         result = True
         # Validate type tsCodigoObra, a restriction on xsd:string.
@@ -3487,6 +3305,13 @@ class tcDadosConstrucaoCivil(GeneratedsSuper):
 
 class tcDadosPrestador(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('IdentificacaoPrestador', 'tcIdentificacaoPrestador', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'IdentificacaoPrestador', 'type': 'tcIdentificacaoPrestador'}, None),
+        MemberSpec_('RazaoSocial', ['tsRazaoSocial', 'xsd:string'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'RazaoSocial', 'type': 'xsd:string'}, None),
+        MemberSpec_('NomeFantasia', ['tsNomeFantasia', 'xsd:string'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'NomeFantasia', 'type': 'xsd:string'}, None),
+        MemberSpec_('Endereco', 'tcEndereco', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Endereco', 'type': 'tcEndereco'}, None),
+        MemberSpec_('Contato', 'tcContato', 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'Contato', 'type': 'tcContato'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, IdentificacaoPrestador=None, RazaoSocial=None, NomeFantasia=None, Endereco=None, Contato=None, gds_collector_=None, **kwargs_):
@@ -3518,30 +3343,6 @@ class tcDadosPrestador(GeneratedsSuper):
         else:
             return tcDadosPrestador(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_IdentificacaoPrestador(self):
-        return self.IdentificacaoPrestador
-    def set_IdentificacaoPrestador(self, IdentificacaoPrestador):
-        self.IdentificacaoPrestador = IdentificacaoPrestador
-    def get_RazaoSocial(self):
-        return self.RazaoSocial
-    def set_RazaoSocial(self, RazaoSocial):
-        self.RazaoSocial = RazaoSocial
-    def get_NomeFantasia(self):
-        return self.NomeFantasia
-    def set_NomeFantasia(self, NomeFantasia):
-        self.NomeFantasia = NomeFantasia
-    def get_Endereco(self):
-        return self.Endereco
-    def set_Endereco(self, Endereco):
-        self.Endereco = Endereco
-    def get_Contato(self):
-        return self.Contato
-    def set_Contato(self, Contato):
-        self.Contato = Contato
     def validate_tsRazaoSocial(self, value):
         result = True
         # Validate type tsRazaoSocial, a restriction on xsd:string.
@@ -3684,6 +3485,22 @@ class tcDadosPrestador(GeneratedsSuper):
 
 class tcInfRps(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('id', 'ts:tsIdTag', 0, 1, {'use': 'optional'}),
+        MemberSpec_('IdentificacaoRps', 'tcIdentificacaoRps', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'IdentificacaoRps', 'type': 'tcIdentificacaoRps'}, None),
+        MemberSpec_('DataEmissao', 'xsd:dateTime', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'DataEmissao', 'type': 'xsd:dateTime'}, None),
+        MemberSpec_('NaturezaOperacao', ['tsNaturezaOperacao', 'xsd:byte'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'NaturezaOperacao', 'type': 'xsd:byte'}, None),
+        MemberSpec_('RegimeEspecialTributacao', ['tsRegimeEspecialTributacao', 'xsd:byte'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'RegimeEspecialTributacao', 'type': 'xsd:byte'}, None),
+        MemberSpec_('OptanteSimplesNacional', ['tsSimNao', 'xsd:byte'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'OptanteSimplesNacional', 'type': 'xsd:byte'}, None),
+        MemberSpec_('IncentivadorCultural', ['tsSimNao', 'xsd:byte'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'IncentivadorCultural', 'type': 'xsd:byte'}, None),
+        MemberSpec_('Status', ['tsStatusRps', 'xsd:byte'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Status', 'type': 'xsd:byte'}, None),
+        MemberSpec_('RpsSubstituido', 'tcIdentificacaoRps', 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'RpsSubstituido', 'type': 'tcIdentificacaoRps'}, None),
+        MemberSpec_('Servico', 'tcDadosServico', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Servico', 'type': 'tcDadosServico'}, None),
+        MemberSpec_('Prestador', 'tcIdentificacaoPrestador', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Prestador', 'type': 'tcIdentificacaoPrestador'}, None),
+        MemberSpec_('Tomador', 'tcDadosTomador', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Tomador', 'type': 'tcDadosTomador'}, None),
+        MemberSpec_('IntermediarioServico', 'tcIdentificacaoIntermediarioServico', 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'IntermediarioServico', 'type': 'tcIdentificacaoIntermediarioServico'}, None),
+        MemberSpec_('ContrucaoCivil', 'tcDadosConstrucaoCivil', 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'ContrucaoCivil', 'type': 'tcDadosConstrucaoCivil'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, id=None, IdentificacaoRps=None, DataEmissao=None, NaturezaOperacao=None, RegimeEspecialTributacao=None, OptanteSimplesNacional=None, IncentivadorCultural=None, Status=None, RpsSubstituido=None, Servico=None, Prestador=None, Tomador=None, IntermediarioServico=None, ContrucaoCivil=None, gds_collector_=None, **kwargs_):
@@ -3740,66 +3557,6 @@ class tcInfRps(GeneratedsSuper):
         else:
             return tcInfRps(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_IdentificacaoRps(self):
-        return self.IdentificacaoRps
-    def set_IdentificacaoRps(self, IdentificacaoRps):
-        self.IdentificacaoRps = IdentificacaoRps
-    def get_DataEmissao(self):
-        return self.DataEmissao
-    def set_DataEmissao(self, DataEmissao):
-        self.DataEmissao = DataEmissao
-    def get_NaturezaOperacao(self):
-        return self.NaturezaOperacao
-    def set_NaturezaOperacao(self, NaturezaOperacao):
-        self.NaturezaOperacao = NaturezaOperacao
-    def get_RegimeEspecialTributacao(self):
-        return self.RegimeEspecialTributacao
-    def set_RegimeEspecialTributacao(self, RegimeEspecialTributacao):
-        self.RegimeEspecialTributacao = RegimeEspecialTributacao
-    def get_OptanteSimplesNacional(self):
-        return self.OptanteSimplesNacional
-    def set_OptanteSimplesNacional(self, OptanteSimplesNacional):
-        self.OptanteSimplesNacional = OptanteSimplesNacional
-    def get_IncentivadorCultural(self):
-        return self.IncentivadorCultural
-    def set_IncentivadorCultural(self, IncentivadorCultural):
-        self.IncentivadorCultural = IncentivadorCultural
-    def get_Status(self):
-        return self.Status
-    def set_Status(self, Status):
-        self.Status = Status
-    def get_RpsSubstituido(self):
-        return self.RpsSubstituido
-    def set_RpsSubstituido(self, RpsSubstituido):
-        self.RpsSubstituido = RpsSubstituido
-    def get_Servico(self):
-        return self.Servico
-    def set_Servico(self, Servico):
-        self.Servico = Servico
-    def get_Prestador(self):
-        return self.Prestador
-    def set_Prestador(self, Prestador):
-        self.Prestador = Prestador
-    def get_Tomador(self):
-        return self.Tomador
-    def set_Tomador(self, Tomador):
-        self.Tomador = Tomador
-    def get_IntermediarioServico(self):
-        return self.IntermediarioServico
-    def set_IntermediarioServico(self, IntermediarioServico):
-        self.IntermediarioServico = IntermediarioServico
-    def get_ContrucaoCivil(self):
-        return self.ContrucaoCivil
-    def set_ContrucaoCivil(self, ContrucaoCivil):
-        self.ContrucaoCivil = ContrucaoCivil
-    def get_id(self):
-        return self.id
-    def set_id(self, id):
-        self.id = id
     def validate_tsNaturezaOperacao(self, value):
         result = True
         # Validate type tsNaturezaOperacao, a restriction on xsd:byte.
@@ -4066,6 +3823,10 @@ class tcInfRps(GeneratedsSuper):
 
 class tcRps(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('InfRps', 'tcInfRps', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'InfRps', 'type': 'tcInfRps'}, None),
+        MemberSpec_('Signature', 'SignatureType', 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'Signature', 'ref': 'Signature', 'type': 'Signature'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, InfRps=None, Signature=None, gds_collector_=None, **kwargs_):
@@ -4089,18 +3850,6 @@ class tcRps(GeneratedsSuper):
         else:
             return tcRps(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_InfRps(self):
-        return self.InfRps
-    def set_InfRps(self, InfRps):
-        self.InfRps = InfRps
-    def get_Signature(self):
-        return self.Signature
-    def set_Signature(self, Signature):
-        self.Signature = Signature
     def hasContent_(self):
         if (
             self.InfRps is not None or
@@ -4174,6 +3923,12 @@ class tcRps(GeneratedsSuper):
 
 class tcIdentificacaoNfse(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Numero', ['tsNumeroNfse', 'xsd:nonNegativeInteger'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Numero', 'type': 'xsd:nonNegativeInteger'}, None),
+        MemberSpec_('Cnpj', ['tsCnpj', 'xsd:string'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Cnpj', 'type': 'xsd:string'}, None),
+        MemberSpec_('InscricaoMunicipal', ['tsInscricaoMunicipal', 'xsd:string'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'InscricaoMunicipal', 'type': 'xsd:string'}, None),
+        MemberSpec_('CodigoMunicipio', ['tsCodigoMunicipioIbge', 'xsd:int'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'CodigoMunicipio', 'type': 'xsd:int'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Numero=None, Cnpj=None, InscricaoMunicipal=None, CodigoMunicipio=None, gds_collector_=None, **kwargs_):
@@ -4205,26 +3960,6 @@ class tcIdentificacaoNfse(GeneratedsSuper):
         else:
             return tcIdentificacaoNfse(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_Numero(self):
-        return self.Numero
-    def set_Numero(self, Numero):
-        self.Numero = Numero
-    def get_Cnpj(self):
-        return self.Cnpj
-    def set_Cnpj(self, Cnpj):
-        self.Cnpj = Cnpj
-    def get_InscricaoMunicipal(self):
-        return self.InscricaoMunicipal
-    def set_InscricaoMunicipal(self, InscricaoMunicipal):
-        self.InscricaoMunicipal = InscricaoMunicipal
-    def get_CodigoMunicipio(self):
-        return self.CodigoMunicipio
-    def set_CodigoMunicipio(self, CodigoMunicipio):
-        self.CodigoMunicipio = CodigoMunicipio
     def validate_tsNumeroNfse(self, value):
         result = True
         # Validate type tsNumeroNfse, a restriction on xsd:nonNegativeInteger.
@@ -4390,6 +4125,28 @@ class tcIdentificacaoNfse(GeneratedsSuper):
 
 class tcInfNfse(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('id', 'ts:tsIdTag', 0, 1, {'use': 'optional'}),
+        MemberSpec_('Numero', ['tsNumeroNfse', 'xsd:nonNegativeInteger'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Numero', 'type': 'xsd:nonNegativeInteger'}, None),
+        MemberSpec_('CodigoVerificacao', ['tsCodigoVerificacao', 'xsd:string'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'CodigoVerificacao', 'type': 'xsd:string'}, None),
+        MemberSpec_('DataEmissao', 'xsd:dateTime', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'DataEmissao', 'type': 'xsd:dateTime'}, None),
+        MemberSpec_('IdentificacaoRps', 'tcIdentificacaoRps', 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'IdentificacaoRps', 'type': 'tcIdentificacaoRps'}, None),
+        MemberSpec_('DataEmissaoRps', 'xsd:dateTime', 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'DataEmissaoRps', 'type': 'xsd:dateTime'}, None),
+        MemberSpec_('NaturezaOperacao', ['tsNaturezaOperacao', 'xsd:byte'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'NaturezaOperacao', 'type': 'xsd:byte'}, None),
+        MemberSpec_('RegimeEspecialTributacao', ['tsRegimeEspecialTributacao', 'xsd:byte'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'RegimeEspecialTributacao', 'type': 'xsd:byte'}, None),
+        MemberSpec_('OptanteSimplesNacional', ['tsSimNao', 'xsd:byte'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'OptanteSimplesNacional', 'type': 'xsd:byte'}, None),
+        MemberSpec_('IncentivadorCultural', ['tsSimNao', 'xsd:byte'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'IncentivadorCultural', 'type': 'xsd:byte'}, None),
+        MemberSpec_('Competencia', ['tsCompetencia', 'xsd:nonNegativeInteger'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Competencia', 'type': 'xsd:nonNegativeInteger'}, None),
+        MemberSpec_('NfseSubstituida', ['tsNumeroNfse', 'xsd:nonNegativeInteger'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'NfseSubstituida', 'type': 'xsd:nonNegativeInteger'}, None),
+        MemberSpec_('OutrasInformacoes', ['tsOutrasInformacoes', 'xsd:string'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'OutrasInformacoes', 'type': 'xsd:string'}, None),
+        MemberSpec_('Servico', 'tcDadosServico', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Servico', 'type': 'tcDadosServico'}, None),
+        MemberSpec_('ValorCredito', ['tsValor', 'xsd:decimal'], 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'ValorCredito', 'type': 'xsd:decimal'}, None),
+        MemberSpec_('PrestadorServico', 'tcDadosPrestador', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'PrestadorServico', 'type': 'tcDadosPrestador'}, None),
+        MemberSpec_('TomadorServico', 'tcDadosTomador', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'TomadorServico', 'type': 'tcDadosTomador'}, None),
+        MemberSpec_('IntermediarioServico', 'tcIdentificacaoIntermediarioServico', 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'IntermediarioServico', 'type': 'tcIdentificacaoIntermediarioServico'}, None),
+        MemberSpec_('OrgaoGerador', 'tcIdentificacaoOrgaoGerador', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'OrgaoGerador', 'type': 'tcIdentificacaoOrgaoGerador'}, None),
+        MemberSpec_('ContrucaoCivil', 'tcDadosConstrucaoCivil', 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'ContrucaoCivil', 'type': 'tcDadosConstrucaoCivil'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, id=None, Numero=None, CodigoVerificacao=None, DataEmissao=None, IdentificacaoRps=None, DataEmissaoRps=None, NaturezaOperacao=None, RegimeEspecialTributacao=None, OptanteSimplesNacional=None, IncentivadorCultural=None, Competencia=None, NfseSubstituida=None, OutrasInformacoes=None, Servico=None, ValorCredito=None, PrestadorServico=None, TomadorServico=None, IntermediarioServico=None, OrgaoGerador=None, ContrucaoCivil=None, gds_collector_=None, **kwargs_):
@@ -4467,90 +4224,6 @@ class tcInfNfse(GeneratedsSuper):
         else:
             return tcInfNfse(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_Numero(self):
-        return self.Numero
-    def set_Numero(self, Numero):
-        self.Numero = Numero
-    def get_CodigoVerificacao(self):
-        return self.CodigoVerificacao
-    def set_CodigoVerificacao(self, CodigoVerificacao):
-        self.CodigoVerificacao = CodigoVerificacao
-    def get_DataEmissao(self):
-        return self.DataEmissao
-    def set_DataEmissao(self, DataEmissao):
-        self.DataEmissao = DataEmissao
-    def get_IdentificacaoRps(self):
-        return self.IdentificacaoRps
-    def set_IdentificacaoRps(self, IdentificacaoRps):
-        self.IdentificacaoRps = IdentificacaoRps
-    def get_DataEmissaoRps(self):
-        return self.DataEmissaoRps
-    def set_DataEmissaoRps(self, DataEmissaoRps):
-        self.DataEmissaoRps = DataEmissaoRps
-    def get_NaturezaOperacao(self):
-        return self.NaturezaOperacao
-    def set_NaturezaOperacao(self, NaturezaOperacao):
-        self.NaturezaOperacao = NaturezaOperacao
-    def get_RegimeEspecialTributacao(self):
-        return self.RegimeEspecialTributacao
-    def set_RegimeEspecialTributacao(self, RegimeEspecialTributacao):
-        self.RegimeEspecialTributacao = RegimeEspecialTributacao
-    def get_OptanteSimplesNacional(self):
-        return self.OptanteSimplesNacional
-    def set_OptanteSimplesNacional(self, OptanteSimplesNacional):
-        self.OptanteSimplesNacional = OptanteSimplesNacional
-    def get_IncentivadorCultural(self):
-        return self.IncentivadorCultural
-    def set_IncentivadorCultural(self, IncentivadorCultural):
-        self.IncentivadorCultural = IncentivadorCultural
-    def get_Competencia(self):
-        return self.Competencia
-    def set_Competencia(self, Competencia):
-        self.Competencia = Competencia
-    def get_NfseSubstituida(self):
-        return self.NfseSubstituida
-    def set_NfseSubstituida(self, NfseSubstituida):
-        self.NfseSubstituida = NfseSubstituida
-    def get_OutrasInformacoes(self):
-        return self.OutrasInformacoes
-    def set_OutrasInformacoes(self, OutrasInformacoes):
-        self.OutrasInformacoes = OutrasInformacoes
-    def get_Servico(self):
-        return self.Servico
-    def set_Servico(self, Servico):
-        self.Servico = Servico
-    def get_ValorCredito(self):
-        return self.ValorCredito
-    def set_ValorCredito(self, ValorCredito):
-        self.ValorCredito = ValorCredito
-    def get_PrestadorServico(self):
-        return self.PrestadorServico
-    def set_PrestadorServico(self, PrestadorServico):
-        self.PrestadorServico = PrestadorServico
-    def get_TomadorServico(self):
-        return self.TomadorServico
-    def set_TomadorServico(self, TomadorServico):
-        self.TomadorServico = TomadorServico
-    def get_IntermediarioServico(self):
-        return self.IntermediarioServico
-    def set_IntermediarioServico(self, IntermediarioServico):
-        self.IntermediarioServico = IntermediarioServico
-    def get_OrgaoGerador(self):
-        return self.OrgaoGerador
-    def set_OrgaoGerador(self, OrgaoGerador):
-        self.OrgaoGerador = OrgaoGerador
-    def get_ContrucaoCivil(self):
-        return self.ContrucaoCivil
-    def set_ContrucaoCivil(self, ContrucaoCivil):
-        self.ContrucaoCivil = ContrucaoCivil
-    def get_id(self):
-        return self.id
-    def set_id(self, id):
-        self.id = id
     def validate_tsNumeroNfse(self, value):
         result = True
         # Validate type tsNumeroNfse, a restriction on xsd:nonNegativeInteger.
@@ -4962,6 +4635,10 @@ class tcInfNfse(GeneratedsSuper):
 
 class tcNfse(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('InfNfse', 'tcInfNfse', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'InfNfse', 'type': 'tcInfNfse'}, None),
+        MemberSpec_('Signature', 'SignatureType', 1, 0, {'maxOccurs': '2', 'minOccurs': '1', 'name': 'Signature', 'ref': 'Signature', 'type': 'Signature'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, InfNfse=None, Signature=None, gds_collector_=None, **kwargs_):
@@ -4988,24 +4665,6 @@ class tcNfse(GeneratedsSuper):
         else:
             return tcNfse(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_InfNfse(self):
-        return self.InfNfse
-    def set_InfNfse(self, InfNfse):
-        self.InfNfse = InfNfse
-    def get_Signature(self):
-        return self.Signature
-    def set_Signature(self, Signature):
-        self.Signature = Signature
-    def add_Signature(self, value):
-        self.Signature.append(value)
-    def insert_Signature_at(self, index, value):
-        self.Signature.insert(index, value)
-    def replace_Signature_at(self, index, value):
-        self.Signature[index] = value
     def hasContent_(self):
         if (
             self.InfNfse is not None or
@@ -5079,6 +4738,11 @@ class tcNfse(GeneratedsSuper):
 
 class tcInfPedidoCancelamento(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('id', 'ts:tsIdTag', 0, 1, {'use': 'optional'}),
+        MemberSpec_('IdentificacaoNfse', 'tcIdentificacaoNfse', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'IdentificacaoNfse', 'type': 'tcIdentificacaoNfse'}, None),
+        MemberSpec_('CodigoCancelamento', ['tsCodigoCancelamentoNfse', 'xsd:string'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'CodigoCancelamento', 'type': 'xsd:string'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, id=None, IdentificacaoNfse=None, CodigoCancelamento=None, gds_collector_=None, **kwargs_):
@@ -5105,22 +4769,6 @@ class tcInfPedidoCancelamento(GeneratedsSuper):
         else:
             return tcInfPedidoCancelamento(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_IdentificacaoNfse(self):
-        return self.IdentificacaoNfse
-    def set_IdentificacaoNfse(self, IdentificacaoNfse):
-        self.IdentificacaoNfse = IdentificacaoNfse
-    def get_CodigoCancelamento(self):
-        return self.CodigoCancelamento
-    def set_CodigoCancelamento(self, CodigoCancelamento):
-        self.CodigoCancelamento = CodigoCancelamento
-    def get_id(self):
-        return self.id
-    def set_id(self, id):
-        self.id = id
     def validate_tsCodigoCancelamentoNfse(self, value):
         result = True
         # Validate type tsCodigoCancelamentoNfse, a restriction on xsd:string.
@@ -5232,6 +4880,10 @@ class tcInfPedidoCancelamento(GeneratedsSuper):
 
 class tcPedidoCancelamento(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('InfPedidoCancelamento', 'tcInfPedidoCancelamento', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'InfPedidoCancelamento', 'type': 'tcInfPedidoCancelamento'}, None),
+        MemberSpec_('Signature', 'SignatureType', 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'Signature', 'ref': 'Signature', 'type': 'Signature'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, InfPedidoCancelamento=None, Signature=None, gds_collector_=None, **kwargs_):
@@ -5255,18 +4907,6 @@ class tcPedidoCancelamento(GeneratedsSuper):
         else:
             return tcPedidoCancelamento(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_InfPedidoCancelamento(self):
-        return self.InfPedidoCancelamento
-    def set_InfPedidoCancelamento(self, InfPedidoCancelamento):
-        self.InfPedidoCancelamento = InfPedidoCancelamento
-    def get_Signature(self):
-        return self.Signature
-    def set_Signature(self, Signature):
-        self.Signature = Signature
     def hasContent_(self):
         if (
             self.InfPedidoCancelamento is not None or
@@ -5340,6 +4980,11 @@ class tcPedidoCancelamento(GeneratedsSuper):
 
 class tcInfConfirmacaoCancelamento(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Sucesso', 'xsd:boolean', 0, 0, {'name': 'Sucesso', 'type': 'xsd:boolean'}, 2),
+        MemberSpec_('DataHora', 'xsd:dateTime', 0, 0, {'name': 'DataHora', 'type': 'xsd:dateTime'}, 2),
+        MemberSpec_('ListaMensagemRetorno', 'ListaMensagemRetornoType', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'ListaMensagemRetorno', 'type': 'ListaMensagemRetornoType'}, 2),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Sucesso=None, DataHora=None, ListaMensagemRetorno=None, gds_collector_=None, **kwargs_):
@@ -5369,22 +5014,6 @@ class tcInfConfirmacaoCancelamento(GeneratedsSuper):
         else:
             return tcInfConfirmacaoCancelamento(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_Sucesso(self):
-        return self.Sucesso
-    def set_Sucesso(self, Sucesso):
-        self.Sucesso = Sucesso
-    def get_DataHora(self):
-        return self.DataHora
-    def set_DataHora(self, DataHora):
-        self.DataHora = DataHora
-    def get_ListaMensagemRetorno(self):
-        return self.ListaMensagemRetorno
-    def set_ListaMensagemRetorno(self, ListaMensagemRetorno):
-        self.ListaMensagemRetorno = ListaMensagemRetorno
     def hasContent_(self):
         if (
             self.Sucesso is not None or
@@ -5470,6 +5099,11 @@ class tcInfConfirmacaoCancelamento(GeneratedsSuper):
 
 class tcConfirmacaoCancelamento(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('id', 'ts:tsIdTag', 0, 1, {'use': 'optional'}),
+        MemberSpec_('Pedido', 'tcPedidoCancelamento', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Pedido', 'type': 'tcPedidoCancelamento'}, None),
+        MemberSpec_('InfConfirmacaoCancelamento', 'tcInfConfirmacaoCancelamento', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'InfConfirmacaoCancelamento', 'type': 'tcInfConfirmacaoCancelamento'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, id=None, Pedido=None, InfConfirmacaoCancelamento=None, gds_collector_=None, **kwargs_):
@@ -5495,22 +5129,6 @@ class tcConfirmacaoCancelamento(GeneratedsSuper):
         else:
             return tcConfirmacaoCancelamento(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_Pedido(self):
-        return self.Pedido
-    def set_Pedido(self, Pedido):
-        self.Pedido = Pedido
-    def get_InfConfirmacaoCancelamento(self):
-        return self.InfConfirmacaoCancelamento
-    def set_InfConfirmacaoCancelamento(self, InfConfirmacaoCancelamento):
-        self.InfConfirmacaoCancelamento = InfConfirmacaoCancelamento
-    def get_id(self):
-        return self.id
-    def set_id(self, id):
-        self.id = id
     def validate_tsIdTag(self, value):
         # Validate type ts:tsIdTag, a restriction on xsd:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -5601,6 +5219,10 @@ class tcConfirmacaoCancelamento(GeneratedsSuper):
 
 class tcCancelamentoNfse(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Confirmacao', 'tcConfirmacaoCancelamento', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Confirmacao', 'type': 'tcConfirmacaoCancelamento'}, None),
+        MemberSpec_('Signature', 'SignatureType', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Signature', 'ref': 'Signature', 'type': 'Signature'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Confirmacao=None, Signature=None, gds_collector_=None, **kwargs_):
@@ -5624,18 +5246,6 @@ class tcCancelamentoNfse(GeneratedsSuper):
         else:
             return tcCancelamentoNfse(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_Confirmacao(self):
-        return self.Confirmacao
-    def set_Confirmacao(self, Confirmacao):
-        self.Confirmacao = Confirmacao
-    def get_Signature(self):
-        return self.Signature
-    def set_Signature(self, Signature):
-        self.Signature = Signature
     def hasContent_(self):
         if (
             self.Confirmacao is not None or
@@ -5709,6 +5319,10 @@ class tcCancelamentoNfse(GeneratedsSuper):
 
 class tcInfSubstituicaoNfse(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('id', 'ts:tsIdTag', 0, 1, {'use': 'optional'}),
+        MemberSpec_('NfseSubstituidora', ['tsNumeroNfse', 'xsd:nonNegativeInteger'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'NfseSubstituidora', 'type': 'xsd:nonNegativeInteger'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, id=None, NfseSubstituidora=None, gds_collector_=None, **kwargs_):
@@ -5733,18 +5347,6 @@ class tcInfSubstituicaoNfse(GeneratedsSuper):
         else:
             return tcInfSubstituicaoNfse(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_NfseSubstituidora(self):
-        return self.NfseSubstituidora
-    def set_NfseSubstituidora(self, NfseSubstituidora):
-        self.NfseSubstituidora = NfseSubstituidora
-    def get_id(self):
-        return self.id
-    def set_id(self, id):
-        self.id = id
     def validate_tsNumeroNfse(self, value):
         result = True
         # Validate type tsNumeroNfse, a restriction on xsd:nonNegativeInteger.
@@ -5845,6 +5447,10 @@ class tcInfSubstituicaoNfse(GeneratedsSuper):
 
 class tcSubstituicaoNfse(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('SubstituicaoNfse', 'tcInfSubstituicaoNfse', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'SubstituicaoNfse', 'type': 'tcInfSubstituicaoNfse'}, None),
+        MemberSpec_('Signature', 'SignatureType', 1, 0, {'maxOccurs': '2', 'minOccurs': '1', 'name': 'Signature', 'ref': 'Signature', 'type': 'Signature'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, SubstituicaoNfse=None, Signature=None, gds_collector_=None, **kwargs_):
@@ -5871,24 +5477,6 @@ class tcSubstituicaoNfse(GeneratedsSuper):
         else:
             return tcSubstituicaoNfse(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_SubstituicaoNfse(self):
-        return self.SubstituicaoNfse
-    def set_SubstituicaoNfse(self, SubstituicaoNfse):
-        self.SubstituicaoNfse = SubstituicaoNfse
-    def get_Signature(self):
-        return self.Signature
-    def set_Signature(self, Signature):
-        self.Signature = Signature
-    def add_Signature(self, value):
-        self.Signature.append(value)
-    def insert_Signature_at(self, index, value):
-        self.Signature.insert(index, value)
-    def replace_Signature_at(self, index, value):
-        self.Signature[index] = value
     def hasContent_(self):
         if (
             self.SubstituicaoNfse is not None or
@@ -5962,6 +5550,11 @@ class tcSubstituicaoNfse(GeneratedsSuper):
 
 class tcCompNfse(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Nfse', 'tcNfse', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Nfse', 'type': 'tcNfse'}, None),
+        MemberSpec_('NfseCancelamento', 'tcCancelamentoNfse', 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'NfseCancelamento', 'type': 'tcCancelamentoNfse'}, None),
+        MemberSpec_('NfseSubstituicao', 'tcSubstituicaoNfse', 0, 1, {'maxOccurs': '1', 'minOccurs': '0', 'name': 'NfseSubstituicao', 'type': 'tcSubstituicaoNfse'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Nfse=None, NfseCancelamento=None, NfseSubstituicao=None, gds_collector_=None, **kwargs_):
@@ -5987,22 +5580,6 @@ class tcCompNfse(GeneratedsSuper):
         else:
             return tcCompNfse(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_Nfse(self):
-        return self.Nfse
-    def set_Nfse(self, Nfse):
-        self.Nfse = Nfse
-    def get_NfseCancelamento(self):
-        return self.NfseCancelamento
-    def set_NfseCancelamento(self, NfseCancelamento):
-        self.NfseCancelamento = NfseCancelamento
-    def get_NfseSubstituicao(self):
-        return self.NfseSubstituicao
-    def set_NfseSubstituicao(self, NfseSubstituicao):
-        self.NfseSubstituicao = NfseSubstituicao
     def hasContent_(self):
         if (
             self.Nfse is not None or
@@ -6085,6 +5662,11 @@ class tcCompNfse(GeneratedsSuper):
 
 class tcMensagemRetorno(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Codigo', ['tsCodigoMensagemAlerta', 'xsd:string'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Codigo', 'type': 'xsd:string'}, None),
+        MemberSpec_('Mensagem', ['tsDescricaoMensagemAlerta', 'xsd:string'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Mensagem', 'type': 'xsd:string'}, None),
+        MemberSpec_('Correcao', ['tsDescricaoMensagemAlerta', 'xsd:string'], 0, 1, {'minOccurs': '0', 'name': 'Correcao', 'type': 'xsd:string'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Codigo=None, Mensagem=None, Correcao=None, gds_collector_=None, **kwargs_):
@@ -6113,22 +5695,6 @@ class tcMensagemRetorno(GeneratedsSuper):
         else:
             return tcMensagemRetorno(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_Codigo(self):
-        return self.Codigo
-    def set_Codigo(self, Codigo):
-        self.Codigo = Codigo
-    def get_Mensagem(self):
-        return self.Mensagem
-    def set_Mensagem(self, Mensagem):
-        self.Mensagem = Mensagem
-    def get_Correcao(self):
-        return self.Correcao
-    def set_Correcao(self, Correcao):
-        self.Correcao = Correcao
     def validate_tsCodigoMensagemAlerta(self, value):
         result = True
         # Validate type tsCodigoMensagemAlerta, a restriction on xsd:string.
@@ -6257,6 +5823,11 @@ class tcMensagemRetorno(GeneratedsSuper):
 
 class tcMensagemRetornoLote(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('IdentificacaoRps', 'tcIdentificacaoRps', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'IdentificacaoRps', 'type': 'tcIdentificacaoRps'}, None),
+        MemberSpec_('Codigo', ['tsCodigoMensagemAlerta', 'xsd:string'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Codigo', 'type': 'xsd:string'}, None),
+        MemberSpec_('Mensagem', ['tsDescricaoMensagemAlerta', 'xsd:string'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'Mensagem', 'type': 'xsd:string'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, IdentificacaoRps=None, Codigo=None, Mensagem=None, gds_collector_=None, **kwargs_):
@@ -6284,22 +5855,6 @@ class tcMensagemRetornoLote(GeneratedsSuper):
         else:
             return tcMensagemRetornoLote(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_IdentificacaoRps(self):
-        return self.IdentificacaoRps
-    def set_IdentificacaoRps(self, IdentificacaoRps):
-        self.IdentificacaoRps = IdentificacaoRps
-    def get_Codigo(self):
-        return self.Codigo
-    def set_Codigo(self, Codigo):
-        self.Codigo = Codigo
-    def get_Mensagem(self):
-        return self.Mensagem
-    def set_Mensagem(self, Mensagem):
-        self.Mensagem = Mensagem
     def validate_tsCodigoMensagemAlerta(self, value):
         result = True
         # Validate type tsCodigoMensagemAlerta, a restriction on xsd:string.
@@ -6424,6 +5979,14 @@ class tcMensagemRetornoLote(GeneratedsSuper):
 
 class tcLoteRps(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('id', 'ts:tsIdTag', 0, 1, {'use': 'optional'}),
+        MemberSpec_('NumeroLote', ['tsNumeroLote', 'xsd:nonNegativeInteger'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'NumeroLote', 'type': 'xsd:nonNegativeInteger'}, None),
+        MemberSpec_('CpfCnpj', 'tcCpfCnpj', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'CpfCnpj', 'type': 'tcCpfCnpj'}, None),
+        MemberSpec_('InscricaoMunicipal', ['tsInscricaoMunicipal', 'xsd:string'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'InscricaoMunicipal', 'type': 'xsd:string'}, None),
+        MemberSpec_('QuantidadeRps', ['tsQuantidadeRps', 'xsd:int'], 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'QuantidadeRps', 'type': 'xsd:int'}, None),
+        MemberSpec_('ListaRps', 'ListaRpsType', 0, 0, {'maxOccurs': '1', 'minOccurs': '1', 'name': 'ListaRps', 'type': 'ListaRpsType'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, id=None, NumeroLote=None, CpfCnpj=None, InscricaoMunicipal=None, QuantidadeRps=None, ListaRps=None, gds_collector_=None, **kwargs_):
@@ -6458,34 +6021,6 @@ class tcLoteRps(GeneratedsSuper):
         else:
             return tcLoteRps(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_NumeroLote(self):
-        return self.NumeroLote
-    def set_NumeroLote(self, NumeroLote):
-        self.NumeroLote = NumeroLote
-    def get_CpfCnpj(self):
-        return self.CpfCnpj
-    def set_CpfCnpj(self, CpfCnpj):
-        self.CpfCnpj = CpfCnpj
-    def get_InscricaoMunicipal(self):
-        return self.InscricaoMunicipal
-    def set_InscricaoMunicipal(self, InscricaoMunicipal):
-        self.InscricaoMunicipal = InscricaoMunicipal
-    def get_QuantidadeRps(self):
-        return self.QuantidadeRps
-    def set_QuantidadeRps(self, QuantidadeRps):
-        self.QuantidadeRps = QuantidadeRps
-    def get_ListaRps(self):
-        return self.ListaRps
-    def set_ListaRps(self, ListaRps):
-        self.ListaRps = ListaRps
-    def get_id(self):
-        return self.id
-    def set_id(self, id):
-        self.id = id
     def validate_tsNumeroLote(self, value):
         result = True
         # Validate type tsNumeroLote, a restriction on xsd:nonNegativeInteger.
@@ -6657,6 +6192,13 @@ class tcLoteRps(GeneratedsSuper):
 
 class SignatureType(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Id', 'ID', 0, 1, {'use': 'optional'}),
+        MemberSpec_('SignedInfo', 'SignedInfoType', 0, 0, {'name': 'SignedInfo', 'ref': 'SignedInfo', 'type': 'SignedInfo'}, None),
+        MemberSpec_('SignatureValue', 'SignatureValueType', 0, 0, {'name': 'SignatureValue', 'ref': 'SignatureValue', 'type': 'SignatureValue'}, None),
+        MemberSpec_('KeyInfo', 'KeyInfoType', 0, 1, {'minOccurs': '0', 'name': 'KeyInfo', 'ref': 'KeyInfo', 'type': 'KeyInfo'}, None),
+        MemberSpec_('Object', 'ObjectType', 1, 1, {'maxOccurs': 'unbounded', 'minOccurs': '0', 'name': 'Object', 'ref': 'Object', 'type': 'Object'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Id=None, SignedInfo=None, SignatureValue=None, KeyInfo=None, Object=None, gds_collector_=None, **kwargs_):
@@ -6689,36 +6231,6 @@ class SignatureType(GeneratedsSuper):
         else:
             return SignatureType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_SignedInfo(self):
-        return self.SignedInfo
-    def set_SignedInfo(self, SignedInfo):
-        self.SignedInfo = SignedInfo
-    def get_SignatureValue(self):
-        return self.SignatureValue
-    def set_SignatureValue(self, SignatureValue):
-        self.SignatureValue = SignatureValue
-    def get_KeyInfo(self):
-        return self.KeyInfo
-    def set_KeyInfo(self, KeyInfo):
-        self.KeyInfo = KeyInfo
-    def get_Object(self):
-        return self.Object
-    def set_Object(self, Object):
-        self.Object = Object
-    def add_Object(self, value):
-        self.Object.append(value)
-    def insert_Object_at(self, index, value):
-        self.Object.insert(index, value)
-    def replace_Object_at(self, index, value):
-        self.Object[index] = value
-    def get_Id(self):
-        return self.Id
-    def set_Id(self, Id):
-        self.Id = Id
     def hasContent_(self):
         if (
             self.SignedInfo is not None or
@@ -6815,6 +6327,10 @@ class SignatureType(GeneratedsSuper):
 
 class SignatureValueType(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Id', 'ID', 0, 1, {'use': 'optional'}),
+        MemberSpec_('valueOf_', 'base64Binary', 0),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Id=None, valueOf_=None, gds_collector_=None, **kwargs_):
@@ -6837,16 +6353,6 @@ class SignatureValueType(GeneratedsSuper):
         else:
             return SignatureValueType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_Id(self):
-        return self.Id
-    def set_Id(self, Id):
-        self.Id = Id
-    def get_valueOf_(self): return self.valueOf_
-    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def hasContent_(self):
         if (
             (1 if type(self.valueOf_) in [int,float] else self.valueOf_)
@@ -6907,6 +6413,12 @@ class SignatureValueType(GeneratedsSuper):
 
 class SignedInfoType(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Id', 'ID', 0, 1, {'use': 'optional'}),
+        MemberSpec_('CanonicalizationMethod', 'CanonicalizationMethodType', 0, 0, {'name': 'CanonicalizationMethod', 'ref': 'CanonicalizationMethod', 'type': 'CanonicalizationMethod'}, None),
+        MemberSpec_('SignatureMethod', 'SignatureMethodType', 0, 0, {'name': 'SignatureMethod', 'ref': 'SignatureMethod', 'type': 'SignatureMethod'}, None),
+        MemberSpec_('Reference', 'ReferenceType', 1, 0, {'maxOccurs': 'unbounded', 'name': 'Reference', 'ref': 'Reference', 'type': 'Reference'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Id=None, CanonicalizationMethod=None, SignatureMethod=None, Reference=None, gds_collector_=None, **kwargs_):
@@ -6937,32 +6449,6 @@ class SignedInfoType(GeneratedsSuper):
         else:
             return SignedInfoType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_CanonicalizationMethod(self):
-        return self.CanonicalizationMethod
-    def set_CanonicalizationMethod(self, CanonicalizationMethod):
-        self.CanonicalizationMethod = CanonicalizationMethod
-    def get_SignatureMethod(self):
-        return self.SignatureMethod
-    def set_SignatureMethod(self, SignatureMethod):
-        self.SignatureMethod = SignatureMethod
-    def get_Reference(self):
-        return self.Reference
-    def set_Reference(self, Reference):
-        self.Reference = Reference
-    def add_Reference(self, value):
-        self.Reference.append(value)
-    def insert_Reference_at(self, index, value):
-        self.Reference.insert(index, value)
-    def replace_Reference_at(self, index, value):
-        self.Reference[index] = value
-    def get_Id(self):
-        return self.Id
-    def set_Id(self, Id):
-        self.Id = Id
     def hasContent_(self):
         if (
             self.CanonicalizationMethod is not None or
@@ -7050,6 +6536,11 @@ class SignedInfoType(GeneratedsSuper):
 
 class CanonicalizationMethodType(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Algorithm', 'anyURI', 0, 0, {'use': 'required'}),
+        MemberSpec_('__ANY__', '__ANY__', 1, 1, {'maxOccurs': 'unbounded', 'minOccurs': '0', 'namespace': '##any'}, None),
+        MemberSpec_('valueOf_', [], 0),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Algorithm=None, anytypeobjs_=None, valueOf_=None, mixedclass_=None, content_=None, gds_collector_=None, **kwargs_):
@@ -7085,20 +6576,6 @@ class CanonicalizationMethodType(GeneratedsSuper):
         else:
             return CanonicalizationMethodType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_anytypeobjs_(self): return self.anytypeobjs_
-    def set_anytypeobjs_(self, anytypeobjs_): self.anytypeobjs_ = anytypeobjs_
-    def add_anytypeobjs_(self, value): self.anytypeobjs_.append(value)
-    def insert_anytypeobjs_(self, index, value): self._anytypeobjs_[index] = value
-    def get_Algorithm(self):
-        return self.Algorithm
-    def set_Algorithm(self, Algorithm):
-        self.Algorithm = Algorithm
-    def get_valueOf_(self): return self.valueOf_
-    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def hasContent_(self):
         if (
             self.anytypeobjs_ or
@@ -7189,6 +6666,12 @@ class CanonicalizationMethodType(GeneratedsSuper):
 
 class SignatureMethodType(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Algorithm', 'anyURI', 0, 0, {'use': 'required'}),
+        MemberSpec_('HMACOutputLength', ['HMACOutputLengthType', 'integer'], 0, 1, {'minOccurs': '0', 'name': 'HMACOutputLength', 'type': 'xsd:integer'}, None),
+        MemberSpec_('__ANY__', '__ANY__', 1, 1, {'maxOccurs': 'unbounded', 'minOccurs': '0', 'namespace': '##other'}, None),
+        MemberSpec_('valueOf_', [], 0),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Algorithm=None, HMACOutputLength=None, anytypeobjs_=None, valueOf_=None, mixedclass_=None, content_=None, gds_collector_=None, **kwargs_):
@@ -7227,24 +6710,6 @@ class SignatureMethodType(GeneratedsSuper):
         else:
             return SignatureMethodType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_HMACOutputLength(self):
-        return self.HMACOutputLength
-    def set_HMACOutputLength(self, HMACOutputLength):
-        self.HMACOutputLength = HMACOutputLength
-    def get_anytypeobjs_(self): return self.anytypeobjs_
-    def set_anytypeobjs_(self, anytypeobjs_): self.anytypeobjs_ = anytypeobjs_
-    def add_anytypeobjs_(self, value): self.anytypeobjs_.append(value)
-    def insert_anytypeobjs_(self, index, value): self._anytypeobjs_[index] = value
-    def get_Algorithm(self):
-        return self.Algorithm
-    def set_Algorithm(self, Algorithm):
-        self.Algorithm = Algorithm
-    def get_valueOf_(self): return self.valueOf_
-    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def validate_HMACOutputLengthType(self, value):
         result = True
         # Validate type HMACOutputLengthType, a restriction on integer.
@@ -7358,6 +6823,14 @@ class SignatureMethodType(GeneratedsSuper):
 
 class ReferenceType(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Id', 'ID', 0, 1, {'use': 'optional'}),
+        MemberSpec_('URI', 'anyURI', 0, 1, {'use': 'optional'}),
+        MemberSpec_('Type', 'anyURI', 0, 1, {'use': 'optional'}),
+        MemberSpec_('Transforms', 'TransformsType', 0, 1, {'minOccurs': '0', 'name': 'Transforms', 'ref': 'Transforms', 'type': 'Transforms'}, None),
+        MemberSpec_('DigestMethod', 'DigestMethodType', 0, 0, {'name': 'DigestMethod', 'ref': 'DigestMethod', 'type': 'DigestMethod'}, None),
+        MemberSpec_('DigestValue', 'xsd:base64Binary', 0, 0, {'name': 'DigestValue', 'ref': 'DigestValue', 'type': 'DigestValue'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Id=None, URI=None, Type=None, Transforms=None, DigestMethod=None, DigestValue=None, gds_collector_=None, **kwargs_):
@@ -7389,34 +6862,6 @@ class ReferenceType(GeneratedsSuper):
         else:
             return ReferenceType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_Transforms(self):
-        return self.Transforms
-    def set_Transforms(self, Transforms):
-        self.Transforms = Transforms
-    def get_DigestMethod(self):
-        return self.DigestMethod
-    def set_DigestMethod(self, DigestMethod):
-        self.DigestMethod = DigestMethod
-    def get_DigestValue(self):
-        return self.DigestValue
-    def set_DigestValue(self, DigestValue):
-        self.DigestValue = DigestValue
-    def get_Id(self):
-        return self.Id
-    def set_Id(self, Id):
-        self.Id = Id
-    def get_URI(self):
-        return self.URI
-    def set_URI(self, URI):
-        self.URI = URI
-    def get_Type(self):
-        return self.Type
-    def set_Type(self, Type):
-        self.Type = Type
     def hasContent_(self):
         if (
             self.Transforms is not None or
@@ -7526,6 +6971,9 @@ class ReferenceType(GeneratedsSuper):
 
 class TransformsType(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Transform', 'TransformType', 1, 0, {'maxOccurs': 'unbounded', 'name': 'Transform', 'ref': 'Transform', 'type': 'Transform'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Transform=None, gds_collector_=None, **kwargs_):
@@ -7550,20 +6998,6 @@ class TransformsType(GeneratedsSuper):
         else:
             return TransformsType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_Transform(self):
-        return self.Transform
-    def set_Transform(self, Transform):
-        self.Transform = Transform
-    def add_Transform(self, value):
-        self.Transform.append(value)
-    def insert_Transform_at(self, index, value):
-        self.Transform.insert(index, value)
-    def replace_Transform_at(self, index, value):
-        self.Transform[index] = value
     def hasContent_(self):
         if (
             self.Transform
@@ -7628,6 +7062,12 @@ class TransformsType(GeneratedsSuper):
 
 class TransformType(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Algorithm', 'anyURI', 0, 0, {'use': 'required'}),
+        MemberSpec_('__ANY__', '__ANY__', 0, 0, {'namespace': '##other', 'processContents': 'lax'}, None),
+        MemberSpec_('XPath', 'xsd:string', 1, 1, {'name': 'XPath', 'type': 'xsd:string'}, 3),
+        MemberSpec_('valueOf_', [], 0),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Algorithm=None, anytypeobjs_=None, XPath=None, valueOf_=None, mixedclass_=None, content_=None, gds_collector_=None, **kwargs_):
@@ -7665,28 +7105,6 @@ class TransformType(GeneratedsSuper):
         else:
             return TransformType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_anytypeobjs_(self): return self.anytypeobjs_
-    def set_anytypeobjs_(self, anytypeobjs_): self.anytypeobjs_ = anytypeobjs_
-    def get_XPath(self):
-        return self.XPath
-    def set_XPath(self, XPath):
-        self.XPath = XPath
-    def add_XPath(self, value):
-        self.XPath.append(value)
-    def insert_XPath_at(self, index, value):
-        self.XPath.insert(index, value)
-    def replace_XPath_at(self, index, value):
-        self.XPath[index] = value
-    def get_Algorithm(self):
-        return self.Algorithm
-    def set_Algorithm(self, Algorithm):
-        self.Algorithm = Algorithm
-    def get_valueOf_(self): return self.valueOf_
-    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def hasContent_(self):
         if (
             self.anytypeobjs_ is not None or
@@ -7789,6 +7207,11 @@ class TransformType(GeneratedsSuper):
 
 class DigestMethodType(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Algorithm', 'anyURI', 0, 0, {'use': 'required'}),
+        MemberSpec_('__ANY__', '__ANY__', 1, 1, {'maxOccurs': 'unbounded', 'minOccurs': '0', 'namespace': '##other', 'processContents': 'lax'}, None),
+        MemberSpec_('valueOf_', [], 0),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Algorithm=None, anytypeobjs_=None, valueOf_=None, mixedclass_=None, content_=None, gds_collector_=None, **kwargs_):
@@ -7824,20 +7247,6 @@ class DigestMethodType(GeneratedsSuper):
         else:
             return DigestMethodType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_anytypeobjs_(self): return self.anytypeobjs_
-    def set_anytypeobjs_(self, anytypeobjs_): self.anytypeobjs_ = anytypeobjs_
-    def add_anytypeobjs_(self, value): self.anytypeobjs_.append(value)
-    def insert_anytypeobjs_(self, index, value): self._anytypeobjs_[index] = value
-    def get_Algorithm(self):
-        return self.Algorithm
-    def set_Algorithm(self, Algorithm):
-        self.Algorithm = Algorithm
-    def get_valueOf_(self): return self.valueOf_
-    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def hasContent_(self):
         if (
             self.anytypeobjs_ or
@@ -7928,6 +7337,18 @@ class DigestMethodType(GeneratedsSuper):
 
 class KeyInfoType(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Id', 'ID', 0, 1, {'use': 'optional'}),
+        MemberSpec_('KeyName', 'xsd:string', 1, 0, {'name': 'KeyName', 'ref': 'KeyName', 'type': 'KeyName'}, 4),
+        MemberSpec_('KeyValue', 'KeyValueType', 1, 0, {'name': 'KeyValue', 'ref': 'KeyValue', 'type': 'KeyValue'}, 4),
+        MemberSpec_('RetrievalMethod', 'RetrievalMethodType', 1, 0, {'name': 'RetrievalMethod', 'ref': 'RetrievalMethod', 'type': 'RetrievalMethod'}, 4),
+        MemberSpec_('X509Data', 'X509DataType', 1, 0, {'name': 'X509Data', 'ref': 'X509Data', 'type': 'X509Data'}, 4),
+        MemberSpec_('PGPData', 'PGPDataType', 1, 0, {'name': 'PGPData', 'ref': 'PGPData', 'type': 'PGPData'}, 4),
+        MemberSpec_('SPKIData', 'SPKIDataType', 1, 0, {'name': 'SPKIData', 'ref': 'SPKIData', 'type': 'SPKIData'}, 4),
+        MemberSpec_('MgmtData', 'xsd:string', 1, 0, {'name': 'MgmtData', 'ref': 'MgmtData', 'type': 'MgmtData'}, 4),
+        MemberSpec_('__ANY__', '__ANY__', 0, 0, {'namespace': '##other', 'processContents': 'lax'}, None),
+        MemberSpec_('valueOf_', [], 0),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Id=None, KeyName=None, KeyValue=None, RetrievalMethod=None, X509Data=None, PGPData=None, SPKIData=None, MgmtData=None, anytypeobjs_=None, valueOf_=None, mixedclass_=None, content_=None, gds_collector_=None, **kwargs_):
@@ -7995,88 +7416,6 @@ class KeyInfoType(GeneratedsSuper):
         else:
             return KeyInfoType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_KeyName(self):
-        return self.KeyName
-    def set_KeyName(self, KeyName):
-        self.KeyName = KeyName
-    def add_KeyName(self, value):
-        self.KeyName.append(value)
-    def insert_KeyName_at(self, index, value):
-        self.KeyName.insert(index, value)
-    def replace_KeyName_at(self, index, value):
-        self.KeyName[index] = value
-    def get_KeyValue(self):
-        return self.KeyValue
-    def set_KeyValue(self, KeyValue):
-        self.KeyValue = KeyValue
-    def add_KeyValue(self, value):
-        self.KeyValue.append(value)
-    def insert_KeyValue_at(self, index, value):
-        self.KeyValue.insert(index, value)
-    def replace_KeyValue_at(self, index, value):
-        self.KeyValue[index] = value
-    def get_RetrievalMethod(self):
-        return self.RetrievalMethod
-    def set_RetrievalMethod(self, RetrievalMethod):
-        self.RetrievalMethod = RetrievalMethod
-    def add_RetrievalMethod(self, value):
-        self.RetrievalMethod.append(value)
-    def insert_RetrievalMethod_at(self, index, value):
-        self.RetrievalMethod.insert(index, value)
-    def replace_RetrievalMethod_at(self, index, value):
-        self.RetrievalMethod[index] = value
-    def get_X509Data(self):
-        return self.X509Data
-    def set_X509Data(self, X509Data):
-        self.X509Data = X509Data
-    def add_X509Data(self, value):
-        self.X509Data.append(value)
-    def insert_X509Data_at(self, index, value):
-        self.X509Data.insert(index, value)
-    def replace_X509Data_at(self, index, value):
-        self.X509Data[index] = value
-    def get_PGPData(self):
-        return self.PGPData
-    def set_PGPData(self, PGPData):
-        self.PGPData = PGPData
-    def add_PGPData(self, value):
-        self.PGPData.append(value)
-    def insert_PGPData_at(self, index, value):
-        self.PGPData.insert(index, value)
-    def replace_PGPData_at(self, index, value):
-        self.PGPData[index] = value
-    def get_SPKIData(self):
-        return self.SPKIData
-    def set_SPKIData(self, SPKIData):
-        self.SPKIData = SPKIData
-    def add_SPKIData(self, value):
-        self.SPKIData.append(value)
-    def insert_SPKIData_at(self, index, value):
-        self.SPKIData.insert(index, value)
-    def replace_SPKIData_at(self, index, value):
-        self.SPKIData[index] = value
-    def get_MgmtData(self):
-        return self.MgmtData
-    def set_MgmtData(self, MgmtData):
-        self.MgmtData = MgmtData
-    def add_MgmtData(self, value):
-        self.MgmtData.append(value)
-    def insert_MgmtData_at(self, index, value):
-        self.MgmtData.insert(index, value)
-    def replace_MgmtData_at(self, index, value):
-        self.MgmtData[index] = value
-    def get_anytypeobjs_(self): return self.anytypeobjs_
-    def set_anytypeobjs_(self, anytypeobjs_): self.anytypeobjs_ = anytypeobjs_
-    def get_Id(self):
-        return self.Id
-    def set_Id(self, Id):
-        self.Id = Id
-    def get_valueOf_(self): return self.valueOf_
-    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def hasContent_(self):
         if (
             self.KeyName or
@@ -8262,6 +7601,12 @@ class KeyInfoType(GeneratedsSuper):
 
 class KeyValueType(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('DSAKeyValue', 'DSAKeyValueType', 0, 0, {'name': 'DSAKeyValue', 'ref': 'DSAKeyValue', 'type': 'DSAKeyValue'}, 5),
+        MemberSpec_('RSAKeyValue', 'RSAKeyValueType', 0, 0, {'name': 'RSAKeyValue', 'ref': 'RSAKeyValue', 'type': 'RSAKeyValue'}, 5),
+        MemberSpec_('__ANY__', '__ANY__', 0, 0, {'namespace': '##other', 'processContents': 'lax'}, None),
+        MemberSpec_('valueOf_', [], 0),
+    ]
     subclass = None
     superclass = None
     def __init__(self, DSAKeyValue=None, RSAKeyValue=None, anytypeobjs_=None, valueOf_=None, mixedclass_=None, content_=None, gds_collector_=None, **kwargs_):
@@ -8296,22 +7641,6 @@ class KeyValueType(GeneratedsSuper):
         else:
             return KeyValueType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_DSAKeyValue(self):
-        return self.DSAKeyValue
-    def set_DSAKeyValue(self, DSAKeyValue):
-        self.DSAKeyValue = DSAKeyValue
-    def get_RSAKeyValue(self):
-        return self.RSAKeyValue
-    def set_RSAKeyValue(self, RSAKeyValue):
-        self.RSAKeyValue = RSAKeyValue
-    def get_anytypeobjs_(self): return self.anytypeobjs_
-    def set_anytypeobjs_(self, anytypeobjs_): self.anytypeobjs_ = anytypeobjs_
-    def get_valueOf_(self): return self.valueOf_
-    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def hasContent_(self):
         if (
             self.DSAKeyValue is not None or
@@ -8424,6 +7753,11 @@ class KeyValueType(GeneratedsSuper):
 
 class RetrievalMethodType(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('URI', 'anyURI', 0, 1, {'use': 'optional'}),
+        MemberSpec_('Type', 'anyURI', 0, 1, {'use': 'optional'}),
+        MemberSpec_('Transforms', 'TransformsType', 0, 1, {'minOccurs': '0', 'name': 'Transforms', 'ref': 'Transforms', 'type': 'Transforms'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, URI=None, Type=None, Transforms=None, gds_collector_=None, **kwargs_):
@@ -8449,22 +7783,6 @@ class RetrievalMethodType(GeneratedsSuper):
         else:
             return RetrievalMethodType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_Transforms(self):
-        return self.Transforms
-    def set_Transforms(self, Transforms):
-        self.Transforms = Transforms
-    def get_URI(self):
-        return self.URI
-    def set_URI(self, URI):
-        self.URI = URI
-    def get_Type(self):
-        return self.Type
-    def set_Type(self, Type):
-        self.Type = Type
     def hasContent_(self):
         if (
             self.Transforms is not None
@@ -8541,6 +7859,14 @@ class RetrievalMethodType(GeneratedsSuper):
 
 class X509DataType(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('X509IssuerSerial', 'X509IssuerSerialType', 1, 0, {'maxOccurs': 'unbounded', 'name': 'X509IssuerSerial', 'type': 'X509IssuerSerialType'}, 6),
+        MemberSpec_('X509SKI', 'xsd:string', 1, 0, {'maxOccurs': 'unbounded', 'name': 'X509SKI', 'type': 'xsd:string'}, 6),
+        MemberSpec_('X509SubjectName', 'xsd:string', 1, 0, {'maxOccurs': 'unbounded', 'name': 'X509SubjectName', 'type': 'xsd:string'}, 6),
+        MemberSpec_('X509Certificate', 'xsd:string', 1, 0, {'maxOccurs': 'unbounded', 'name': 'X509Certificate', 'type': 'xsd:string'}, 6),
+        MemberSpec_('X509CRL', 'xsd:string', 1, 0, {'maxOccurs': 'unbounded', 'name': 'X509CRL', 'type': 'xsd:string'}, 6),
+        MemberSpec_('__ANY__', '__ANY__', 0, 0, {'namespace': '##other', 'processContents': 'lax'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, X509IssuerSerial=None, X509SKI=None, X509SubjectName=None, X509Certificate=None, X509CRL=None, anytypeobjs_=None, gds_collector_=None, **kwargs_):
@@ -8586,62 +7912,6 @@ class X509DataType(GeneratedsSuper):
         else:
             return X509DataType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_X509IssuerSerial(self):
-        return self.X509IssuerSerial
-    def set_X509IssuerSerial(self, X509IssuerSerial):
-        self.X509IssuerSerial = X509IssuerSerial
-    def add_X509IssuerSerial(self, value):
-        self.X509IssuerSerial.append(value)
-    def insert_X509IssuerSerial_at(self, index, value):
-        self.X509IssuerSerial.insert(index, value)
-    def replace_X509IssuerSerial_at(self, index, value):
-        self.X509IssuerSerial[index] = value
-    def get_X509SKI(self):
-        return self.X509SKI
-    def set_X509SKI(self, X509SKI):
-        self.X509SKI = X509SKI
-    def add_X509SKI(self, value):
-        self.X509SKI.append(value)
-    def insert_X509SKI_at(self, index, value):
-        self.X509SKI.insert(index, value)
-    def replace_X509SKI_at(self, index, value):
-        self.X509SKI[index] = value
-    def get_X509SubjectName(self):
-        return self.X509SubjectName
-    def set_X509SubjectName(self, X509SubjectName):
-        self.X509SubjectName = X509SubjectName
-    def add_X509SubjectName(self, value):
-        self.X509SubjectName.append(value)
-    def insert_X509SubjectName_at(self, index, value):
-        self.X509SubjectName.insert(index, value)
-    def replace_X509SubjectName_at(self, index, value):
-        self.X509SubjectName[index] = value
-    def get_X509Certificate(self):
-        return self.X509Certificate
-    def set_X509Certificate(self, X509Certificate):
-        self.X509Certificate = X509Certificate
-    def add_X509Certificate(self, value):
-        self.X509Certificate.append(value)
-    def insert_X509Certificate_at(self, index, value):
-        self.X509Certificate.insert(index, value)
-    def replace_X509Certificate_at(self, index, value):
-        self.X509Certificate[index] = value
-    def get_X509CRL(self):
-        return self.X509CRL
-    def set_X509CRL(self, X509CRL):
-        self.X509CRL = X509CRL
-    def add_X509CRL(self, value):
-        self.X509CRL.append(value)
-    def insert_X509CRL_at(self, index, value):
-        self.X509CRL.insert(index, value)
-    def replace_X509CRL_at(self, index, value):
-        self.X509CRL[index] = value
-    def get_anytypeobjs_(self): return self.anytypeobjs_
-    def set_anytypeobjs_(self, anytypeobjs_): self.anytypeobjs_ = anytypeobjs_
     def hasContent_(self):
         if (
             self.X509IssuerSerial or
@@ -8758,6 +8028,10 @@ class X509DataType(GeneratedsSuper):
 
 class X509IssuerSerialType(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('X509IssuerName', 'xsd:string', 0, 0, {'name': 'X509IssuerName', 'type': 'xsd:string'}, None),
+        MemberSpec_('X509SerialNumber', 'xsd:string', 0, 0, {'name': 'X509SerialNumber', 'type': 'xsd:string'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, X509IssuerName=None, X509SerialNumber=None, gds_collector_=None, **kwargs_):
@@ -8781,18 +8055,6 @@ class X509IssuerSerialType(GeneratedsSuper):
         else:
             return X509IssuerSerialType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_X509IssuerName(self):
-        return self.X509IssuerName
-    def set_X509IssuerName(self, X509IssuerName):
-        self.X509IssuerName = X509IssuerName
-    def get_X509SerialNumber(self):
-        return self.X509SerialNumber
-    def set_X509SerialNumber(self, X509SerialNumber):
-        self.X509SerialNumber = X509SerialNumber
     def hasContent_(self):
         if (
             self.X509IssuerName is not None or
@@ -8870,6 +8132,11 @@ class X509IssuerSerialType(GeneratedsSuper):
 
 class PGPDataType(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('PGPKeyID', 'xsd:string', 0, 0, {'name': 'PGPKeyID', 'type': 'xsd:string'}, 7),
+        MemberSpec_('PGPKeyPacket', 'xsd:string', 0, 0, {'name': 'PGPKeyPacket', 'type': 'xsd:string'}, 7),
+        MemberSpec_('__ANY__', '__ANY__', 1, 1, {'maxOccurs': 'unbounded', 'minOccurs': '0', 'namespace': '##other', 'processContents': 'lax'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, PGPKeyID=None, PGPKeyPacket=None, anytypeobjs_=None, gds_collector_=None, **kwargs_):
@@ -8897,22 +8164,6 @@ class PGPDataType(GeneratedsSuper):
         else:
             return PGPDataType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_PGPKeyID(self):
-        return self.PGPKeyID
-    def set_PGPKeyID(self, PGPKeyID):
-        self.PGPKeyID = PGPKeyID
-    def get_PGPKeyPacket(self):
-        return self.PGPKeyPacket
-    def set_PGPKeyPacket(self, PGPKeyPacket):
-        self.PGPKeyPacket = PGPKeyPacket
-    def get_anytypeobjs_(self): return self.anytypeobjs_
-    def set_anytypeobjs_(self, anytypeobjs_): self.anytypeobjs_ = anytypeobjs_
-    def add_anytypeobjs_(self, value): self.anytypeobjs_.append(value)
-    def insert_anytypeobjs_(self, index, value): self._anytypeobjs_[index] = value
     def hasContent_(self):
         if (
             self.PGPKeyID is not None or
@@ -8999,6 +8250,10 @@ class PGPDataType(GeneratedsSuper):
 
 class SPKIDataType(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('SPKISexp', 'xsd:string', 1, 0, {'maxOccurs': 'unbounded', 'name': 'SPKISexp', 'type': 'xsd:string'}, None),
+        MemberSpec_('__ANY__', '__ANY__', 0, 1, {'minOccurs': '0', 'namespace': '##other', 'processContents': 'lax'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, SPKISexp=None, anytypeobjs_=None, gds_collector_=None, **kwargs_):
@@ -9024,22 +8279,6 @@ class SPKIDataType(GeneratedsSuper):
         else:
             return SPKIDataType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_SPKISexp(self):
-        return self.SPKISexp
-    def set_SPKISexp(self, SPKISexp):
-        self.SPKISexp = SPKISexp
-    def add_SPKISexp(self, value):
-        self.SPKISexp.append(value)
-    def insert_SPKISexp_at(self, index, value):
-        self.SPKISexp.insert(index, value)
-    def replace_SPKISexp_at(self, index, value):
-        self.SPKISexp[index] = value
-    def get_anytypeobjs_(self): return self.anytypeobjs_
-    def set_anytypeobjs_(self, anytypeobjs_): self.anytypeobjs_ = anytypeobjs_
     def hasContent_(self):
         if (
             self.SPKISexp or
@@ -9114,6 +8353,13 @@ class SPKIDataType(GeneratedsSuper):
 
 class ObjectType(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Id', 'ID', 0, 1, {'use': 'optional'}),
+        MemberSpec_('MimeType', 'string', 0, 1, {'use': 'optional'}),
+        MemberSpec_('Encoding', 'anyURI', 0, 1, {'use': 'optional'}),
+        MemberSpec_('__ANY__', '__ANY__', 0, 0, {'namespace': '##any', 'processContents': 'lax'}, None),
+        MemberSpec_('valueOf_', [], 0),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Id=None, MimeType=None, Encoding=None, anytypeobjs_=None, valueOf_=None, mixedclass_=None, content_=None, gds_collector_=None, **kwargs_):
@@ -9150,26 +8396,6 @@ class ObjectType(GeneratedsSuper):
         else:
             return ObjectType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_anytypeobjs_(self): return self.anytypeobjs_
-    def set_anytypeobjs_(self, anytypeobjs_): self.anytypeobjs_ = anytypeobjs_
-    def get_Id(self):
-        return self.Id
-    def set_Id(self, Id):
-        self.Id = Id
-    def get_MimeType(self):
-        return self.MimeType
-    def set_MimeType(self, MimeType):
-        self.MimeType = MimeType
-    def get_Encoding(self):
-        return self.Encoding
-    def set_Encoding(self, Encoding):
-        self.Encoding = Encoding
-    def get_valueOf_(self): return self.valueOf_
-    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def hasContent_(self):
         if (
             self.anytypeobjs_ is not None or
@@ -9273,6 +8499,10 @@ class ObjectType(GeneratedsSuper):
 
 class ManifestType(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Id', 'ID', 0, 1, {'use': 'optional'}),
+        MemberSpec_('Reference', 'ReferenceType', 1, 0, {'maxOccurs': 'unbounded', 'name': 'Reference', 'ref': 'Reference', 'type': 'Reference'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Id=None, Reference=None, gds_collector_=None, **kwargs_):
@@ -9299,24 +8529,6 @@ class ManifestType(GeneratedsSuper):
         else:
             return ManifestType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_Reference(self):
-        return self.Reference
-    def set_Reference(self, Reference):
-        self.Reference = Reference
-    def add_Reference(self, value):
-        self.Reference.append(value)
-    def insert_Reference_at(self, index, value):
-        self.Reference.insert(index, value)
-    def replace_Reference_at(self, index, value):
-        self.Reference[index] = value
-    def get_Id(self):
-        return self.Id
-    def set_Id(self, Id):
-        self.Id = Id
     def hasContent_(self):
         if (
             self.Reference
@@ -9386,6 +8598,10 @@ class ManifestType(GeneratedsSuper):
 
 class SignaturePropertiesType(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Id', 'ID', 0, 1, {'use': 'optional'}),
+        MemberSpec_('SignatureProperty', 'SignaturePropertyType', 1, 0, {'maxOccurs': 'unbounded', 'name': 'SignatureProperty', 'ref': 'SignatureProperty', 'type': 'SignatureProperty'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Id=None, SignatureProperty=None, gds_collector_=None, **kwargs_):
@@ -9412,24 +8628,6 @@ class SignaturePropertiesType(GeneratedsSuper):
         else:
             return SignaturePropertiesType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_SignatureProperty(self):
-        return self.SignatureProperty
-    def set_SignatureProperty(self, SignatureProperty):
-        self.SignatureProperty = SignatureProperty
-    def add_SignatureProperty(self, value):
-        self.SignatureProperty.append(value)
-    def insert_SignatureProperty_at(self, index, value):
-        self.SignatureProperty.insert(index, value)
-    def replace_SignatureProperty_at(self, index, value):
-        self.SignatureProperty[index] = value
-    def get_Id(self):
-        return self.Id
-    def set_Id(self, Id):
-        self.Id = Id
     def hasContent_(self):
         if (
             self.SignatureProperty
@@ -9499,6 +8697,12 @@ class SignaturePropertiesType(GeneratedsSuper):
 
 class SignaturePropertyType(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Target', 'anyURI', 0, 0, {'use': 'required'}),
+        MemberSpec_('Id', 'ID', 0, 1, {'use': 'optional'}),
+        MemberSpec_('__ANY__', '__ANY__', 0, 0, {'namespace': '##other', 'processContents': 'lax'}, None),
+        MemberSpec_('valueOf_', [], 0),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Target=None, Id=None, anytypeobjs_=None, valueOf_=None, mixedclass_=None, content_=None, gds_collector_=None, **kwargs_):
@@ -9533,22 +8737,6 @@ class SignaturePropertyType(GeneratedsSuper):
         else:
             return SignaturePropertyType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_anytypeobjs_(self): return self.anytypeobjs_
-    def set_anytypeobjs_(self, anytypeobjs_): self.anytypeobjs_ = anytypeobjs_
-    def get_Target(self):
-        return self.Target
-    def set_Target(self, Target):
-        self.Target = Target
-    def get_Id(self):
-        return self.Id
-    def set_Id(self, Id):
-        self.Id = Id
-    def get_valueOf_(self): return self.valueOf_
-    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def hasContent_(self):
         if (
             self.anytypeobjs_ is not None or
@@ -9645,6 +8833,15 @@ class SignaturePropertyType(GeneratedsSuper):
 
 class DSAKeyValueType(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('P', ['CryptoBinary', 'base64Binary'], 0, 1, {'minOccurs': '0', 'name': 'P', 'type': 'xsd:base64Binary'}, None),
+        MemberSpec_('Q', ['CryptoBinary', 'base64Binary'], 0, 1, {'minOccurs': '0', 'name': 'Q', 'type': 'xsd:base64Binary'}, None),
+        MemberSpec_('G', ['CryptoBinary', 'base64Binary'], 0, 1, {'minOccurs': '0', 'name': 'G', 'type': 'xsd:base64Binary'}, None),
+        MemberSpec_('Y', ['CryptoBinary', 'base64Binary'], 0, 0, {'name': 'Y', 'type': 'xsd:base64Binary'}, None),
+        MemberSpec_('J', ['CryptoBinary', 'base64Binary'], 0, 1, {'minOccurs': '0', 'name': 'J', 'type': 'xsd:base64Binary'}, None),
+        MemberSpec_('Seed', ['CryptoBinary', 'base64Binary'], 0, 1, {'minOccurs': '0', 'name': 'Seed', 'type': 'xsd:base64Binary'}, None),
+        MemberSpec_('PgenCounter', ['CryptoBinary', 'base64Binary'], 0, 1, {'minOccurs': '0', 'name': 'PgenCounter', 'type': 'xsd:base64Binary'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, P=None, Q=None, G=None, Y=None, J=None, Seed=None, PgenCounter=None, gds_collector_=None, **kwargs_):
@@ -9685,38 +8882,6 @@ class DSAKeyValueType(GeneratedsSuper):
         else:
             return DSAKeyValueType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_P(self):
-        return self.P
-    def set_P(self, P):
-        self.P = P
-    def get_Q(self):
-        return self.Q
-    def set_Q(self, Q):
-        self.Q = Q
-    def get_G(self):
-        return self.G
-    def set_G(self, G):
-        self.G = G
-    def get_Y(self):
-        return self.Y
-    def set_Y(self, Y):
-        self.Y = Y
-    def get_J(self):
-        return self.J
-    def set_J(self, J):
-        self.J = J
-    def get_Seed(self):
-        return self.Seed
-    def set_Seed(self, Seed):
-        self.Seed = Seed
-    def get_PgenCounter(self):
-        return self.PgenCounter
-    def set_PgenCounter(self, PgenCounter):
-        self.PgenCounter = PgenCounter
     def validate_CryptoBinary(self, value):
         result = True
         # Validate type CryptoBinary, a restriction on base64Binary.
@@ -9911,6 +9076,10 @@ class DSAKeyValueType(GeneratedsSuper):
 
 class RSAKeyValueType(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Modulus', ['CryptoBinary', 'base64Binary'], 0, 0, {'name': 'Modulus', 'type': 'xsd:base64Binary'}, None),
+        MemberSpec_('Exponent', ['CryptoBinary', 'base64Binary'], 0, 0, {'name': 'Exponent', 'type': 'xsd:base64Binary'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Modulus=None, Exponent=None, gds_collector_=None, **kwargs_):
@@ -9936,18 +9105,6 @@ class RSAKeyValueType(GeneratedsSuper):
         else:
             return RSAKeyValueType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_Modulus(self):
-        return self.Modulus
-    def set_Modulus(self, Modulus):
-        self.Modulus = Modulus
-    def get_Exponent(self):
-        return self.Exponent
-    def set_Exponent(self, Exponent):
-        self.Exponent = Exponent
     def validate_CryptoBinary(self, value):
         result = True
         # Validate type CryptoBinary, a restriction on base64Binary.
@@ -10047,6 +9204,9 @@ class RSAKeyValueType(GeneratedsSuper):
 
 class ListaMensagemRetornoType(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('MensagemRetorno', 'tcMensagemRetorno', 1, 0, {'maxOccurs': 'unbounded', 'minOccurs': '1', 'name': 'MensagemRetorno', 'type': 'tcMensagemRetorno'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, MensagemRetorno=None, gds_collector_=None, **kwargs_):
@@ -10071,20 +9231,6 @@ class ListaMensagemRetornoType(GeneratedsSuper):
         else:
             return ListaMensagemRetornoType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_MensagemRetorno(self):
-        return self.MensagemRetorno
-    def set_MensagemRetorno(self, MensagemRetorno):
-        self.MensagemRetorno = MensagemRetorno
-    def add_MensagemRetorno(self, value):
-        self.MensagemRetorno.append(value)
-    def insert_MensagemRetorno_at(self, index, value):
-        self.MensagemRetorno.insert(index, value)
-    def replace_MensagemRetorno_at(self, index, value):
-        self.MensagemRetorno[index] = value
     def hasContent_(self):
         if (
             self.MensagemRetorno
@@ -10149,6 +9295,9 @@ class ListaMensagemRetornoType(GeneratedsSuper):
 
 class ListaRpsType(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
+    member_data_items_ = [
+        MemberSpec_('Rps', 'tcRps', 1, 0, {'maxOccurs': 'unbounded', 'minOccurs': '1', 'name': 'Rps', 'type': 'tcRps'}, None),
+    ]
     subclass = None
     superclass = None
     def __init__(self, Rps=None, gds_collector_=None, **kwargs_):
@@ -10173,20 +9322,6 @@ class ListaRpsType(GeneratedsSuper):
         else:
             return ListaRpsType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_Rps(self):
-        return self.Rps
-    def set_Rps(self, Rps):
-        self.Rps = Rps
-    def add_Rps(self, value):
-        self.Rps.append(value)
-    def insert_Rps_at(self, index, value):
-        self.Rps.insert(index, value)
-    def replace_Rps_at(self, index, value):
-        self.Rps[index] = value
     def hasContent_(self):
         if (
             self.Rps
@@ -10408,8 +9543,8 @@ def parseLiteral(inFileName, silence=False, print_warnings=True):
         doc = None
         rootNode = None
     if not silence:
-        sys.stdout.write('#from servico_consultar_lote_rps_envio import *\n\n')
-        sys.stdout.write('import servico_consultar_lote_rps_envio as model_\n\n')
+        sys.stdout.write('#from servico_consultar_lote_rps_envio.xsd import *\n\n')
+        sys.stdout.write('import servico_consultar_lote_rps_envio.xsd as model_\n\n')
         sys.stdout.write('rootObj = model_.rootClass(\n')
         rootObj.exportLiteral(sys.stdout, 0, name_=rootTag)
         sys.stdout.write(')\n')
@@ -10437,6 +9572,303 @@ if __name__ == '__main__':
 
 RenameMappings_ = {
 }
+
+#
+# Mapping of namespaces to types defined in them
+# and the file in which each is defined.
+# simpleTypes are marked "ST" and complexTypes "CT".
+NamespaceToDefMappings_ = {'http://www.issnetonline.com.br/webserviceabrasf/vsd/servico_consultar_lote_rps_envio.xsd': [],
+ 'http://www.issnetonline.com.br/webserviceabrasf/vsd/tipos_complexos.xsd': [('tcCpfCnpj',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcEndereco',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcContato',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcIdentificacaoOrgaoGerador',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcIdentificacaoRps',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcIdentificacaoPrestador',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcIdentificacaoTomador',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcDadosTomador',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcIdentificacaoIntermediarioServico',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcValores',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcDadosServico',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcDadosConstrucaoCivil',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcDadosPrestador',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcInfRps',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcRps',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcIdentificacaoNfse',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcInfNfse',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcNfse',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcInfPedidoCancelamento',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcPedidoCancelamento',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcInfConfirmacaoCancelamento',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcConfirmacaoCancelamento',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcCancelamentoNfse',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcInfSubstituicaoNfse',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcSubstituicaoNfse',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcCompNfse',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcMensagemRetorno',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcMensagemRetornoLote',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT'),
+                                                                             ('tcLoteRps',
+                                                                              'tipos_complexos.xsd',
+                                                                              'CT')],
+ 'http://www.issnetonline.com.br/webserviceabrasf/vsd/tipos_simples.xsd': [('tsNumeroNfse',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsCodigoVerificacao',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsStatusRps',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsStatusNfse',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsNaturezaOperacao',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsRegimeEspecialTributacao',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsSimNao',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsNumeroRps',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsSerieRps',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsTipoRps',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsOutrasInformacoes',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsValor',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsItemListaServico',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsCodigoCnae',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsCodigoTributacao',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsAliquota',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsDiscriminacao',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsCodigoMunicipioIbge',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsInscricaoMunicipal',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsRazaoSocial',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsNomeFantasia',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsCnpj',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsEndereco',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsNumeroEndereco',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsComplementoEndereco',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsBairro',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsUf',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsCep',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsEmail',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsTelefone',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsCpf',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsIndicacaoCpfCnpj',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsCodigoObra',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsArt',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsNumeroLote',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsNumeroProtocolo',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsSituacaoLoteRps',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsQuantidadeRps',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsCodigoMensagemAlerta',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsDescricaoMensagemAlerta',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsCodigoCancelamentoNfse',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsIdTag',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST'),
+                                                                           ('tsCompetencia',
+                                                                            'tipos_simples.xsd',
+                                                                            'ST')],
+ 'http://www.w3.org/2000/09/xmldsig#': [('CryptoBinary',
+                                         'xmldsig-core-schema20020212.xsd',
+                                         'ST'),
+                                        ('DigestValueType',
+                                         'xmldsig-core-schema20020212.xsd',
+                                         'ST'),
+                                        ('HMACOutputLengthType',
+                                         'xmldsig-core-schema20020212.xsd',
+                                         'ST'),
+                                        ('SignatureType',
+                                         'xmldsig-core-schema20020212.xsd',
+                                         'CT'),
+                                        ('SignatureValueType',
+                                         'xmldsig-core-schema20020212.xsd',
+                                         'CT'),
+                                        ('SignedInfoType',
+                                         'xmldsig-core-schema20020212.xsd',
+                                         'CT'),
+                                        ('CanonicalizationMethodType',
+                                         'xmldsig-core-schema20020212.xsd',
+                                         'CT'),
+                                        ('SignatureMethodType',
+                                         'xmldsig-core-schema20020212.xsd',
+                                         'CT'),
+                                        ('ReferenceType',
+                                         'xmldsig-core-schema20020212.xsd',
+                                         'CT'),
+                                        ('TransformsType',
+                                         'xmldsig-core-schema20020212.xsd',
+                                         'CT'),
+                                        ('TransformType',
+                                         'xmldsig-core-schema20020212.xsd',
+                                         'CT'),
+                                        ('DigestMethodType',
+                                         'xmldsig-core-schema20020212.xsd',
+                                         'CT'),
+                                        ('KeyInfoType',
+                                         'xmldsig-core-schema20020212.xsd',
+                                         'CT'),
+                                        ('KeyValueType',
+                                         'xmldsig-core-schema20020212.xsd',
+                                         'CT'),
+                                        ('RetrievalMethodType',
+                                         'xmldsig-core-schema20020212.xsd',
+                                         'CT'),
+                                        ('X509DataType',
+                                         'xmldsig-core-schema20020212.xsd',
+                                         'CT'),
+                                        ('X509IssuerSerialType',
+                                         'xmldsig-core-schema20020212.xsd',
+                                         'CT'),
+                                        ('PGPDataType',
+                                         'xmldsig-core-schema20020212.xsd',
+                                         'CT'),
+                                        ('SPKIDataType',
+                                         'xmldsig-core-schema20020212.xsd',
+                                         'CT'),
+                                        ('ObjectType',
+                                         'xmldsig-core-schema20020212.xsd',
+                                         'CT'),
+                                        ('ManifestType',
+                                         'xmldsig-core-schema20020212.xsd',
+                                         'CT'),
+                                        ('SignaturePropertiesType',
+                                         'xmldsig-core-schema20020212.xsd',
+                                         'CT'),
+                                        ('SignaturePropertyType',
+                                         'xmldsig-core-schema20020212.xsd',
+                                         'CT'),
+                                        ('DSAKeyValueType',
+                                         'xmldsig-core-schema20020212.xsd',
+                                         'CT'),
+                                        ('RSAKeyValueType',
+                                         'xmldsig-core-schema20020212.xsd',
+                                         'CT')]}
 
 __all__ = [
     "CanonicalizationMethodType",
